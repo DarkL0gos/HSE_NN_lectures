@@ -1,2 +1,6 @@
-# HSE_NN_lectures
-TeX-version of math lectures on HSE Nizhegorodsky filial
+# HSE-NN_math_lectures
+ Tex version of math lectures
+
+
+
+
