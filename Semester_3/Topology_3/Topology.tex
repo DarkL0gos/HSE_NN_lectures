@@ -1,7 +1,7 @@
 \documentclass[a4paper]{article}
 
 %Общие настройки документа
-\usepackage[12pt]{extsizes}                                         %Размер шрифта
+%\usepackage[12pt]{extsizes}                                         %Размер шрифта
 \usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=3cm]{geometry}  %Поля страницы
 
 %Настройки ссылок и гиперссылок
@@ -12,6 +12,8 @@
 %\hypersetup{pdfstartview=FitH,linkcolor=linkcolor,urlcolor=urlcolor,colorlinks=true}
 
 %Пакеты символов
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}           
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -23,22 +25,17 @@
 \newtheorem{zam}{Замечание}
 \newtheorem{theor}{Теорема}
 
-\author{Галкина}
-\title{Анализ}
-\date{05.09.2022}
+\author{}
+\title{Топология}
+\date{5.09.22}
 
 \begin{document}
 \maketitle
 \tableofcontents
 \newpage
-%5.09.22
-Коэффициенты: Контр*0,4 Коллок*0,3 Экз*0,3
-%\input{lec1.tex}
-%Лекция+семинар 08.09.22
-%\input{lec2.tex}
-%Лекция 19.09
+%Семинар Шубина 05.09.2022
+\input{lec1.tex}
+\input{lec2.tex}
 \input{lec3.tex}
-%Лекция 22.09
-\input{lec4.tex}
 
 \end{document}
