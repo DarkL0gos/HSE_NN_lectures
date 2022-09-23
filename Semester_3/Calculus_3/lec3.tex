@@ -123,12 +123,18 @@ $\square$
     Ряд $\sum\limits_{n=1}^{\infty} a_n$ и интеграл $\int\limits^\infty_1
     f(x)dx$ сходятся и расходятся одновременно, причем $f(n)=a_n$, функция
     определена, непрерывна, неотрицательна и невозрастающая на  $[1,\infty)$.
-    Оценка погрешности: $$
+    Оценка погрешности: 
 
 \end{theor}
 \textbf{Доказательство.} $\forall x\geqslant1~\exists k\in\mathbb{N}:
 k\leqslant x\leqslant k+1$.  По условию невозрастания имеем $f(k)\geqslant 
 f(x)>f(k+1)$. $a_{k+1}<f(x)\leqslant a_k$,  $a_{k+1}$
 $\square$ 
-
+\textbf{Пример.} Исследуем $\sum\limits_{n=1}^{\infty} \frac{1}{n^p}$. Взятием
+интеграла получаем условия сходимости:
+$$
+\begin{cases}
+    \text{сходится при } p>1   
+    \text{расходится при } p\leqslant 1
+\end{cases}$$
 
