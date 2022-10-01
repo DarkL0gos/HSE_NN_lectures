@@ -1,15 +1,7 @@
-\documentclass[a4paper]{article}
-
-%Общие настройки документа
-%\usepackage[12pt]{extsizes}                                         %Размер шрифта
-\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=3cm]{geometry}  %Поля страницы
-
-%Настройки ссылок и гиперссылок
-%\usepackage{hyperref}                 
-%\usepackage{xcolor}
-%\definecolor{linkcolor}{HTML}{799B03} % цвет ссылок
-%\definecolor{urlcolor}{HTML}{799B03}  % цвет гиперссылок
-%\hypersetup{pdfstartview=FitH,linkcolor=linkcolor,urlcolor=urlcolor,colorlinks=true}
+\documentclass[11pt,fleqn]{book}
+\input{preambula.tex}
+%\input{structure.tex}
+%\input{Styled.tex}
 
 %Пакеты символов
 \usepackage[T2A]{fontenc}
@@ -34,8 +26,11 @@
 \tableofcontents
 \newpage
 %Семинар Шубина 05.09.2022
+\chapterimage{head2.png} % Chapter heading image		
+\chapter{Введение в топологию}
 \input{lec1.tex}
 \input{lec2.tex}
 \input{lec3.tex}
+\input{lec4.tex}
 
 \end{document}

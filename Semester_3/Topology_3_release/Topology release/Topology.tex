@@ -1,0 +1,227 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  My documentation report
+%  Objetive: Explain what I did and how, so someone can continue with the investigation
+%
+% Important note:
+% Chapter heading images should have a 2:1 width:height ratio,
+% e.g. 920px width and 460px height.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn]{book} % Default font size and left-justified equations
+
+\usepackage[top=3cm,bottom=3cm,left=3.2cm,right=3.2cm,headsep=10pt,letterpaper]{geometry} % Page margins
+
+\usepackage{xcolor} % Required for specifying colors by name
+\definecolor{ocre}{RGB}{52,177,201} % Define the orange color used for highlighting throughout the book
+\usepackage{graphicx}
+\usepackage{wrapfig}
+% Font Settings
+\usepackage{avant} % Use the Avantgarde font for headings
+%\usepackage{times} % Use the Times font for headings
+\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Com­puter Modern fonts
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T2A]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[english,russian]{babel}
+\usepackage{amsthm}
+\usepackage{xcolor}
+
+% Bibliography
+\usepackage[style=alphabetic,sorting=nyt,sortcites=true,autopunct=true,=hyphen,hyperref=true,abbreviate=false,backref=true,backend=biber]{biblatex}
+\addbibresource{bibliography.bib}
+\defbibheading{bibempty}{}
+
+\input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+%----------------------------------------------------------------------------------------
+%	Definitions of new commands
+%----------------------------------------------------------------------------------------
+
+\def\R{\mathbb{R}}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty}
+\AddToShipoutPicture*{\put(0,0){\includegraphics{Pictures/title.pdf}}} % Image background
+\centering
+\vspace*{6cm}
+\par\normalfont\fontsize{32}{32}\sffamily\selectfont
+
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+\newpage
+~\vfill
+\thispagestyle{empty}
+
+\noindent \textsc{Сентябрь 2022г - Январь 2023г.}\\
+
+\noindent Это пособие было создано с целью помочь юным математиком в изучении такой интересной науки, как топология. Учебный материал основан на лекциях преподавателя НИУ ВШЭ в г. Нижний Новгород Жуковой Н.И. Курс по топологии читался с сентября 2022 г. по июнь 2023г. \\ 
+
+\noindent \textit{Первое издание, сентябрь 2022г. }
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\chapterimage{} % Table of contents ding image
+
+\pagestyle{empty} % No headers
+
+\tableofcontents % Print the table of contents itself
+
+\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+
+\pagestyle{fancy} % Print headers again
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1
+%----------------------------------------------------------------------------------------
+
+\chapterimage{} % Chapter heading image
+\chapter{Введение в топологию}
+\section{Топологические пространства}
+\subsection{Необходимые определения}
+\begin{definition}[Топология]
+Пусть $X$ - произвольное множество.\\ $\tau =\{U_{\alpha}{\subset}X|\alpha{\in}Y\}$ - семейство каких-то подмножеств из $X$.\\ Пусть выполняются следующие 3 условия:\\ $(\tau_1)$ $\varnothing, X{\subset}\tau$\\
+$(\tau_2)$ Если $U_{\alpha_1}, U_{\alpha_2}{\in}\tau$, то $U_{\alpha_1}{\cap}u_{\alpha_2}{\in}\tau$. То есть пересечение любых двух подмножеств, принадлежащих $Y$, так же принадлежит $\tau$\\
+$(\tau_3)$ $\forall B{\subset}Y$ $U_{\beta}{\in}\tau \forall \beta{\in}B \Rightarrow \underset{\beta{\in}B}{\cup}U_{\beta}{\in}\tau$\\
+Тогда семейство $\tau$ называется топологией (или топологической структурой) на множестве $X$, а пара $(x,\tau)$ называется топологическим пространством.
+\end{definition}
+
+\begin{remark}
+Включение не исключает равенства, т.е. $\subseteq$ не пишут.
+\end{remark}
+
+\begin{definition}[Открытое и замкнутое подмножество]
+Подмножество $U{\subset}X$, принадлежащее $\tau$ называется открытым в топологии $\tau$ или $\tau$-открытым.\\
+Подмножество $F{\subset}X$ называется замкнутым в $\tau$, если его дополнение $CF:=X{\setminus}F$ открыто в $\tau$
+\end{definition}
+
+\begin{remark}
+$\varnothing, X$ одновременно открыты и замкнуты в любой топологии на $X$.
+\end{remark}
+
+\begin{definition}[Связное топологическое пространство]
+Топологическое пространство называется связным, если одновременно открыты и замкнуты в нём только $\varnothing$ и $X$, других нет. В противном случае $(X,\tau)$ называется несвязным.
+\end{definition}
+
+\begin{example}
+Множество людей в аудитории. $\tau=\{\varnothing,X,U_1,U_2\}$\\
+$U_1=\{\text{Те, у кого день рождения был до 01.06.2022г.}\}$\\
+$U_2=\{\text{Те, у кого дня рождения не было до 01.06.2022г.}\}$\\
+$(\tau_1)$ $\varnothing{\subset}\tau$, $X{\subset}\tau$\\
+$(\tau_2)$ $U_1{\cap}U_2=\varnothing{\in}\tau$\\
+$(\tau_3)$ $U_1{\cup}U_2=X{\in}\tau$\\
+Замкнутое подмножество $F=\{X,\varnothing,U_2,U_1\}=\tau$ $\Rightarrow$ $U_1,U_2$ - открыто-замкнутые подмножества. $U_1,U_2{\neq}\varnothing,X$\\
+$(X,\tau)-$несвязное топологическое пространство.
+\end{example}
+
+\subsection{Обычная топология}
+$(\mathbb{R}^3,\rho)$ - евклидово трёхмерное пространство, $x=(x_1,x_2,x_3)$; $y=(y_1,y_2,y_3)$\\
+$\rho(x,y)=\sqrt{(y_1-x_1)^2+(y_2-x_2)^2+(y_3-x_3)^2}$
+
+\begin{definition}[Шар]
+Шар радиуса $r>0$ с центром в точке $a=(a_1,a_2,a_3)$ есть $D_r(a)=\{x{\in}\mathbb{R}^3|\rho(x,y)<r\}-r$-окрестность точки $a$.
+\end{definition}
+
+\begin{example}
+$x=\mathbb{R}^3$; $\tau^*=\{U{\subset}\mathbb{R}^3|\forall x{\in}U \ \exists \varepsilon>0 \ D_{\varepsilon}(x){\subset}U\}$\\
+То есть $\tau^*$ содержит все подмножества в $\mathbb{R}^3$, которые вместе с каждой точкой некоторую её $\varepsilon$ окрестность.\\
+$(\tau_1)$ $\varnothing{\in}\tau^*$; $\forall x{\in}\mathbb{R}^3$; $\exists D(1){\in}\mathbb{R}^3$ $\Rightarrow$ $\mathbb{R}^3{\in}\tau^*$\\
+$(\tau_2)$ $\forall U_1,U_2{\in}\tau^*$ $\forall x{\in}U_1{\cap}U_2$\\
+Так как $U_1{\in}\tau^*$ $\Rightarrow$ $\exists \varepsilon_1>0$ $D_{\varepsilon_1}(x){\in}U_1$\\
+Так как $U_2{\in}\tau^*$ $\Rightarrow$ $\exists \varepsilon_2>0$ $D_{\varepsilon_2}(x){\in}U_2$\\
+$\varepsilon=\min(\varepsilon_1,\varepsilon_2)>0$ $\Rightarrow$ $D_{\varepsilon}(x){\subset}U_1{\cap}U_2$ $\Rightarrow$ $U_1{\cap}U_2{\in}\tau^*$ $\Rightarrow$ $(\tau_2)$ выполняется.\\
+$(\tau_3)$ Рассмотрим $\forall Y$ множество, пусть $U_{\alpha}{\in}\tau^*, \alpha{\in}Y$\\
+Рассмотрим $\underset{\alpha{\in}Y}{\cup}U_{\alpha}$; $\forall x{\in}\underset{\alpha{\in}Y}{\cup}U_{\alpha}$ $\Rightarrow$ $\exists \alpha_0{\in}Y$: $x{\in}U_{\alpha_0}{\in}\tau^*$ $\Rightarrow$ $\exists\varepsilon>0$ $D_{\varepsilon}(x){\in}U_{\alpha_0}$ $\Rightarrow$ $D_{\varepsilon}(x){\subset}\underset{\alpha{\in}Y}{\cup}U_{\alpha}$ $\Rightarrow$ $\underset{\alpha{\in}Y}{\cup}U_{\alpha}{\in}\tau^*$, то есть $(\tau_3)$ выполняется\\
+$\Rightarrow$ $\tau^*-$топология на трёхмерном пространстве и обозначается: $\tau_{\text{об}}=\tau^*$. $(\mathbb{R}^3,\tau_{\text{об}})-$топологическое пространство.\\
+Аналогично определяется $(\mathbb{R}^n,\tau_{\text{об}})$
+\end{example}
+
+\begin{example}
+$(\mathbb{R^2},\tau_{MN})$, $\tau_{MN}=\{U{\in}\mathbb{R}^2|U\text{симметрично относительно MN}\}$
+
+\includegraphics[width=0.1\textwidth]{Pictures/Пример 1.4.jpg}
+$U$ симметрично относительно $MN$, если $\forall x{\in}U$ $\Rightarrow$ $\alpha{\in}U$\\
+$F_{MN}=\{CU{\in}\mathbb{R}^2|U{\in}\tau_{MN}\}=\tau_{MN}$
+$\forall U{\in}\tau_{MN}$ $U-$открыто замкнуто.
+\end{example}
+
+
+\begin{example}
+$(\mathbb{R}^2,\tau_{S})$,
+$\tau_{S}=\{U{\in}\mathbb{R}^2|U\text{симметрично относительно } S, \text{то есть} \forall x{\in}U \Rightarrow x'{\in}U\}$ топологическое пространство не связное.
+\end{example}
+
+\begin{example}
+$(\mathbb{R}^2,\tau_{f})$, $f: \mathbb{R}^2\to\mathbb{R}^2-\forall$ биекция.\\
+$\tau_f=\{U{\subset}\mathbb{R}^2|f(U)=U\}-$топология на плоскости $\mathbb{R}^2$, где $U-$инвариантная относит. $f$.
+\end{example}
+
+\begin{example}
+$(\mathbb{R}^2,\tau_{f})$, $f:\mathbb{R}^2\to\mathbb{R}^2$: $\bar{x}\mapsto \bar{x}+\bar{a}$; $\bar{a}{\neq}\bar{0}-$фиксированный вектор. Пример: точки, прямая $L{\in}\tau_f$
+\end{example}
+
+\begin{example}
+Топология Зарисского: $(\mathbb{R}^2,\tau_{\text{З}})=\{\varnothing,\mathbb{R}^2\}{\cup}\{\mathbb{R}^2\setminus\{a_1,...,a_k\}\}$ $\forall k{\in}\mathbb{N}$ $\forall a_i{\in}\mathbb{R}^2$; $1{\leq}i{\leq}k$
+\end{example}
+
+\begin{example}
+$(\mathbb{R}^2,\tau_{r})$\\
+$\tau_r=\{\varnothing,\mathbb{R}^2\}{\cup}\{D_r(0)|r>0\}-$связное топологическое пространство.
+\end{example}
+
+\section{Сравнение топологий}
+\begin{definition}[Более сильная (слабая) топология]
+Пусть $(X,\tau),(X,\Omega)-$две топологии на $X$.\\
+Если $\tau{\subset}\Omega$ и не совпадают, то, говорят, что $(X,\Omega)$ сильнее, чем $(X,\tau)$,\\ а $(X,\tau)$ слабее (или грубее), чем $(X,\Omega)$\\ \\
+Если $(X,\tau){\subset}(X,\Omega)$, то $(X,\tau)$ не сильнее $(X,\Omega)$, $(X,\Omega)$ не слабее $(X,\tau)$.\\ \\
+Если $(X,\tau){\subset}(X,\Omega)$ и $(X,\Omega)\subset(X,\tau)$, то $(X,\tau)=(X,\Omega)$ - совпадают.\\ \\
+Если $(X,\tau){\not\subset}(X,\Omega)$ и $(X,\Omega){\not\subset}(X,\tau)$, то $(X,\tau)$ и $(X,\Omega)$ не сравнимы.
+\end{definition}
+
+\begin{example}
+$(\mathbb{R}^2,\tau_{\text{об}})$, $(\mathbb{R}^2,\tau_{r})$;\ \ 
+$\tau_{r}{\subset}\tau_{\text{об}}$ и $\tau_{r}{\neq}\tau_{\text{об}}$ $\Rightarrow$ $\tau_r$ слабее, чем $\tau_{\text{об}}$.
+\end{example}
+
+\begin{example}
+$(\mathbb{R}^2,\tau_{\text{об}})$ $(\mathbb{R}^2,\tau_{MN})$ не сравнимы.\\
+1) $U=\{x\}{\cup}\{x'\}{\in}\tau_{MN}$, $U{\notin}\tau_{\text{об}}$ $\Rightarrow$ $\tau_{MN}{\not\subset}\tau_{\text{об}}$\\
+2) $V{\in}\tau_{\text{об}}$, $V{\notin}\tau_{MN}$ $\Rightarrow$ $\tau_{\text{об}}{\not\subset}\tau_{MN}$
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
