@@ -1,0 +1,141 @@
+\section{Равномерная сходимсоть функциональных рядов}
+\begin{theor}
+    (критерий Коши равномерной сходимости)\\
+    $f_n(x)\rightrightarrows f(x)$ на множестве  $X$  $\Leftrightarrow$ 
+    $\forall \varepsilon>0\exists n_0(\varepsilon)\in\mathbb{N}\forall n>n_0
+    \forall p\in\mathbb{N} \forall x\in X: |f_{n+p}(x)-f_n(x)|<\varepsilon$
+
+\end{theor}
+\textbf{Доказательство.} 1. Зафиксируем $\varepsilon>0$. По условию,
+$f_n(x)\rightrightarrows f$ на $X$. Тогда для  $\frac{\varepsilon}{2}>0$ 
+
+
+
+$\square$ \\
+\textbf{Следствие (метод граничной точки).} Если $f_n(x)\in[a,b)$ и 
+$f_n(x)\tof(x)~\forall x\in_9a,b$, $f_n(a)$ расходится. Тогда  $f_n(x)$
+не сходится равномерно к  $f(x)$ на  $(a,b)$.\\
+\textbf{Доказательство.} Допустим, что сходимсоть равномерная. Тогда 
+че топроисходит\\
+\textbf{Пример.} $f_n(x)=n^{x+1}e^{-nx},~x>0$.\\
+\subsection{Свойства равномерно сходящихся ф. п.}
+\begin{enumerate}
+    \item Линейные комбинации сходятся с соответствующим линейным комбинациям
+        пределов. 
+    \item Умножение на ограниченную на $X$ функцию:  $(gf_n)\rightrightarrows
+        (gf)$
+    \item На любом подмножестве $X$ функция равномерно сходится. 
+    \item Если  $\forall x\in x: f_n(x)\to f(x)$ и $E\subset X$ - конечное 
+        множество, то на $E$ функция сходится равномерно.
+    \item Функция, равномерно сходящаяся на двух множествах, равномерно
+        сходится на их объединении.
+\end{enumerate}
+\textbf{Доказательство.} 
+
+
+\section{Функциональные ряды.}
+\begin{defin}
+Область $X\subset D$ сходимости  ряда $\sum\limits_{n=1}^{\infty} a_n(x)$ -
+область, лежащая в области определения всех функций ряда и для каждого
+$x$ на ней ряд сходится.
+\end{defin}
+\textbf{Пример.} $\sum\limits_{n=1}^{\infty} \frac{8^n}{n}(\sin x)^{3n}$.
+Область сходимости - $|\sin x|<\frac{1}{2}$.
+\begin{defin}
+Ряд $\sum\limits_{n=1}^{\infty} a_n(x)$ сходится равномерно к $S(x)$ на  $X$,
+если  $S_n\rightrightarrows S$ на  $X$ ($S_n$ - частичная сумма ряда).
+\end{defin}
+\textbf{Пример.} Исследуем на равномерную сходимость ряд $\sum\limits_{n=1}
+^{\infty} \frac{x(2n-1)}{((n-1)^2+x^2)(n^2+x^2)},~x\in[1,\infty)$. Здесь
+предел частичных сумм можно найти по определению: $S_n(x)=\sum\limits_{n=1}
+^{\infty} a_k=x(\frac{1}{x^2}-\frac{1}{n^2+x^2})$. При фиксированном
+$x\in D: \lim\limits_{n \to \infty} S_n(x)=\frac{1}{x},~S(x)=\frac{1}{x}$.
+Проверим, что остаток равномерно стремится к нулю (тогда это верно 
+и для суммы): $R_n(x)=S(x)-S_n(x)=\frac{x}{n^2+x^2}\leqslant \frac{x}{2nx}=
+\frac{1}{2n}\to0,~n\to\infty$ (по методу оценки остатка). Итак, ряд сходится
+равномерно к своей сумме.\\
+\textbf{Пример.} Исследуем на равномерную сходимость $\sum\limits_{n=1}
+^{\infty} \frac{x^2(2n-1)}{((n-1)^2+x^2)(n^2+x^2)},~x\in[1,\infty)$. Имеем 
+$S_n(x)=1-\frac{x^2}{n^2+x^2},~S(x)=1$ 
+\begin{theor}
+    (необходимое условие равномерной сходимости ф.р)\\
+    Ряд $\sum\limits_{n=1}^{\infty} a_n(x)$ сходится равномерно к $S(x)$ на
+     $X$. Тогда  $a_n\rightrightarrows0$ на $X$. 
+\end{theor}
+\textbf{Доказательство.}  По условию, $\forall \varepsilon>0\exists n_0\in
+\mathbb{N}\forall n>n_0\forall x\in X: |S_n(x)-S(x)|<\frac{\varepsilon}{2}$
+$\square$ 
+\begin{theor}
+    (критерий Коши равномерной сходимости функционального ряда)\\
+    $\sum\limits_{n=1}^{\infty} a_n(x)$ равномерно сходится на Х к $S(x)$
+    тогда и только тогда, когда последовательность частичных сумм равномерно
+    сходится:  $\forall \varepsilon>0~\exists n_0(\varepsilon)\in\mathbb{N}
+    ~\forall n>n_0~\forall p\in\mathbb{N}~\forall x\in X:|\sum\limits_{k=n+1}
+    ^{n+p}a_k(x)|<\varepsilon$
+\end{theor}
+\textbf{Доказательство.} Прсото применим определение Коши сходимости.  
+$\square$ \\
+\textbf{Пример.} Докажем, что у ряда $\sum\limits_{n=1}^{\infty} \frac{\sqrt{
+x} }{n^2x^2+\sqrt{n} }$, $x\in(0,1)$ нет равномерной сходимости. Возьмем 
+$x=\frac{1}{2n}$; $a_k(x)\geqslant \frac{1}{4n}$. Поэтому для $\varepsilon
+\geqslant \frac{1}{4}$ по критерию Коши ряд расходится.\\
+\begin{theor}
+    (метод граничной точки)\\
+    пусть дан ряд $\sum\limits_{n=1}^{\infty} a_n(x)$, его члены непрерывны
+    на отрезке $[a,b]$ и ряд сходится на интервале  $(a,b)$, но расходится
+    на конце интервала. Тогда равномерной сходимости нет. 
+\end{theor}
+\textbf{Доказательство.}  Повторяет доказательство для последовательностей.
+$\square$ \\ 
+\textbf{Пример.} $\sum\limits_{n=1}^{\infty} \frac{1}{n^x},~x\in(1,2)$. Ряд
+сходится на интрвале как обобщенный гармонический ряд. При $x=1$ ряд 
+расходится, значит, равномерной сходимости нет.
+ \begin{theor}
+     (признак Вейерштрасса равномерной сходимости ф.р./мажарантный)\\
+     Пусть дан ряд с общим членом $a_n(x)$ и мы можем оценить 
+    $|a_n(x)|\leqslant  a_n$ (то есть мажорирующим рядом, не зависящим от $x$),
+причем $\sum\limits_{n=1}^{\infty}a_n$ сходится.
+Тогда ряд $\sum\limits_{n=1}^{\infty} a_n(x)$ сходится равномерно на том
+множестве, на котором верна оценка. 
+\end{theor}
+\textbf{Доказательство.}  Испоьзуем критерий Коши: фиксируем некоторое 
+$\varepsilon>0$. Ряд $a_n$ сходится, значит, по критерию коши
+ $\forall \varepsilon>0~\exists n_0(\varepsilon)\in\mathbb{N}~\forall n>n_0
+ \forall p\in\mathbb{N}: \sum\limits_{k=n+1}^{n+p} a_k<\varepsilon$. Из 
+ пункта 1 имеем $\forall x\in X\forall n\in\mathbb{N}: |a_n(x)|\leqslant a_k$.
+Тогда $|\sum\limits_{k=n+1}^{n+p} a_k(x)|\leqslant \sum\limits_{k=n+1}
+^{n+p}|a_k(x)|\leqslant \sum\limits_{k=n+1}^{n+p} a_k<\varepsilon$. Тогда
+по критерию Коши для функционального ряда следует равномерная сходимость.
+$\square$ \\
+\textbf{Пример.} Исследуем на равномерную сходимость $\sum\limits_{n=1}^
+{\infty} \frac{arcctg(nx)}{n},~x\in(\varepsilon,\infty),~\varepsilon>0$.
+Подставив ноль, по методу граничной точки нет равномерной сходимости.\\
+\textbf{Пример.} Исследуем сходимость $\sum\limits_{n=1}^{\infty} e^{-n^5x^2}
+\sin{nx}$ на прямой. Спойлер: сходится равномерно. Сделаем оценку:  
+$|a_n(x)|\leqslant e^{-n^5x^2}n|x|$. Функция симметрична при замене $x\mapsto
+-x$, значит, будем оценивать на положительном луче, откинув модуль. Оценим
+максимумом, вычислив производную и решив уравнение. Имеем  $x=\frac{1}
+{\sqrt{2n^5}}$. Подставляем: $f_n(x)\leqslant f(\frac{1}{\sqrt{2n^5} })=
+\frac{1}{\sqrt{2e}n^{\frac{3}{2}}}=a_n$. Значит, $|a_n(x)|\leqslant |f_n(x)|
+\leqslant a_n~\forall x\in\mathbb{R}$. Итак, сходимость равномерная. \\
+\begin{theor}
+(признак Дирихле равномерной сходимости функционального ряда)\\
+Дан ряд $\sum\limits_{n=1}^{\infty} a_n(x)b_n(x)$ и\\
+1. $\forall x\in X: \{a_n(x)\}$ монотонна по $n$;\\
+2.  $\exists M=const~ \forall x\in X \forall n\in N:|B_n(x)|\leqslant M$,
+где $B_n(x)$ - частичные суммы ряда  $b_n$.\\
+Тогда ряд сходится равномерно на $X$
+\end{theor}
+\textbf{Доказательство.} Фиксируем $\varepsilon>0$. Так как 
+$a_n\Rightrightarrow0$ на $X$, то для  $\frac{\varepsilon}{6B}>0$
+$\square$ \\
+\textbf{Пример.} $\sum\limits_{n=1}^{\infty} \sin{nx}/n$. Исследовать на 
+равномерную сходимость на интервалах $(\varepsilon,2\pi-\varepsilon)$,
+$(0,2\pi)$. Ну, раз говорят что уже было. То не пишем.
+На втором интервале нет равномерной сходимости по краевому критерию. 
+
+
+
+ 
+
+
