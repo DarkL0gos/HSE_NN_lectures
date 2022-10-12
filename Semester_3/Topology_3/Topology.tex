@@ -1,7 +1,17 @@
-\documentclass{article}
+\documentclass[a4paper]{article}
 %\input{preambula.tex}
 %\input{structure.tex}
 %\input{Styled.tex}
+\usepackage[14pt]{extsizes}                                         %Размер шрифта
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=3cm]{geometry}  %Поля страницы
+
+%Настройки ссылок и гиперссылок
+\usepackage{graphicx}
+\usepackage{hyperref}                 
+\usepackage{xcolor}
+\definecolor{linkcolor}{HTML}{799B03} % цвет ссылок
+\definecolor{urlcolor}{HTML}{799B03}  % цвет гиперссылок
+\hypersetup{pdfstartview=FitH,linkcolor=linkcolor,urlcolor=urlcolor,colorlinks=true}
 
 %Пакеты символов
 \usepackage{cmap}
@@ -23,7 +33,13 @@
 \date{5.09.22}
 
 \begin{document}
-\maketitle
+\newgeometry{left=0cm,top=0cm}
+\begin{figure}
+    \includegraphics{pictures/folio.pdf}
+\end{figure}
+\restoregeometry
+\clearpage
+%\maketitle
 \tableofcontents
 \newpage
 %Семинар Шубина 05.09.2022
