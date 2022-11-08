@@ -176,7 +176,7 @@ $$\frac{a_{n+1}}{a_n}=1-\frac{1}{n}+\frac{\theta_n}{n^{1+\varepsilon}}$$
 -\frac{\theta_b}{n^\varepsilon}$. Домножим на логарифм и рассмотрим предел
 получившегося выражения:
 $$\lim\limits_{n \to \infty}
-\ln n\cdotn\left(n\left(1-\frac{a_{n+1}}{a_n}\right)-1\right)=
+\ln n\cdot n\left(n\left(1-\frac{a_{n+1}}{a_n}\right)-1\right)=
 \lim\limits_{n \to \infty}\left(\ln n\cdot 
 -\frac{\theta_b}{n^\varepsilon}\right)=0$$
 Значит, по признаку Бертрана ряд расходится. $\square$ 
@@ -236,6 +236,23 @@ a_k$, получаем оценку:
 $$\int\limits_{n+1}^{\infty}f(x)dx\leqslant R_n<
 \int\limits_{n}^{\infty}f(x)dx$$ 
 
+%\section{Связь признака Даламбера и Коши}
+%Если $\frac{a_n}{a_{n-1}}\leqslant q$ для 
+%всех n начиная с 1, то $a_n=a_1q^n$, откуда следует признак Коши. 
+%$$\sqrt[n]{a_n}\leqslant \sqrt[n]{a_1}\cdot q$$
+%Значит, Коши покрывает больше случаев. 
+%\section{Оценка погрешности приближения какой-то величины с помощью
+%положительного ряда}
+%$$\int^\infty_{n+1} f(x)dx<R_n\leqslant \int^\infty_nf(x)dx$$ 
+%Из доказательства интегрального признака
+%$$a_{k+1}<\int^{k+1}_kf(x)dx\leqslant a_k$$ 
+%$$\int^{k+1}_kf(x)dx\leqslant a_k\int^k_{k-1}f(x)dx$$ 
+%$$R_n=\sum\limits_{k=n+1}^{\infty} a_k$$ 
+%Итак, 
+%$$\int^\infty_{n+1}\leqslant R_n<\int^\infty_nf(x)dx$$
+\textbf{Пример.} Вычислим с точностью до 0,001 ряд 
+$\sum\limits_{n=1}^{\infty} \frac{1}{n^4}$. Ответ: $1,082\pm0,001$
+(точный ответ $\frac{\pi^4}{90}$)
 
 
 

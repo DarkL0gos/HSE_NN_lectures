@@ -1,5 +1,5 @@
 \begin{theor}
-    (признак Абеля равномерной сходимости ф.р.)\\
+    (признак Абеля равномерной сходимости функционального ряда)\\
 Дан ряд $\sum\limits_{n=1}^{\infty} a_n(x)b_n(x)$ и $\forall x\in X$:\\
 1. $|a_n(x)|\leqslant M=const$ для всех $n$;\\
 2.  $\{a_n(x)\} $ мнонотонна;\\
@@ -7,14 +7,16 @@
 Тогда исходный ряд равномерно сходится на  $X$.
 \end{theor}
 \textbf{Доказательство.}  По определению Коши. Фиксируем $\varepsilon>0$.
-Так как ряд из $b_n$ сходится равномерно, то по критерию Коши для
-$\frac{\varepsilon}{3M}>0~\exists n_0(\varepsilon)~\forall n>n_0~\forall p\in
-\mathbb{N}~ \forall x\in X: |\sum\limits_{k=n+1}^{n+p} b_k(x)|<
-\frac{\varepsilon}{3M}$. Тогда по неравенству Абеля 
-$|\sum\limits_{k=n+1}^{n+p} b_k(x)a_k(x)|\leqslant \frac{\varepsilon}{3M}
-(|a_{n+1}|+2|a_{n+p}(x)|)<\frac{\varepsilon}{3M}3M=\varepsilon$.
-Тогда по критерию Коши этот ряд сходится равномерно на $X$. $\square$ \\
-\textbf{Пример.} Исследуем на равномерную сходимсоть ряд 
+Так как ряд с общим членом $b_n$ сходится равномерно, то по критерию Коши для
+$$\frac{\varepsilon}{3M}>0~\exists n_0(\varepsilon)~\forall n>n_0~\forall p\in
+\mathbb{N}~ \forall x\in X:\left|\sum\limits_{k=n+1}^{n+p} b_k(x)\right|<
+\frac{\varepsilon}{3M}$$ Тогда по неравенству Абеля 
+$$\right|\sum\limits_{k=n+1}^{n+p} b_k(x)a_k(x)\left|\leqslant 
+\frac{\varepsilon}{3M}
+(|a_{n+1}|+2|a_{n+p}(x)|)<\frac{\varepsilon}{3M}\cdot 3M=\varepsilon$$
+Тогда по критерию Коши этот ряд сходится равномерно на $X$. $\square$ 
+
+\textbf{Пример.} Исследуем на равномерную сходимоcть ряд 
 $\sum\limits_{n=1}^{\infty} \frac{\cos{nx}\sin{x}arctg{nx}}{\sqrt{n^2+x^2}}$. 
 Алгоритм:\\
 1. Арктангенс монотонен и ограничен.\\
@@ -23,64 +25,97 @@ $\sum\limits_{n=1}^{\infty} \frac{\cos{nx}\sin{x}arctg{nx}}{\sqrt{n^2+x^2}}$.
 \begin{theor}
     (о непрерывности суммы равномерно сходящегося ряда)\\
     Дан ряд $\sum\limits_{n=1}^{\infty} a_n(x)$, причем \\
-    1. Все функции непрерывны намножестве\\
+    1. Все функции непрерывны на множестве $X$;\\
 2. $\sum\limits_{n=1}^{\infty} a_n(x)$ сходится равномерно к $S(x)$ на $X$;\\
 Тогда $S(x)$ непрерывна на $X$. 
 \end{theor}
 \textbf{Доказательство.}  По условию, сумма из  $a_n(x)$ сходится равномерно
 на  $X$ к  $S(x)$, то есть  $S_n(x)\rightrightarrows S(x)$ на  $X$, 
 $S_n(x)$ непрерывна как сумма. Тогда по теореме о непрерывности предела
-равномерно сходящейся последовательсноти, составленной из непрерывных
-функций,  $S(x)$  непрерывна. Другая формулировка: 
-$$\lim\limits_{x\to x_0}\sum\limits_{n=1}^{\infty} a_n(x)$$ 
-можно поменять сумму и предел. $\square$\\
+равномерно сходящейся последовательности, составленной из непрерывных
+функций,  $S(x)$  непрерывна. Другая формулировка:  
+$$\lim\limits_{x\to x_0}\sum\limits_{n=1}^{\infty} a_n(x) =
+\sum\limits_{n=1}^{\infty}\lim\limits_{x\to x_0} a_n(x)
+$$
+(то есть можно поменять местами сумму и предел). $\square$ 
+
 \textbf{Пример.} $\sum\limits_{n=1}^{\infty} \frac{\sin{nx}}{n}=f(x)$ - 
 непрерывна на $(0,2\pi)$
 \begin{theor}
 (об интегрировании равномерно сходящегося ряда)\\
- дан ряд $\sum\limits_{n=1}^{\infty} a_n(x)$, причем \\
+Пусть дан ряд $\sum\limits_{n=1}^{\infty} a_n(x)$, причем \\
  1. все функции непрерывны на отрезке $[a,b];$\\
  2. $\sum\limits_{n=1}^{\infty} a_n(x)$ сходится равномерно на $[a,b]$ к $s
  (x)$;\\
- тогда в $\forall x,x_0\in[a,b]:~\int\limits^x_{x_0}\left( \sum\limits_{n=1}^
- {\infty} a_n(t) \right)dt$ можно менять интеграл и сумму.
+ Тогда $$\forall x,x_0\in[a,b]:~\int\limits^x_{x_0}\left( \sum\limits_{n=1}^
+ {\infty} a_n(t) \right)dt=\sum\limits_{n=1}^{\infty} \left( 
+\int\limits_{x_0}^{x}a_n(t)dt \right) $$ 
+ (можно менять интеграл и сумму).
 \end{theor}
 \textbf{Доказательство.} Докажем, что $\int\limits^x_{x_0}S(t)dt=\sum\limits_{n=1}^{\infty} \int\limits^x_{x_0}a_n(t)dt$. По предыдущей теореме $S(t)$ 
 непрерывна на  $[a,b]$, значит,интегрируема на нем по Риману. 
 Обозначим  $\sigma_n(x)=\sum\limits_{k=1}^{n}\int\limits^x_{x_0}a_k(t)dt$ и
 докажем, что $\sigma_n(x)\rightrightarrows\int\limits^x_{x_0}S(t)dt$.\\
 Зафиксируем $\varepsilon>0$. По условию, $S_n(t)$ равномерно сходится на 
-$[a,b]$ для  $\frac{\varepsilon}{b-a}>0$. $\exists n_0(\varepsilon)~\forall 
-n>n_0~\forall x\in[a,b]:|S_n(t)-S(t)|< \frac{\varepsilon}{b-a}$. Тогда
-$|\sigma_n(x)-\int\limits^x_{x_0}S(t)dt|=!!!!!!!!!!!!!!!!$
+$[a,b]$ для  
+$$\frac{\varepsilon}{b-a}>0~\exists n_0(\varepsilon)~\forall 
+n>n_0~\forall x\in[a,b]:|S_n(t)-S(t)|<\frac{\varepsilon}{b-a}$$
+Тогда
+$\left|\sigma_n(x)-\int\limits^x_{x_0}S(t)dt\right|=
+\left| \sum\limits_{k=1}^{n} \int\limits_{x_0}^{x} a_k(t)dt-
+\int\limits_{x_0}^{x}S(t)dt\right|=\left| \int\limits_{x_0}^{x}(S_n(t)-S(t))dt
+\right|\leqslant \left| \int\limits_{x_0}^{x}|S_n(t)-S(t)|dt\right| 
+<\frac{\varepsilon}{b-a}\cdot |x-x_0|<\varepsilon$.
+Значит, $\sigma_n(x)\rightrightarrows \int\limits_{x_0}^{x} S_n(t)dt$.
 $\square$ 
 \begin{theor}
 (о дифференцировании равномерно сходящегося ряда)\\
- дан ряд $\sum\limits_{n=1}^{\infty} a_n(x)$, причем \\
+Пусть дан ряд $\sum\limits_{n=1}^{\infty} a_n(x)$, причем \\
  1. Производные всех функций непрерывны на отрезке $[a,b];$\\
- 2. $\sum\limits_{n=1}^{\infty} a_n(x)$ сходится на $[a,b]$ к $s
- (x)$ (даже не нужна непрерывность);\\
+ 2. $\sum\limits_{n=1}^{\infty} a_n(x)$ сходится на $[a,b]$ поточечно;\\
  3. Ряд из производных сходится равномерно на $[a,b]$ к  $S(x)$;\\
- тогда в ряде  можно менять производную и сумму.
+ Тогда 
+$$\sum\limits_{n=a}^{\infty} a'_n(x)=
+\left( \sum\limits_{n=1}^{\infty} a_n \right)'$$
+то есть в ряде  можно менять производную и сумму, причем 
+$\sum\limits_{n=1}^{\infty} a_n$ сходится равномерно.
 \end{theor}
-\textbf{Доказательство.}  Используем предыдущую теорему. Тогда
-$\int\limits_{x_0}^x\left( \sum\limits_{n=1}^{\infty} a'_n(t) \right)dt=
-\sum\limits_{n=1}^{\infty} \int\limits_{x_0}^xa'_n(t)dt$. Получаем, что 
-в равенсте $\int\limits_{x_0}^xS(t)dt=\sum\limits_{n=1}^{\infty} (a_n(x)-a_n
+\textbf{Доказательство.} 
+1. Используем предыдущую теорему. Тогда
+$$\int\limits_{x_0}^x\left( \sum\limits_{n=1}^{\infty} a'_n(t) \right)dt=
+\sum\limits_{n=1}^{\infty} \int\limits_{x_0}^xa'_n(t)dt$$
+Получаем, что в равенстве
+$\int\limits_{x_0}^xS(t)dt=\sum\limits_{n=1}^{\infty} (a_n(x)-a_n
 (x_0))$ справа стоит число (в силу непрерывности функции), ряд из $a_n(x_0)$
-сходится по условию, следовательно, ряд из $a_n(x)$ сходится.\\
-Теперь покажем равномерную сходимость. Для этого покажем, что остаток
-ряда из производных $r_n(x)$ равномерно стремится к нулю. Действительно,
-если ряд удовлетворяет теоереме об интегрировании, то и его остатки тоже.
+сходится по условию, следовательно, ряд из $a_n(x)$ сходится.
+Поэтому, дифференцируя равенство 
+$\int\limits_{x_0}^{x} \sum\limits_{n=1}^{\infty} a_n(t)\,dt=
+\sum\limits_{n=1}^{\infty} a_n(x)-\sum\limits_{n=1}^{\infty} a_n(x_0)$,
+получаем первое утверждение теоремы.
+
+Теперь покажем равномерную сходимость исходного ряда. 
+Для этого покажем, что остаток 
+ряда из производных $r_n(x)=\sum\limits_{k=n+1}^{\infty} a'_n(x)$
+равномерно стремится к нулю. 
+Из этого следует применимость теоремы об инетгировании: 
+$\int\limits_{x_0}^{x}\sum\limits_{k=n+1}^{\infty} a'_k(t)\,dt=
+\sum\limits_{k=n+1}^{\infty} \int\limits_{x_0}^{x} a'_k(t)dt=
+\sum\limits_{k=n+1}^{\infty} (a_k(x)-a_k(x_0))$. Если ряд удовлетворяет 
+теореме об интегрировании, то и его остатки тоже, значит,
+$\int\limits_{x_0}^{x} r_n(t)dt=R_n(x)-R_n(x_0)$, откуда
+$$R_n(x)=\int\limits_{x_0}^{x} r_n(t)dt+R_n(x_0)\quad(1)$$.
 Зафиксируем $\varepsilon>0$. По условию, остаток обычного ряда стремится
-к нулю: $R_n(x)\to0$. тогда для $\frac{\varepsilon}{2}>0~\exists n_1
-(\varepsilon)~\forall n>n_1:|R_n(x_0)|<\frac{\varepsilon}{2}$. 
-Также остаток ряда из производных равномерно стремится к нулю, тогда
-для $\frac{\varepsilon}{2(b-a)}>0~\exists n_2(\varepsilon)~\forall n>n_2~
-\forall x\in[a,b]:|r_n(x)|<\frac{\varepsilon}{2(b-a)}$.
-Тогда из звездочки следует !!!!!!!!!!!!??????
-
-
- $\square$ 
+к нулю: $R_n(x)\to0$. Тогда для 
+$$\frac{\varepsilon}{2}>0~\exists n_1
+(\varepsilon)~\forall n>n_1:|R_n(x_0)|<\frac{\varepsilon}{2}$$
+Остаток ряда из производных равномерно стремится к нулю, тогда
+для 
+$$\frac{\varepsilon}{2(b-a)}>0~\exists n_2(\varepsilon)~\forall n>n_2~
+\forall x\in[a,b]:|r_n(x)|<\frac{\varepsilon}{2(b-a)}$$
+По формуле (1) получаем: 
+$|R_n(x)|\leqslant \left| \int\limits_{x_0}^{x} r_n(t)dt \right|+
+|R_n(x_0)|\leqslant \left|\left| \int\limits_{x_0}^{x} r_n(t)dt \right|+
+|R_n(x_0)| \right|<\frac{\varepsilon}{2(b-a)}\cdot |x-x_0|+
+\frac{\varepsilon}{2}=\varepsilon$. $\square$ 
 
 
