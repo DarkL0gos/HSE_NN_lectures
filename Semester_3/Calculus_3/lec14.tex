@@ -1,0 +1,94 @@
+\begin{theor}
+    (о непрерывности интеграла)\\
+    Если функция определена и непрерывна, 
+\end{theor}
+\textbf{Доказательство.}  
+$\square$ \\
+
+\begin{theor}
+    (о дифференцируемости собственного интеграла, зависящего от параметра/
+    правило Лейбница)\\
+    Пусть $f(x,y)$ \\
+    1. непрерывна на  $P=[a,b]\times[c,d]$;\\
+    2. $\frac{\partial f}{\partial y}(x,y)$ непрерывна на $P$;\\
+    Тогда:\\
+    1. $F(y)=\int\limits_{a}^{b} f(x,y)dx$ дифференцируема на $[c,d]$;
+    2. $F'(y)=\int\limits_{a}^{b}\frac{\partial f}{\partial y}(x,y)dx$
+\end{theor}
+\textbf{Доказательство.} Пусть $y\in[c,d],~y+h\in[c,d]$. 
+Рассмотрим  $F(y+h)-F(y)=\int\limits_{a}^{b} (f(x,y+h)-f(x,y))dx$, 
+значит, по теореме Лагранжа это равно $\int\limits_{a}^{b}
+\frac{\partial f}{\partial y}(x,y+\theta h)h\,dx$, где $\theta\in(0,1)$. 
+Дифференцируем:
+$F'(y)=\lim\limits_{h \to 0}\frac{F(y+h)-F(y)}{h}=\lim\limits_{h \to 0}
+\int\limits_{a}^{b} \frac{\partial f}{\partial y}(x,y+\theta h)dx$.
+При $h\to 0$ делаем замену  $u=y+\theta h,~u\to y$. Тогда предел
+ $\lim\limits_{h \to 0}
+\int\limits_{a}^{b} \frac{\partial f}{\partial y}(x,u)dx=$
+по теореме о предельном переходе!!!!!!!!!!
+$\square$ \\
+Следующая теорема обощает правило Лейбница:
+\begin{theor} (обобщенное правило Лейбница)\\
+    Пусть $f(x,y)$ непрерывна на  $D=\{(x,y)\mid a(y)\leqslant x\leqslant 
+    b(y),c\leqslant y\leqslant d\}$, $\frac{\partial f}{\partial x}(x,y)$ 
+    непрерывна на $D$ и $a'(y),b'(y)$ непрерывны на  $[c,d]$. Тогда
+     $F(y)=\int\limits_{a(y)}^{b(y)}f(x,y)dx$ дифференцируема на 
+     $y\in[c,d]$, причем  $F'(y)=\int\limits_{a(y)}^{b(y)} 
+     \frac{\partial f}{\partial y} (x,y)dx+f(b(y),y)\cdot b'(y)-
+     f(a(y),y)\cdot a'(y)$.
+\end{theor}
+\textbf{Доказательство.}  $F(y)=F(y,a(y),b(y))$. По правилу производной
+сложной функции  $\frac{dF}{dy}=\frac{\partial F}{\partial y}+
+\frac{\partial F}{\partial a}\cdot \frac{\partial a}{\partial y} 
+\frac{\partial F}{\partial b}\cdot \frac{\partial b}{\partial y}=
+\int\limits_{a(y)}^{b(y)}\frac{\partial F}{\partial y}(x,y)dx
++f(b(y),y)\cdot b'(y)-f(a(y),y)\cdot a'(y)$ $\square$ 
+Дальше здеь была куча поясняющего текста (см фото 10.11.22 в 13620)
+
+\textbf{Пример.} Посчитаем $F(a)=\int\limits_{0}^{\frac{\pi}{2}}
+\frac{\ln(1+a^2\sin^2(x))}{\sin(x)}$. тут я отрубился
+
+\begin{theor}
+    (об интегрировании интеграла, зависящего от параметра)\\
+    Пусть $f(x,y)$ непрерывна на  $P=[a,b]\times[c,d]$. 
+    Тогда
+     $$\int\limits_{c}^{d}dy\int\limits_{a}^{b} f(x,y)dx=
+     \int\limits_{a}^{b}dy \int\limits_{c}^{d} f(x,y)$$
+\end{theor}
+\textbf{Доказательство.}  Введем функции $G(t)=\int\limits_{c}^{d}dy
+\int\limits_{a}^{t}f(x,y)dy,~H(t)=\int\limits_{a}^{t}dx
+\int\limits_{c}^{d}f(x,y)dy$. Докажем, что $G(b)=H(b)$ (что доказывает 
+требуемое утверждение). Введем функцию  $g(t,y)=\int\limits_{a}^{t}f(x,y)dx$,
+тогда $G(t)=\int\limits_{c}^{d}g(t,y)$ - применима теорема о дифференцировании
+сложной функции: $\frac{\partial g}{\partial t}=\left( 
+\int\limits_{a}^{t} f(x,y)dx\right)'_t=f(t,y)$ - непрерывна на $P$ по условию. 
+Теперь докажем, что $g(t,y)$ непрерывна на $P$, для этого покажем, что 
+ $\lim\limits_{\Delta t \to 0,\Delta y\to 0}\Delta g=0$. 
+Имеем $\Delta g=g(t+\Delta t,y+\Delta y)-g(t,y)=\int\limits_{a}^{t+\Delta t}
+f(x,y+\Delta y)dx-\int\limits_{a}^{t}f(x,y)dx=\int\limits_{a}^{t}(
+f(x,y+\Delta y)-f(x,y))dx+\int\limits_{t}^{t+\Delta t}f(x,y+\Delta y)dx$. 
+Так как $f(x,y)$ непрерывна на компакте $P$,  то она равномерно непрерывна
+на $P$ и ограниченна константой  $M$. Зафиксируем  $\varepsilon>0$. 
+Из равномерной непрерывности для 
+$$\frac{\varepsilon}{2(b-a)}>0~\exists \delta_1>0~
+\forall (x_1,y_1)\in P~\forall (x_2,y_2)\in P:\sqrt{(x_1-x_2)^2-(y_1-y_2)^2}<
+\delta_1\implies|f(x_1,y_1)-f(x_2,y_2)|< \frac{\varepsilon}{2(b-a)}$$ 
+Если $|\Delta y|<\delta$, то $|f(x,y+\Delta y)-f(x,y)|<
+\frac{\varepsilon}{2(b-a)}$; тогда можно оценить интеграл:
+$$\left| \int\limits_{a}^{t}(f(x,y+\Delta y)-f(x,y))dx\right|<
+\frac{\varepsilon}{2}\cdot \frac{t-a}{b-a}\leqslant \frac{\varepsilon}{2}$$ 
+Еcли $|\Delta t|< \frac{\varepsilon}{2M}$, то 
+
+$\square$ \\
+
+
+
+
+
+
+
+
+
+
+
+

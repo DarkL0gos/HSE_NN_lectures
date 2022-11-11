@@ -20,8 +20,30 @@ $$\forall \varepsilon>0~\exists N(\varepsilon)~\forall n>N~\forall x\in X:
 |f_n(x)-f(x)|<\varepsilon$$
 Обозначается как  $f_n\rightrightarrows f$
 \end{defin}
-Это определение эквивалентно тому, что
-$\lim\limits_{n \to \infty} \sup\limits_{x\in X}|f_n(x)-f(x)|=0$
+Это определение эквивалентно \textbf{супремум-критерию сходимости}:
+$$\lim\limits_{n \to \infty} \sup\limits_{x\in X}|f_n(x)-f(x)|=0$$
+\begin{theor}
+    Супремум-критерий эквивалентен определению равномерной сходимости.
+\end{theor}
+\textbf{Доказательство.} Пусть $f_n\rightrightarrows f$ на $X$.
+Фиксируем $\varepsilon>0$. Тогда по определению для
+$$\frac{\varepsilon}{2}>0~\exists n_0~\forall n>n_0~\forall x\in X:
+|f_n(x)-f(x)|<\frac{\varepsilon}{2}$$
+Пусть $a_n=\sup|f_n(x)-f(x)|\leqslant \frac{\varepsilon}{2}<\varepsilon$.
+Тогда
+$$\forall \varepsilon>0~\exists n_0~\forall n>n_0:|a_n|<\varepsilon
+\implies \lim\limits_{n \to \infty} a_n=0$$
+Обратно, пусть 
+$\lim\limits_{n \to \infty} \sup\limits_{x\in X} |f_n(x)-f(x)|=0$. 
+Тогда
+$$\forall \varepsilon>0~\exists n_0~\forall n>n_0:\sup|f_n(x)-f(x)|
+<\varepsilon$$
+Значит, выполняется неравенство 
+$$\forall x\in X:|f_n(x)-f(x)|\leqslant \sup|f_n(x)-f(x)|$$ 
+откуда
+$$\forall \varepsilon>0~\exists n_0~\forall n>n_0~\forall x\in X:
+|f_n(x)-f(x)|<\varepsilon\iff f_n\rightrightarrows f$$
+$\square$ 
 \begin{theor}
     (критерий Коши равномерной сходимости)\\
     $f_n(x)\rightrightarrows f(x)$ на множестве  $X$ тогда и только тогда,
@@ -61,6 +83,45 @@ $\lim\limits_{x \to a+0}|f_{n+p}(x)-f_n(x)|\leqslant \frac{\varepsilon}{2}$,
 $\square$
 %че топроисходит
 %\textbf{Пример.} $f_n(x)=n^{x+1}e^{-nx},~x>0$.
+\begin{theor}
+    (метод оценки остатка функциональной последовательности)\\
+    Пусть $f_n(x)\to f(x)$ на множестве  $E$ и $r_n(x)=f_n(x)-f(x)$ - 
+    остаток ряда. Тогда:\\
+    1. Если  $\forall x\in E:|r_n(x)|\leqslant b_n\to 0$, то
+    ф.п. сходится равномерно.\\
+    2. Если $\exists X_n\in E:r_n(x_n)\to a\ne 0$, то ф.п. не сходится
+    равомерно. 
+\end{theor}
+\textbf{Доказательство.} 
+1. По условию, $\forall x\in E:|r_n(x)|\leqslant b_n$, тогда
+$\sup\limits_{x\in E}|r_n(x)|\leqslant b_n$. Отсюда получаем, что
+$$0\leqslant \lim\limits_{n \to \infty} \sup\limits_{x\in E}\leqslant 
+\lim\limits_{n \to \infty} b_n=0$$
+то есть функция сходится равномерно на множестве $E$.\\
+2. Пусть $\exists X_n\in E:r_n(x_n)\to a\ne 0$. Но это эквивалентно 
+отрицанию супремум-критерия, поэтому последовательность не сходится 
+равномерно. $\square$ 
+\begin{theor}
+    (о пределе равномерно сходящейся функциональной последовательности)\\
+    Пусть функции $f_n$ непрерывны на  $X$ и  $f_n\rightrightarrows f$.
+    Тогда $f$ непрерывна на  $X$. 
+\end{theor}
+\textbf{Доказательство.} По определению, непрерывность на $X$  
+$\Leftrightarrow$ непрерывность в каждой точке $x\in X$. Рассмотрим
+ $x_0$ и зафиксируем  $\varepsilon>0$. По условию имеется равномерная 
+ сходимость, тогда для 
+$$\frac{\varepsilon}{3}>0~\exists n_0\in \mathbb{N}~\forall n>n_0~
+\forall x\in X:|f_n(x)-f(x)|<\frac{\varepsilon}{3}$$ 
+Пусть $n>n_0$, функция  $f_n(x)$ непрерывна в точке  $x_0$, тогда для
+$$\frac{\varepsilon}{3}>0~\exists \delta>0~\forall x\in X:0\leqslant 
+|x-x_0|<\delta\implies|f_n(x)-f_n(x_0)|<\frac{\varepsilon}{3}$$
+Оценим эту разницу: $|f(x)-f(x_0)|=|f(x)-f_n(x)+f_n(x)-f_n(x_0)+f_n(x_0)-
+f(x_0)|\leqslant|f(x)-f_n(x)|+|f_n(x)-f_n(x_0)|+|f_n(x_0)-f(x_0)|<
+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}$.
+Значит, $$\forall \varepsilon>0~\exists \delta>0:|x-x_0|<\delta\implies
+|f(x)-f(x_0)|<\varepsilon$$
+то есть функция непрерывна в точке $x_0$. $\square$
+
 \subsection{Свойства равномерно сходящихся функциональных последовательностей}
 \begin{enumerate}
     \item Линейные комбинации сходятся с соответствующим линейным комбинациям
@@ -71,7 +132,7 @@ $\square$
     \item Если  $\forall x\in X: f_n(x)\to f(x)$ и $E\subset X$ - конечное 
         множество, то на $E$ $f_n(x)\rightrightarrows f(x)$ - 
         функция сходится равномерно.
-    \item Функция, равномерно сходящаяся на двух множествах, равномерно
+\item Последовательность, равномерно сходящаяся на двух множествах, равномерно
         сходится на их объединении.
 \end{enumerate}
 \textbf{Доказательство.}\\
@@ -87,13 +148,34 @@ $$|(\alpha f_n(x)+\beta g_n(x))-(\alpha f+\beta g)|\leqslant |\alpha|\cdot
 2. По условию, $g(x)$ ограничена на  $X$. Значит, существует такое $M$, что
 $\forall x\in X:|g(x)|<M$. Тогда для
 $$\frac{\varepsilon}{M}>0~\exists n_0\in \mathbb{N}~\forall x\in X:
-|f_n(x)-f(x)|<\frac{\varepsilon}{M}$$. 
+|f_n(x)-f(x)|<\frac{\varepsilon}{M}$$ 
 Отсюда $|g(x)f_n(x)-g(x)f(x)|=|g(x)|\cdot |f_n(x)-f(x)|\leqslant M\cdot 
 \frac{\varepsilon}{M}=\varepsilon$.\\
-3, 4, 5 были видимо вопросами на плюсики. 
-
-
-
+3. Допустим, функция не сходится равномерно
+на $E\subset X$. Тогда существует такая 
+последовательность $\{x_n\}\subset E$, что $\lim\limits_{n \to \infty} 
+|f_n(x_n)-f(x_n)|>0$. Но поскольку $\{x_n\}\subset E\subset X$, функция 
+не сходится равномерно и на $X$, что противоречит условию.\\
+4. Так как у любого конечного множества 
+есть супремум, то найдется такой $x_0\in E$, что на нем достигается
+супремум предела $|f_n(x_0)-f(x_0)|$. Так как по условию $f_n(x_0)\to f(x_0)$,
+то по супремум-критерию последовательность сходится равномерно.\\
+5. Используем супремум-критерий. 
+Допустим, последовательность равномерно не сходится на объединении.
+Тогда 
+$$\exists \{x_n\}\subset A\cup B:
+\lim\limits_{n \to \infty}|f_n(x_n)-f(x_n)|=c\ne0$$
+Если последовательность $\{x_n\} $ целиком лежит в одном из двух множеств
+(или если лишь конечное число членов лежит в другом множестве),
+тогда $f_n$ не сходится равномерно на этом множестве, что противоречит 
+условию. Допустим, последовательность разбивается на две 
+подпоследовательности $\{x^a_n\}\subset A$ и $\{x^b_n\}\subset B$. 
+По определению, на них достигается супремум величины $|f_n-f|$. 
+Рассмотрим сумму пределов
+$\lim\limits_{n \to \infty}|f_n(x^a_n)-f(x^a_n)|+
+\lim\limits_{n \to \infty}|f_n(x^b_n)-f(x^b_n)|=c_a+c_b$. По свойству сумм
+пределов $c_a+c_b=c$, но тогда  $c_a\ne 0$, либо  $c_b\ne 0$, что 
+противоречит пред положению согласно супремум-критерию.
 \section{Функциональные ряды}
 \subsection{Базовые определения}
 \begin{defin}
