@@ -42,8 +42,14 @@ $\square$ \\
 \frac{\partial F}{\partial a}\cdot \frac{\partial a}{\partial y} 
 \frac{\partial F}{\partial b}\cdot \frac{\partial b}{\partial y}=
 \int\limits_{a(y)}^{b(y)}\frac{\partial F}{\partial y}(x,y)dx
-+f(b(y),y)\cdot b'(y)-f(a(y),y)\cdot a'(y)$ $\square$ 
-Дальше здеь была куча поясняющего текста (см фото 10.11.22 в 13620)
++f(b(y),y)\cdot b'(y)-f(a(y),y)\cdot a'(y)$ $\square$
+
+Заметим, что по правилу Лейбница, $\frac{\partial F}{\partial y}=
+\int\limits_{a(y)}^{b(y)} \frac{\partial f}{\partial y}(x,y)dx$,
+$\frac{\partial F}{\partial b} f(b(y),y)$,
+$\frac{\partial F}{\partial a}=
+\left(-\int\limits_{b(y)}^{a(y)}f(x,y)dx\right)'_a=-f(a(y),y)$
+%Дальше здеь была куча поясняющего текста (см фото 10.11.22 в 13620)
 
 \textbf{Пример.} Посчитаем $F(a)=\int\limits_{0}^{\frac{\pi}{2}}
 \frac{\ln(1+a^2\sin^2(x))}{\sin(x)}$. тут я отрубился
@@ -53,7 +59,7 @@ $\square$ \\
     Пусть $f(x,y)$ непрерывна на  $P=[a,b]\times[c,d]$. 
     Тогда
      $$\int\limits_{c}^{d}dy\int\limits_{a}^{b} f(x,y)dx=
-     \int\limits_{a}^{b}dy \int\limits_{c}^{d} f(x,y)$$
+     \int\limits_{a}^{b}dx \int\limits_{c}^{d} f(x,y)dy$$
 \end{theor}
 \textbf{Доказательство.}  Введем функции $G(t)=\int\limits_{c}^{d}dy
 \int\limits_{a}^{t}f(x,y)dy,~H(t)=\int\limits_{a}^{t}dx
@@ -72,14 +78,29 @@ f(x,y+\Delta y)-f(x,y))dx+\int\limits_{t}^{t+\Delta t}f(x,y+\Delta y)dx$.
 Из равномерной непрерывности для 
 $$\frac{\varepsilon}{2(b-a)}>0~\exists \delta_1>0~
 \forall (x_1,y_1)\in P~\forall (x_2,y_2)\in P:\sqrt{(x_1-x_2)^2-(y_1-y_2)^2}<
-\delta_1\implies|f(x_1,y_1)-f(x_2,y_2)|< \frac{\varepsilon}{2(b-a)}$$ 
+\delta_1$$ 
+$$\implies|f(x_1,y_1)-f(x_2,y_2)|< \frac{\varepsilon}{2(b-a)}$$
 Если $|\Delta y|<\delta$, то $|f(x,y+\Delta y)-f(x,y)|<
 \frac{\varepsilon}{2(b-a)}$; тогда можно оценить интеграл:
 $$\left| \int\limits_{a}^{t}(f(x,y+\Delta y)-f(x,y))dx\right|<
 \frac{\varepsilon}{2}\cdot \frac{t-a}{b-a}\leqslant \frac{\varepsilon}{2}$$ 
 Еcли $|\Delta t|< \frac{\varepsilon}{2M}$, то 
-
-$\square$ \\
+$$\left| \int\limits_{t}^{t+\Delta t}f(x,y+\Delta y)dx\right|\leqslant 
+\left| \int\limits_{t}^{t+\Delta t}|f(x,y+\Delta y)|dx\right|\leqslant 
+M\cdot \frac{\varepsilon}{2M}=\frac{\varepsilon}{2}$$
+Пусть $\delta=\min \{\delta,\frac{\varepsilon}{2M}\}$, тогда
+$$\forall \varepsilon>0~\exists \delta(\varepsilon)>0~\forall |\Delta t|
+<\delta~\forall |\Delta y|<\delta:|\Delta g|<\varepsilon$$
+Это означает, что $\lim\limits_{\substack{\Delta t\to 0\\
+\Delta y\to 0}}\Delta g=0$. Заметим, что $g(t,y)$ непрерывна на  $P$.
+Применим теорему о дифференцировании к функции $G(t)$: 
+$$G'(t)=\int\limits_{c}^{d} \frac{\partial g}{\partial t}(t,y)dy=
+\int\limits_{c}^{d}f(t,y)dy$$
+С другой стороны,
+$$H'(t)=\frac{\partial}{\partial t}\left( \int\limits_{a}^{t}dx
+\int\limits_{c}^{d}f(x,y)dy \right)=\int\limits_{c}^{d}f(t,y)dy$$
+Итак, мы получили, что $G'(t)=H'(t),~G(a)=H(a)=0$, откуда
+$G(t)=H(t)\implies G(b)=H(b)$. $\square$ \\
 
 
 
