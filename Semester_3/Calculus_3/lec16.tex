@@ -1,0 +1,87 @@
+\textbf{Пример.} Пусть $f(x)>0$ при  $x\geqslant 0$,
+$\int\limits_{0}^{\infty} f(x)dx$ сходится.
+Тогда $\forall \alpha>0$ интеграл $\int\limits_{0}^{\infty}f(y^\alpha x)dx$
+сходится равномерно на $[y_0,\infty),~y_0>0$, и сходится неравномерно
+на $(0,\infty)$.\\
+\textbf{Решение.} 1. Методом оценки остатка: 
+$R(b,y)=\int\limits_{b}^{\infty}f(y^\alpha x)dx=\frac{1}{y^\alpha}
+\int\limits_{b}^{\infty} f(y^\alpha x)d(y^\alpha x)=\frac{1}{y^\alpha}
+\int\limits_{by^\alpha}^{\infty}f(t)dt\leqslant \frac{1}{y^\alpha_0}
+\int\limits_{by^\alpha}^{\infty} f(t)dt=r(b)\to 0$ при $b\to \infty$,
+так как $\int\limits_{0}^{\infty} f(t)dt$ сходится.\\
+2. Докажем неравномерную сходимость по супремум-критерию:
+$\sup\limits_{y>0}\int\limits_{b}^{\infty} f(y^\alpha x)dx=
+\sup\limits_{y>0}\frac{1}{y^\alpha}\int\limits_{by^\alpha}^{\infty} f(t)dt
+\geqslant
+\sup\limits_{0<y\leqslant 1}\frac{1}{y^\alpha}\int\limits_{by^\alpha}^{\infty}
+f(t)dt\geqslant
+\sup\limits_{0<y\leqslant 1}\frac{1}{y^\alpha}\int\limits_{b}^{\infty}f(t)dt=
+\infty$ при $y\to \infty$. Тогда по супремум-критерию нет равномерной 
+сходимости.
+
+\textbf{Пример.} Интеграл Пуассона аналогично сходится равномерно на 
+бесконечности, если интервал начинается не с нуля. 
+\subsubsection{Свойства несобственных интегралов, зависящих от параметров}
+\begin{enumerate}
+    \item Равномерно сходящиеся интегралы образуют линейное пространство.
+    \item Если равномерно сходится на множестве, то сходится и на его 
+        подмножестве.
+    \item Сходится равномерно на конечном объединении областей, 
+        где сходится равномерно.
+    \item 
+\end{enumerate}
+\textbf{Пример.} Покажем, что свойство 3 нельзя обощить на объединения
+бесконечного числа множеств. Так, $\int\limits_{0}^{\infty}e^{-x^2y}dx$
+сходится равномерно на $E_n=[\frac{1}{n},\infty)$, но расходится на 
+бесконечном объединении таких областей. 
+\begin{theor}(критерий Коши)\\
+    $\int\limits_{a}^{\infty}f(x,y)dx$ сходится равномерно на $Y$ тогда и 
+    только тогда, когда 
+     $$\forall \varepsilon>0~\exists b_0(\varepsilon)>a~\forall b_1,b_2>b_0~
+ \forall y\in Y:\left|\int\limits_{b_1}^{b_2}f(x,y)dx\right|<\varepsilon$$
+\end{theor}
+\textbf{Доказательство.}  Фиксируем $\varepsilon>0$. Для 
+$$\frac{\varepsilon}{2}~\exists b_0>a~\forall b>b_0~\forall y\in Y:
+\left|\int\limits_{b_1}^{\infty}f(x,y)dx\right|<\frac{\varepsilon}{2}\right|$$
+Пусть $b_1,b_2>b_0$, тогда $\left| \int\limits_{b_1}^{b_2}f(x,y)dx\right|=
+\left|\int\limits_{b_1}^{\infty}f(x,y)dx-\int\limits_{b_2}^{\infty} f(x,y)dx
+\right|\leqslant 
+\left|\int\limits_{b_1}^{\infty}f(x,y)dx\right|
+-\left|\int\limits_{b_2}^{\infty} f(x,y)dx\right|<
+\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon$.\\
+Обратно, для
+$$\frac{\varepsilon}{2}~\exists b_0>a~\forall b_1,b_2>b_0~\forall y\in Y:
+\left|\int\limits_{b_1}^{b_2}f(x,y)dx\right|<\frac{\varepsilon}{2}\right|$$
+Тогда 
+$\left|\int\limits_{b_1}^{\infty}f(x,y)dx-\int\limits_{b_2}^{\infty} f(x,y)dx
+\right|<\frac{\varepsilon}{2}$. Если $b_2\to \infty$, то
+$$\forall y\in Y: \int\limits_{b_2}^{\infty}f(x,y)dx\to 0$$ 
+(так как есть поточечная сходимость);
+$\left|\int\limits_{b_1}^{\infty}f(x,y)dx\right|\leqslant\frac{\varepsilon}{2}
+<\varepsilon$
+Итак, выполняется определение. $\square$ \\
+
+\begin{theor}
+    (метод граничной точки)\\
+    Пусть 1. $f(x,y)$ непрерывна на $[a,\infty)\times[c,d)$\\
+    2. $\forall y\in (c,d)$ интеграл $\int\limits_{a}^{\infty} f(x,y)dx$ 
+    сходится \\
+    3. $\int\limits_{a}^{\infty}f(x,c)dx$ расходится.\\
+    Тогда $\int\limits_{a}^{\infty}f(x,y)dx$ не сходится равномерно на 
+    $(c,d)$
+\end{theor}
+\textbf{Доказательство.} Допустим, на $(c,d)$ есть равномерная сходимость.
+Тогда по супремум-критерию
+Самостоятельно от противного. 
+$\square$ 
+
+\begin{theor}
+    (признак Вейерштрасса равномерной сходимости)\\
+    Пусть 1. $\forall x\geqslant a~\forall y\in Y:|f(x,y)|\leqslant g(x)$;\\
+    2. $\int\limits_{a}^{\infty}g(x)dx$ сходится.\\
+Тогда $\int\limits_{a}^{\infty}f(x,y)dx$ сходится равномерно на  $Y$.
+\end{theor}
+\textbf{Доказательство.}  Используем критерий Коши. 
+$\square$ \\
+
+
