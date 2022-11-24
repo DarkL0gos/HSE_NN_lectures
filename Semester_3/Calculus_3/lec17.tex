@@ -1,0 +1,162 @@
+\begin{theor}
+    (признак Дирихле равномерной сходимости несобственного интеграла, 
+    зависящего от параметра)\\
+    1. $\forall y\in Y$ $f(x,y)$ непрерывна на  $[a,\infty)$\\
+    2. $\forall y\in Y$ $\frac{\partial g}{\partial x}(x,y)$ 
+    непрерывна на  $[a,\infty)$\\
+    3. $\forall y\in Y$ $g(x,y)$ монотонна по $x\in [a,\infty)$\\
+    4. $g(x,y)\rightrightarrows 0$ при $x\to \infty$\\
+    5. $\exists M=const~\forall y\in Y~\forall x\geqslant a:
+    \left| \int\limits_{a}^{x}f(t,y)dt \right|\leqslant M$.\\
+    Тогда $\int\limits_{a}^{\infty}f(x,y)g(x,y)dx$ сходится равномерно на
+    $Y$.
+\end{theor}
+\textbf{Доказательство.}  По критерию Коши. 
+Для
+$$\frac{\varepsilon}{4M}>0~\exists b_0(\varepsilon)>a~\forall x>b_0~
+\forall y\in Y:|g(x,y)|<\frac{\varepsilon}{4m}$$ 
+Возьмем $b_1,b_2>b_0$. Тогда
+
+\begin{equation*}
+\left| \int\limits_{b_1}^{b_2}f(x,y)g(x,y)dx \right| = 
+\left| \int\limits_{b_1}^{b_2}g(x,y)d\left( \int\limits_{a}^{x}f(t,y)dt
+\right)   \right| = 
+\end{equation*}
+$$=\left|\left( g(x,y)\cdot\int\limits_{a}^{x}f(t,y)dt\right)\bigg|^{b_2}_{b_1}
+- \int\limits_{b_1}^{b_2} \left( \int\limits_{a}^{x} f(t,y)dt \right) \cdot 
+\frac{\partial g}{\partial x} (x,y)dx \right|\leqslant$$
+$$\leqslant 
+\left| g(b_2,y) \right|\cdot \left| \int\limits_{a}^{b_2}f(t,y)dt \right| +
+\left| g(b_1,y) \right|\cdot \left| \int\limits_{a}^{b_1}f(t,y)dt \right| +
+\left| \int\limits_{b_1}^{b_2}\biggl| \int\limits_{a}^{x}f(t,y)dt\biggr|\cdot 
+\frac{\partial g}{\partial x} (x,y)dx \right| \leqslant $$ 
+$$\frac{\varepsilon}{4M}\cdot M+\frac{\varepsilon}{4M}\cdot M+
+M\cdot |g(b_2,y)-g(b,y)|<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=
+\varepsilon$$ 
+Итак, 
+$$\forall \varepsilon>0~\exists b_0(\varepsilon)>a~\forall b_1,b_2>b_0~
+\forall y\in Y:\left| \int\limits_{b_1}^{b_2}f(x,y)g(x,y)dx\right| 
+<\varepsilon$$ 
+Тогда по 
+критерию Коши $\int\limits_{a}^{\infty}f(x,y)g(x,y)dx$ сходится равномерно на
+$Y$. $\square$ 
+
+\begin{theor}
+    (признак Абеля равномерной сходимости несобственного интеграла, 
+    зависящего от параметра)\\
+    1. $\forall y\in Y$ $f(x,y)$ непрерывна на  $[a,\infty)$\\
+    2. $\forall y\in Y$ $\frac{\partial g}{\partial x}(x,y)$ 
+    непрерывна на  $[a,\infty)$\\
+    3. $\forall y\in Y$ $g(x,y)$ монотонна по $x\in [a,\infty)$\\
+    %4. $g(x,y)\rightrightarrows 0$ при $x\to \infty$\\
+    4. $\exists M=const~\forall y\in Y~\forall x\geqslant a:
+    \left| g(x,y)\right|\leqslant M$.\\
+    5. $\int\limits_{a}^{\infty}f(x,y)dx$ сходится равномерно на $Y$.\\
+    Тогда $\int\limits_{a}^{\infty}f(x,y)g(x,y)dx$ сходится равномерно на
+    $Y$.
+\end{theor}
+\textbf{Доказательство.}  По критерию Коши. 
+Для
+$$\frac{\varepsilon}{3M}>0~\exists b_0(\varepsilon)>a~\forall b_1,b_2>b_0~
+\forall y\in Y: \int\limits_{b_1}^{b_2}f(x,y)dx<\frac{\varepsilon}{3M}$$ 
+Возьмем $b_1,b_2>b_0$. Тогда
+\begin{equation*}
+\left| \int\limits_{b_1}^{b_2}f(x,y)g(x,y)dx \right| = 
+\left| \int\limits_{b_1}^{b_2}g(x,y)d\left( \int\limits_{b_1}^{x}f(t,y)dt
+\right)   \right| = 
+\end{equation*}
+$$=\left|\left.\left( g(x,y)\cdot\int\limits_{b_1}^{x}f(t,y)dt\right)\right|^{b_2}_{b_1}
+- \int\limits_{b_1}^{b_2} \left( \int\limits_{b_1}^{x} f(t,y)dt \right) \cdot 
+\frac{\partial g}{\partial x} (x,y)dx \right|\leqslant$$
+$$\leqslant 
+\left| g(b_2,y) \right|\cdot \left| \int\limits_{b_1}^{b_2}f(t,y)dt \right| +
+\left| \int\limits_{b_1}^{b_2} \left| \int\limits_{b_1}^{x}f(t,y)dt\right|\cdot 
+\frac{\partial g}{\partial x} (x,y)dx \right| \leqslant $$ 
+
+$$\leqslant \frac{\varepsilon}{3M}\cdot M+
+M\cdot |g(b_2,y)-g(b,y)|<\frac{\varepsilon}{3}+\frac{2\varepsilon}{3}=
+\varepsilon$$ 
+Итак, 
+$$\forall \varepsilon>0~\exists b_0(\varepsilon)>a~\forall b_1,b_2>b_0~
+\forall y\in Y:\left| \int\limits_{b_1}^{b_2}f(x,y)g(x,y)dx\right| 
+<\varepsilon$$ 
+Тогда по 
+критерию Коши $\int\limits_{a}^{\infty}f(x,y)g(x,y)dx$ сходится равномерно на
+$Y$. $\square$ \\
+
+\textbf{Пример.} $\int\limits_{1}^{\infty} \frac{y^2\cos xy}{x+y^2}$,
+$y\in [0,\infty)$. Исследуем на равномерную сходимость. Пусть
+$f(x,y)=y\cos xy,~g(x,y)=\frac{y}{x+y^2}$. Условия проверяются очевидным
+образом, интеграл сходится равномерно по Дирихле. 
+
+\begin{theor}
+    (о непрерывности несобственного интеграла, зависящего от параметра)\\
+    1. $f(x,y)$ непрерывна на  $[a,\infty)\times Y$\\
+    2. $\int\limits_{a}^{\infty} f(x,y)dx$ сходится равномерно на $Y$.\\
+    Тогда  $\Phi=\int\limits_{a}^{\infty} f(x,y)dx$ непрерывна на $Y$
+\end{theor}
+\textbf{Доказательство.} 
+Функция непрерывна, если она непрерывна в каждой точке. 
+$\Phi(y)$ непрерывна в  $y_0$ тогда и только тогда
+$$\forall \varepsilon>0~\exists \delta>0~\forall y\in Y:
+|y-y_0|<\delta \implies |\Phi(y)-\Phi(y_0)|<\varepsilon$$
+По второму услвоию, так как интграл сходится равномерно. то
+для любого 
+ $$\frac{\varepsilon}{3}>0~\exists b_0>a~\forall b>b_0~\forall y\in Y:
+\left|\int\limits_{b}^{\infty} f(x,y)dx\right|<\frac{\varepsilon}{3}
+ $$
+Тогда 
+$$
+\Phi(y)-\Phi(y_0)=\int\limits_{a}^{\infty} f(x,y)dx-
+\int\limits_{a}^{\infty} f(x,y_0)dx=
+$$
+$$
+=\int\limits_{a}^{b} f(x,y)dx+ \int\limits_{b}^{\infty}f(x,y)dx -
+\int\limits_{a}^{b} f(x,y_0)dx -\int\limits_{b}^{\infty}f(x,y_0)dx=
+$$
+$$
+=\left( \int\limits_{a}^{b} f(x,y)dx-\int\limits_{a}^{b} f(x,y_0)dx\right) +
+\int\limits_{b}^{\infty}f(x,y)dx-\int\limits_{b}^{\infty}f(x,y_0)dx
+$$
+По теореме о непрерывности собственного интеграла, зависящего от параметра, 
+для
+$$
+\forall \frac{\varepsilon}{3}>0~\exists \delta>0~\forall y\in Y:
+|y-y_0|<\delta \implies |F(y)-F(y_0)|<\frac{\varepsilon}{3}
+$$
+Тогда 
+$$|\Phi(y)-\Phi(y_0)|\leqslant |F(y)-F(y_0)|+ 
+\left|\int\limits_{b}^{\infty}f(x,y)dx  \right| + 
+\left|\int\limits_{b}^{\infty}f(x,y_0)dx \right|\leqslant 
+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=
+\varepsilon$$
+Значит, $\Phi(y)$ непрерывна в любой точке на $Y$, то есть она непрерывна
+на $Y$. $\square$ 
+\begin{theor}
+    (о предельном переходе)\\
+    1. $f(x,y)$ непрерывна на  $[a,\infty)\times Y$\\
+    2. $\int\limits_{a}^{\infty} f(x,y)dx$ сходится равномерно на $Y$.\\
+    Тогда  
+$$\lim\limits_{y \to y_0}\int\limits_{a}^{\infty} f(x,y)dx=
+\int\limits_{a}^{\infty} \lim\limits_{y \to y_0}f(x,y)dx = 
+\int\limits_{a}^{\infty}f(x,y_0)dx$$
+\end{theor}
+\textbf{Доказательство.}  Напишем его сами)))
+$\square$ 
+\begin{theor}
+    (об интегрируемости)\\
+    1. $f(x,y)$ непрерывна на  $[a,\infty)\times [c,d]$\\
+    2. $\int\limits_{a}^{\infty} f(x,y)dx$ сходится равномерно на $[c,d]$.\\
+    Тогда 
+    $$\int\limits_{c}^{d}dy \int\limits_{a}^{\infty}f(x,y)dx =
+    \int\limits_{a}^{\infty}dx \int\limits_{c}^{d}f(x,y)dy$$
+\end{theor}
+\textbf{Доказательство.}  
+$\square$ \\
+
+
+
+
+
+
+
