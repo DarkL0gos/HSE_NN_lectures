@@ -1,0 +1,117 @@
+\section{Теоремы о непрерывной зависимости задачи Коши}
+от начальных условий и правой части уравнения.
+
+Дано: уравнение c задачей Коши
+$$\begin{cases}
+    \frac{dx}{dt}=f(t,x)\\
+    x(t_0)=x_0
+\end{cases}$$ 
+$f,\frac{\partial f}{\partial x}$  непрерывны в области $D$. 
+Утверждается, что решение задачи Коши $x=x(t,t_0,x_0)$, определенное на 
+отрезке $I=[a,b]$. 
+непрерывно по всем 
+аргументам. Из этого следует, что решение при малом изменении начальных 
+условий будет мало отличаться от исходного (разумеется, на конечном
+интервале). 
+
+Обозначим $V_\rho=\{(t,x)\in \mathbb{R}^2\mid t\in I,|x-x(t,t_0,x_0)|
+\leqslant \rho\}$ - цилиндрическая окрестность решения. 
+
+\begin{theor}
+    (о непрерывной зависимости)\\
+    Пусть $f,\frac{\partial f}{\partial x}$  непрерывны в области $V_\rho$.
+    Тогда для любого $\varepsilon$ для любой функции $g(t,x)$, такой, что
+$g,\frac{\partial g}{\partial x}$ непрерывны в $V_\rho$ найдется
+ $\delta_(\varepsilon):|x_0-y_0|\leqslant \delta,|g(t,x)-f(t,x)|\leqslant S$.
+ Решение $y(t)$ задачи Коши для уравнения $\frac{dy}{dt}=g(t,y)$ продолжается
+ на $I$ и  $\forall t\in I: |y(t,t_0,y_0)-x(t,t_0,x_0)|<\varepsilon$.
+    %$$\forall \varepsilon>0~\forall g(t,x)$$
+\end{theor}
+Иначе говоря, решение, проходящее ближе чем $\rho$ от решения задачи Коши,
+не выходит из этой $\rho$-окерстности.\\
+\textbf{Лемма Гронуолла.} Пусть $\varphi(t),\beta(t)$ - непрерывные функции
+на отрезке $[t_1,t_2]$, причем на отрезке $\beta(t)>0$ и  $\varphi(t)\leqslant 
+\alpha+\int\limits_{t_1}^{t_2} \beta(\tau)\varphi(\tau)d\tau$. 
+Тогда 
+$\varphi(t)\leqslant \alpha e^{\int\limits_{t_1}^{t_2}\beta(\tau)d\tau}$.\\
+\textbf{Доказательство.} Положим $\Phi(t)=\alpha+
+\int\limits_{t_1}^{t_2} \beta(\tau)\varphi(\tau)d\tau$, где 
+$\varphi(t)\leqslant \Phi(t)$. Тогда
+$$\frac{\partial \Phi}{\partial t}e^{-\int\limits_{t_1}^{t_2}\beta d\tau}
+-e^{-\int\limits_{t_1}^{t_2}\beta d\tau}\beta(t)\Phi(t)\leqslant 0$$ 
+Все это выражение на самом деле является производной:
+$$\frac{d}{dt}\left( \Phi e^{-\int\limits_{t_1}^{t}\beta d\tau} \right)
+\leqslant 0$$ 
+ Так как производная этой функции отрицательна, то 
+$$\varphi \leqslant \Phi\leqslant \alpha
+e^{\int\limits_{t_1}^{t_2}\beta d\tau}$$
+Мы установили равносильность неравенства из условия и неравенства
+$\frac{d\varphi}{dt}\leqslant \beta(t)\varphi(t)$ $\square$ 
+
+Теперь перейдем к доказательству основной теоремы. Поскольку $f$ непрерывна,
+то она ограниченна на компакте, иными словами
+$$\forall (t,x)\in V_\rho~\exists M\geqslant 0,L\geqslant 0:
+|f(t,x)|\leqslant M,~\left| \frac{df}{dx} \right|\leqslant L $$
+Значит, эта функция липшицева:
+$$|f(t,x)-f(t,y)|\leqslant L\cdot |x-y|,~|f(t,x)-g(t,y)|\leqslant \delta$$
+Тогда $|f(t,x)-f(t,y)+f(t,y)-g(t,y)|\leqslant |-(f(t,x)+f(t,y))|+
+|f(t,y)-g(t,y)|\leqslant L\cdot |x-y|+\delta$.
+
+Оценим разность $|y(t,t_0,y_0)-x(t,t_0,x_0)|$. По лемме об интегральной
+форме уравнения, это то же самое, что и 
+$$\left| y_0+\int\limits_{t_0}^{t} g(\tau,y(\tau))d\tau -x_0 -
+ \int\limits_{t_0}^{t} f(\tau,x(\tau))d\tau \right| \leqslant 
+$$
+$$
+\leqslant 
+|y_0-x_0|+\left|\int\limits_{t_0}^{t} g(\tau,y(\tau))d\tau -
+\int\limits_{t_0}^{t} f(\tau,x(\tau))d\tau \right|\leqslant 
+\delta+\left| \int\limits_{t_0}^{t} (L(|y-x|+\delta))d\tau \right|\leqslant 
+$$
+Пусть решение $y(t,t_0,x_0)$ определено на отрезке $I_1=[a_1,b_1]$. 
+Продолжим неравенства:
+$$
+\leqslant \delta(1+(b_1-a_1))+\left| \int\limits_{t_0}^{t} L|y-x|d\tau\right| 
+$$
+Обозначим $\alpha=\delta(1+(b_1-a_1))$, 
+$\varphi(t)=|y(t,t_0,y_0)-x(t,t_0,x_0)|$. Применяя лемму Гронуолла, получаем
+$\varphi(t)\leqslant \alpha e^{L|b_1-a_1|}<\varepsilon_1$ (при 
+$\alpha=\frac{\varepsilon_1}{2e^{L|b_1-a_1|}}$).
+Таким образом, разность между двумя решениями меньше чем $\varepsilon_1$ на 
+отрезке $[a_1,b_1]$, иными словами $y(t,t_0,y_0)$ лежит в 
+$V_{\varepsilon_1}$-трубочке решения $x(t,t_0,x_0)$. По теореме о продолжении
+решения,  $y(t,t_0,y_0)$ продолжается до выхода на границу
+$\partial V_{\varepsilon_1}$. Через верхнюю и нижнюю границу часть границы
+мы не выходим, так как $|y-x|<\varepsilon_1$, значит, $y(t,t_0,y_0)$
+продолжается на $I$. Аналогично, если  $t<t_0$. $\square$
+\begin{figure}[H]
+    \centering
+    \input{figures/nepr_zav_cauchi.pdf_tex}
+    \caption{Теорема о непрерывной зависимости}
+    \label{fig:}
+\end{figure}
+
+\textbf{Следствие.} Пусть числовая последовательность 
+$x^i_0\to x_0$ сходится при $i\to\infty$. 
+Тогда $x(t,t_0,x^i_0)\to x(x,t_0,x_0)$. Доказать самостоятельно. Упражнение:
+доказать теорему о непрерывной зависимости одновременно от $t_0$ и $x_0$.
+Также доказать следствие о равномерной сходимости.
+
+\subsection{Как решать Рикатти через Пикара (с оценкой погрешности)}
+Рассмотрим уравнение $\frac{dy}{dx}=x-y^2(x),~y(0)=0$. Найдем формулу
+для решения на отрезке $x\in [0,0.5]$.
+Допустим, решение существует. Запишем последовательность Пикара, определенную
+рекуррентной формулой $y_{k+1}(x)=\int\limits_{0}^{x}(s-y^2_k(s)ds)$.
+Посчитаем первые члены: $y_1=0+\int\limits_{o}^{x}sds=\frac{x^2}{2}$,
+$y_2=\int\limits_{0}^{x}\left( s-\frac{s^4}{4}\right)ds=\frac{x^2}{2}-
+\frac{x^5}{20}$, $y_3=\frac{x^2}{2}-\frac{x^5}{20}+\frac{x^8}{160}-
+\frac{x^{11}}{4400}$. Построим ряд из последовательности:
+$$y=y_0+(y_1-y_0)+(y_2-y_1)+(y_3-y_2)...+a_k$$ 
+Остаток $a_k$ оценивается по формуле  $|a_k|\leqslant \frac{M}{L}\cdot 
+\frac{L^k|t-t_0|^k}{k!}$. 
+
+Рассмотрим шар $B_r=\{|x|\leqslant \frac{1}{2},y\in [0,\frac{1}{2}]\}$. 
+Тогда постоянные Липшица для функции и её производной равны
+$M=\max\limits_{B_r}|f(t,x)|,~
+L=\max\limits_{B_r}|\frac{\partial f}{\partial x} (t,x)|$. 
+
