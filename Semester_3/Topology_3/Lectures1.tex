@@ -1,0 +1,424 @@
+\chapter{Введение в топологию}
+\section{Топологические пространства}
+\subsection{Необходимые определения}
+\begin{definition}[Топология]
+Пусть $X$ - произвольное множество.\\ $\tau =\{U_{\alpha}{\subset}X|\alpha{\in}Y\}$ - семейство каких-то подмножеств из $X$.\\ Пусть выполняются следующие 3 условия:\\ $(\tau_1)$ $\varnothing, X{\subset}\tau$\\
+$(\tau_2)$ Если $U_{\alpha_1}, U_{\alpha_2}{\in}\tau$, то $U_{\alpha_1}{\cap}u_{\alpha_2}{\in}\tau$. То есть пересечение любых двух подмножеств, принадлежащих $Y$, так же принадлежит $\tau$\\
+$(\tau_3)$ $\forall B{\subset}Y$ $U_{\beta}{\in}\tau \forall \beta{\in}B \Rightarrow \underset{\beta{\in}B}{\cup}U_{\beta}{\in}\tau$\\
+Тогда семейство $\tau$ называется топологией (или топологической структурой) на множестве $X$, а пара $(x,\tau)$ называется топологическим пространством.
+\end{definition}
+
+\begin{remark}
+Включение не исключает равенства, т.е. $\subseteq$ не пишут.
+\end{remark}
+
+\begin{definition}[Открытое и замкнутое подмножество]
+Подмножество $U{\subset}X$, принадлежащее $\tau$ называется открытым в топологии $\tau$ или $\tau$-открытым.\\
+Подмножество $F{\subset}X$ называется замкнутым в $\tau$, если его дополнение $CF:=X{\setminus}F$ открыто в $\tau$
+\end{definition}
+
+\begin{remark}
+$\varnothing, X$ одновременно открыты и замкнуты в любой топологии на $X$.
+\end{remark}
+
+\begin{definition}[Связное топологическое пространство]
+Топологическое пространство называется связным, если одновременно открыты и замкнуты в нём только $\varnothing$ и $X$, других нет. В противном случае $(X,\tau)$ называется несвязным.
+\end{definition}
+
+\begin{example}
+Множество людей в аудитории. $\tau=\{\varnothing,X,U_1,U_2\}$\\
+$U_1=\{\text{Те, у кого день рождения был до 01.06.2022г.}\}$\\
+$U_2=\{\text{Те, у кого дня рождения не было до 01.06.2022г.}\}$\\
+$(\tau_1)$ $\varnothing{\subset}\tau$, $X{\subset}\tau$\\
+$(\tau_2)$ $U_1{\cap}U_2=\varnothing{\in}\tau$\\
+$(\tau_3)$ $U_1{\cup}U_2=X{\in}\tau$\\
+Замкнутое подмножество $F=\{X,\varnothing,U_2,U_1\}=\tau$ $\Rightarrow$ $U_1,U_2$ - открыто-замкнутые подмножества. $U_1,U_2{\neq}\varnothing,X$\\
+$(X,\tau)-$несвязное топологическое пространство.
+\end{example}
+
+\subsection{Обычная топология}
+$(\mathbb{R}^3,\rho)$ - евклидово трёхмерное пространство, $x=(x_1,x_2,x_3)$; $y=(y_1,y_2,y_3)$\\
+$\rho(x,y)=\sqrt{(y_1-x_1)^2+(y_2-x_2)^2+(y_3-x_3)^2}$
+
+\begin{definition}[Шар]
+Шар радиуса $r>0$ с центром в точке $a=(a_1,a_2,a_3)$ есть $D_r(a)=\{x{\in}\mathbb{R}^3|\rho(x,y)<r\}-r$-окрестность точки $a$.
+\end{definition}
+
+\begin{example}
+$x=\mathbb{R}^3$; $\tau^*=\{U{\subset}\mathbb{R}^3|\forall x{\in}U \ \exists \varepsilon>0 \ D_{\varepsilon}(x){\subset}U\}$\\
+То есть $\tau^*$ содержит все подмножества в $\mathbb{R}^3$, которые вместе с каждой точкой некоторую её $\varepsilon$ окрестность.\\
+$(\tau_1)$ $\varnothing{\in}\tau^*$; $\forall x{\in}\mathbb{R}^3$; $\exists D(1){\in}\mathbb{R}^3$ $\Rightarrow$ $\mathbb{R}^3{\in}\tau^*$\\
+$(\tau_2)$ $\forall U_1,U_2{\in}\tau^*$ $\forall x{\in}U_1{\cap}U_2$\\
+Так как $U_1{\in}\tau^*$ $\Rightarrow$ $\exists \varepsilon_1>0$ $D_{\varepsilon_1}(x){\in}U_1$\\
+Так как $U_2{\in}\tau^*$ $\Rightarrow$ $\exists \varepsilon_2>0$ $D_{\varepsilon_2}(x){\in}U_2$\\
+$\varepsilon=\min(\varepsilon_1,\varepsilon_2)>0$ $\Rightarrow$ $D_{\varepsilon}(x){\subset}U_1{\cap}U_2$ $\Rightarrow$ $U_1{\cap}U_2{\in}\tau^*$ $\Rightarrow$ $(\tau_2)$ выполняется.\\
+$(\tau_3)$ Рассмотрим $\forall Y$ множество, пусть $U_{\alpha}{\in}\tau^*, \alpha{\in}Y$\\
+Рассмотрим $\underset{\alpha{\in}Y}{\cup}U_{\alpha}$; $\forall x{\in}\underset{\alpha{\in}Y}{\cup}U_{\alpha}$ $\Rightarrow$ $\exists \alpha_0{\in}Y$: $x{\in}U_{\alpha_0}{\in}\tau^*$ $\Rightarrow$ $\exists\varepsilon>0$ $D_{\varepsilon}(x){\in}U_{\alpha_0}$ $\Rightarrow$ $D_{\varepsilon}(x){\subset}\underset{\alpha{\in}Y}{\cup}U_{\alpha}$ $\Rightarrow$ $\underset{\alpha{\in}Y}{\cup}U_{\alpha}{\in}\tau^*$, то есть $(\tau_3)$ выполняется\\
+$\Rightarrow$ $\tau^*-$топология на трёхмерном пространстве и обозначается: $\tau_{\text{об}}=\tau^*$. $(\mathbb{R}^3,\tau_{\text{об}})-$топологическое пространство.\\
+Аналогично определяется $(\mathbb{R}^n,\tau_{\text{об}})$
+\end{example}
+
+\subsection{Симметричные топологии}
+$(\mathbb{R}^2,\tau_{MN})$, $\tau_{MN}=\{U{\in}\mathbb{R}^2|U\text{симметрично относительно MN}\}$
+
+\includegraphics[width=0.2\textwidth]{Картинки/симметрия относительно прямой.jpg}\\
+$U$ симметрично относительно $MN$, если $\forall x{\in}U$ $\Rightarrow$ $\alpha{\in}U$\\
+$F_{MN}=\{CU{\in}\mathbb{R}^2|U{\in}\tau_{MN}\}=\tau_{MN}$
+$\forall U{\in}\tau_{MN}$ $U-$открыто замкнуто.
+
+
+\begin{example}
+$(\mathbb{R}^2,\tau_{S})$,
+$\tau_{S}=\{U{\in}\mathbb{R}^2|U\text{симметрично относительно } S, \text{то есть}\ \forall x{\in}U \Rightarrow x'{\in}U\}$\\
+\includegraphics[width=0.23\textwidth]{Картинки/симметрия относительно точки.jpg}\\ топологическое пространство не связное.
+\end{example}
+
+\begin{example}
+$(\mathbb{R}^2,\tau_{f})$, $f: \mathbb{R}^2\to\mathbb{R}^2-\forall$ биекция.\\
+$\tau_f=\{U{\subset}\mathbb{R}^2|f(U)=U\}-$топология на плоскости $\mathbb{R}^2$, где $U-$инвариантная относит. $f$.
+\end{example}
+
+\begin{example}
+$(\mathbb{R}^2,\tau_{f})$, $f:\mathbb{R}^2\to\mathbb{R}^2$: $\bar{x}\mapsto \bar{x}+\bar{a}$; $\bar{a}{\neq}\bar{0}-$фиксированный вектор. Пример: точки, прямая $L{\in}\tau_f$
+\end{example}
+
+\begin{example}
+Топология Зарисского: $(\mathbb{R}^2,\tau_{\text{З}})=\{\varnothing,\mathbb{R}^2\}{\cup}\{\mathbb{R}^2\setminus\{a_1,...,a_k\}\}$ $\forall k{\in}\mathbb{N}$ $\forall a_i{\in}\mathbb{R}^2$; $1{\leq}i{\leq}k$
+\end{example}
+
+\begin{example}
+$(\mathbb{R}^2,\tau_{r})$\\
+$\tau_r=\{\varnothing,\mathbb{R}^2\}{\cup}\{D_r(0)|r>0\}-$связное топологическое пространство.
+\end{example}
+
+\subsection{Сравнение топологий}
+\begin{definition}[Более сильная (слабая) топология]
+Пусть $(X,\tau),(X,\Omega)-$две топологии на $X$.\\
+Если $\tau{\subset}\Omega$ и не совпадают, то, говорят, что $(X,\Omega)$ сильнее, чем $(X,\tau)$,\\ а $(X,\tau)$ слабее (или грубее), чем $(X,\Omega)$\\ \\
+Если $(X,\tau){\subset}(X,\Omega)$, то $(X,\tau)$ не сильнее $(X,\Omega)$, $(X,\Omega)$ не слабее $(X,\tau)$.\\ \\
+Если $(X,\tau){\subset}(X,\Omega)$ и $(X,\Omega)\subset(X,\tau)$, то $(X,\tau)=(X,\Omega)$ - совпадают.\\ \\
+Если $(X,\tau){\not\subset}(X,\Omega)$ и $(X,\Omega){\not\subset}(X,\tau)$, то $(X,\tau)$ и $(X,\Omega)$ не сравнимы.
+\end{definition}
+
+\begin{example}
+$(\mathbb{R}^2,\tau_{\text{об}})$, $(\mathbb{R}^2,\tau_{r})$;\ \ 
+$\tau_{r}{\subset}\tau_{\text{об}}$ и $\tau_{r}{\neq}\tau_{\text{об}}$ $\Rightarrow$ $\tau_r$ слабее, чем $\tau_{\text{об}}$.
+\end{example}
+
+\begin{example}
+$(\mathbb{R}^2,\tau_{\text{об}})$ $(\mathbb{R}^2,\tau_{MN})$ не сравнимы.\\
+1) $U=\{x\}{\cup}\{x'\}{\in}\tau_{MN}$, $U{\notin}\tau_{\text{об}}$ $\Rightarrow$ $\tau_{MN}{\not\subset}\tau_{\text{об}}$\\
+2) $V{\in}\tau_{\text{об}}$, $V{\notin}\tau_{MN}$ $\Rightarrow$ $\tau_{\text{об}}{\not\subset}\tau_{MN}$
+\end{example}
+
+\section{База топологии}
+\begin{definition}[База топологии]
+Пусть $(X,\tau)-$топологическое пространство. Семейство $\Sigma=\{W_\beta{\subset}X|\beta{\in}B\}$ подмножеств из $X$ называется базой топологии $\tau$, если оно удовлетворяет следующим 2-м условиям:\\
+    1. $\Sigma\in\tau$, т.е. $\forall W_\beta\in\Sigma$ $\Rightarrow$ $W_{\beta}$ открыто в $\tau$\\
+    2. Любое открытое в $\tau$ подмножество $Х$ можно представить в виде
+    объединения некоторых подмножеств из $\Sigma$, т.е. 
+    $\forall U\in\tau\ \ \exists W_\alpha\in\Sigma,\ \ \alpha\in A\subset B:$
+    $U=\bigcup\limits_{\alpha\in A}W_\alpha $
+\end{definition}
+\begin{example} [База обычной топологии]
+В обычной (евклидовой) топологии множество 
+$\Sigma=\{D_r(a)\mid a\in\mathbb{R}^n,r>0\}$ является базой топологии.
+Действительно, проверим аксиомы:\\
+\begin{center}
+{\includegraphics[width=4cm]{рисунок.jpg}}
+\end{center}
+$(B_1)$: $D_r(a){\in}\tau$ $\forall D_r(a){\in}\Sigma_{\text{об}}$ $\Rightarrow$ $\Sigma_{\text{об}}{\subset}\tau_{\text{об}}$ $\Rightarrow$ $(B_1)$ выполняется.\\
+$(B_2)$: Рассмотрим $\forall U{\in}\tau$, $\forall x{\in}U$ поэтому, по определению $t_{\text{об}}$ $\exists D_{\varepsilon_{x}}=U$ $\Rightarrow$ $\bigcap\limits_{x{\in}U}D_{\varepsilon_x}=U$ $\Rightarrow$ $(B_2)$ выполнено.
+\end{example}
+\begin{remark}
+Если $\Sigma-$база $\tau$ в $X$ и $\forall U{\in}\tau$, то $\Sigma'=\Sigma{\cup}\{U\}-$база в $\tau$
+\end{remark}
+\begin{exercise}
+Привести пример 2 баз топологии $\tau_{\text{об}}$ в $\mathbb{R}^2$, которые не пересекаются с $\tau_{об}$ и друг с другом.\\
+\\
+Решение: $\Sigma_1=\{\bigstar\}$; $\Sigma_2=\{\clubsuit\}$
+\end{exercise}
+
+\begin{example}
+$\Sigma_{MN}=\{\{b,b^*\}|b{\in}\mathbb{R}^2\setminus MN\}{\cup}\{\{a\}|a{\in}MN\}$.\\Проверим аксиомы:\\
+$(B_1)$: Легко увидеть, что все элементы базы принадлежат топологии.\\
+$(B_2)$: Очевидно, что любую точку можно представить в виде объединения векторов базы.
+\end{example}
+\begin{example}
+$(\mathbb{R}^1,\tau_{\text{ир}})$, где $\tau_{\text{ир}}=\{\varnothing,\mathbb{R}^1\}{\cup}\{U{\subset}\mathbb{R}^1\setminus\mathbb{Q}\}$, где $\mathbb{Q}-$множество рациональных чисел.\\
+Множество иррациональных точек не является базой ($\Sigma_{\text{ир}}=\{\{a\}\ |\ a{\in}\mathbb{R}\setminus\mathbb{Q}\}$), поскольку их объединение не содержит всю прямую. Решение: добавить саму прямую. То есть $\Sigma=\Sigma_{\text{ир}}{\cup}\{\mathbb{R}^1\}$
+\end{example}
+\subsection{Критерий базы в топологическом пространстве}
+\begin{theorem}
+Пусть $(X,\tau)-$топологическое пространство и $\Sigma=\{W_{\beta}{\subset}X|\beta{\in}B\}$ удовлетворяет включению $\Sigma{\subset}\tau$. Тогда: 
+$$\Sigma-\text{база}\ \tau\ \ {\Leftrightarrow}\ \ \forall U{\in}\tau\ \ \text{и}\ \ \forall x{\in}U\ \exists W_{\beta_0}{\in}\Sigma: x{\in}W_{\beta_0}{\subset}U$$
+\textbf{Доказательство.} $\Rightarrow)$ Пусть $\Sigma$ - база топологии. Тогда любое открытое множество $U$, содержащее $X$ можно представить в виде объединений множеств из базы. Значит, для $x\in U$ найдется множество из базы, в котором лежит $x$, причём, так как $x{\in}W_{\beta_0}{\subset}\bigcup\limits_{\alpha{\in}A}W_{\alpha}=U$.\\\\
+$\Leftarrow)$ Множество $\Sigma$ удовлетворяет первой аксиоме базы по условию ($\Sigma{\subset}\tau$).
+Докажем выполнение второй аксиомы. $\forall x{\in}U{\in}\tau$ по условию теоремы найдется окрестность $W_{\beta_0}$  из $\Sigma$, такая, что $W_{\beta_0}{\subset}U$. Тогда, переобозначив, получим: $W_x=W_{\beta_0}$ $\Rightarrow$ $x{\in}W_x{\subset}U$ $\Rightarrow$ $\bigcup\limits_{x{\in}U}W_x=U$. Получили: $W_{x}{\in}\Sigma$ $\Rightarrow$ Вторая аксиома выполняется. $\blacksquare$ 
+\end{theorem}
+\subsection{Критерий базы на множестве}
+\begin{theorem}
+Пусть $X-$произвольное множество, $\Sigma=\{W_{\beta}{\subset}X|\beta{\in}B\}-$некоторое семейство подмножеств из $X$. Тогда для того, чтобы существовала топология с базой $\Sigma$ необходимо и достаточно выполнения следующих 2-х условий:\\
+$$1^{\circ}\ \ X=\bigcup\limits_{\beta{\in}B}W_{\beta}$$
+$$2^{\circ}\ \ \forall W_1,W_2{\in}\Sigma\ \ \text{и}\ \ \forall x{\in}W_1{\cap}W_2\ \ \exists W_x{\in}X\ \ x{\in}W_x{\subset}W_1{\cap}W_2$$
+Иначе: Для любых множеств из базы найдется множество, лежащее в их пересечении и содержащее произвольную точку оттуда.\\
+\\
+\textbf{Доказательство.} $\Rightarrow)$ Пусть $\Sigma$ - база некоторой 
+топологии $\tau$ на $X$, тогда $\Sigma$ удовлетворяет 2-м аксиомам базы. Из (2) аксиомы базы и 1 аксиомы топологии следует, что $X$ есть объединение множеств из $\Sigma$. значит, выполняется $1^{\circ}$.\\
+Докажем $2^{\circ}$. Возьмём пересечение двух множеств $W_1, W_2$ из базы $\Sigma$. 
+Так как это открытые множества (по 1 аксиоме базы), то $W_1{\cap}W_2{\in}\tau$ по 2 аксиоме топологии. 
+Пересечение также можно представить в виде объединения множеств из базы (по 2 аксиоме базы) $\Rightarrow$ по определению объединения
+$x{\in}W_1{\cap}W_2=\bigcup\limits_{\alpha{\in}A}W_{\alpha}$ $\Rightarrow$ $x{\in}W_x{\subset}W_1{\cap}W_2$. $\square$\\\\
+$\Leftarrow)$ Пусть выполняется 1) и 2). Докажем, что всевозможные объедения множеств из $\Sigma$ является топологией $\tau$. Тогда $\Sigma-$база топологии. Проверим аксиомы топологии:\\
+$(\tau_1)$. Пустое множество принадлежит всему, чему надо. Все пространство лежит там по условию теоремы.\\\\
+$(\tau_2)$. Рассмотрим 2 случая:\\
+1 случай. Рассмотрим $U_1,\ U_2{\in}\Sigma{\subset}\tau$. Покажем, что $U_1{\cap}U_2{\in}\tau$. Рассмотрим $x{\in}U_1{\cap}U_2$ $\Rightarrow$ по $2^{\circ}$ $\exists$ $W_x{\in}\Sigma$: $x{\in}W_{x}{\subset}U_1{\cap}U_2$ $\Rightarrow$ $\bigcup\limits_{x{\in}U_1{\cap}U_2}=U_1{\cap}U_2$.\\То есть, если $U_1,U_2{\in}\Sigma$, то $U_1{\cap}U_2=\bigcup\limits_{x{\in}U_1{\cap}U_2}W_x{\subset}\tau$ по построению $\tau$.\\
+2 случай. Рассмотрим $U_1,\ U_2{\in}\tau$ по определению топологии $U_1=\bigcup\limits_{\alpha{\in}A{\subset}B}W_{\alpha}{\in}\Sigma$, $U_2=\bigcup\limits_{\gamma{\in}\Gamma{\subset}B}W_{\gamma}{\in}\Sigma$.
+Рассмотрим пересечение $U_1$ и $U_2$: $U_1{\cap}U_2=(\bigcup\limits_{\alpha{\in}A}W_{\alpha}){\cap}(\bigcup\limits_{\gamma{\in}\Gamma}W_{\gamma})=\bigcup\limits_{\underset{\gamma{\in}\Gamma}{\alpha{\in}A}}(W_{\alpha{\cap}W_{\gamma}})$. Поскольку $W_{\alpha{\cap}W_{\gamma}}{\in}\tau$ по случаю 1, то $\bigcup\limits_{\underset{\gamma{\in}\Gamma}{\alpha{\in}A}}(W_{\alpha{\cap}W_{\gamma}}){\in}\tau$\\\\
+$(\tau_3)$. Рассмотрим любые $U_{\alpha}$ $\in\tau$, $\alpha{\in}A$ поэтому, по определению топологии $U_{\alpha}=\bigcup\limits_{\beta{\in}\beta_{\alpha}{\subset}B}W_{\beta}$ $\forall\alpha{\in}A$. Тогда $\bigcup\limits_{\alpha{\in}A} (\bigcup\limits_{\beta{\in}\beta_{\alpha}{\subset}B}W_{\beta})=\bigcup\limits_{\alpha,\beta}W_{\beta}$ по определению топологии $\bigcup\limits_{\alpha,\beta}W_{\beta}{\in}\tau$ $\Rightarrow$ любое объединение $\bigcup\limits_{\alpha{\in}A}U_{\alpha}{\in}\tau$.\\
+$\Rightarrow$ $\tau-$топология и $\Sigma-$её база. $\blacksquare$
+\end{theorem}
+
+\begin{lemma}
+Две топологии с общей базой совпадают.
+
+Доказательство:\\
+Пусть $(X,\tau)$ и $(X,\Omega)-$любые два топологические пространства, причём $\Omega$ и $\tau$ имеют общую базу $\Sigma=\{W_{\beta}{\subset}X|\beta{\in}B\}$. Рассмотрим любое множество $U{\in}\tau$. Теперь, так как $\Sigma-$база топологии $\tau$, то по $(B_2)$ получаем, что $U=\bigcup\limits_{\alpha{\in}A{\subset}B}W_{\alpha}{\in}\Sigma$. Теперь, поскольку $\Sigma-$база топологии $\Omega$, то по $(B_1)$ имеем, что $\forall W_{\alpha}{\in}\Omega$. По аксиоме 3 топологии $(\tau_3)$ получим, что счётное объединение $W_{\alpha}=U{\in}\Omega$. Таким образом, получили что $\tau{\subset}\Omega$ (Так как мы получили, что любое множество из $\tau$ лежит в $\Omega$).  \\Аналогично, $\Omega{\subset}\tau$. Следовательно $\tau=\Omega$. $\blacksquare$ 
+\end{lemma}
+\begin{remark}
+Согласно \textcolor{ocre}{лемме 1.3.3}  база однозначно определяет топологию. Следовательно, критерий базы на множестве даёт способ определения новых топологий.
+\end{remark}
+\section{Метрическая топология}
+Пусть $M-$произвольное множество и $\rho: M{\times}M\to\mathbb{R}^1-$отображение, удовлетворяющее следующим 3-м условиям:
+\begin{enumerate}
+    \item $\rho(x,y){\geq}0$ $\forall x,y\in M, \rho(x,y)=0 \Leftrightarrow x=y$
+    \item $\rho(x,y)=\rho(y,x)$ $\forall x,y{\in}M$
+    \item $\forall x,y,z{\in}M$ выполняется неравенство: $\rho(x,y){\leq}\rho(x,z)+\rho(z,y)$
+\end{enumerate}
+Тогда $\rho$ называется функцией расстояния на множестве $M$, число $\rho(x,y)$ называется расстоянием между $x$ и $y$.\\
+Пара $(M,\rho)$ называется метрическим пространством с метрикой $\rho$.
+\begin{definition}
+Пусть  $(M,\rho)$ - метрическое пространство.\\ Множество $D_r(a):=\{x\in M|\rho(x,a)<r\}$, где $\rho>0$ называется шаром в $(M,\rho)$ с центром в точке $a$ радиуса $r$.
+\end{definition}
+Очевидно, центр шара принадлежит ему в любой метрике. 
+\begin{definition}
+Пусть $(M,\rho)$ - любое метрическое пространство.\\ Тогда $\Sigma=\{D_r(a)|a{\in}M,r>0\}$, совокупность всевозможных шаров с разными центрами и радиусами являются базой некоторой единственной топологии, которая называется метрической топологией.\\\\
+Докажем, что множество шаров - база. Применим критерий базы на множестве.\\
+1. Возьмем объединение всех шаров. Так как любой шар содержит свой центр, то все точки множества лежат в объединении шаров.\\ Формально: $M=\bigcup\limits_{\underset{a{\in}M}{r>0}}D_r(a)$ выполняется, так как $\forall a{\in}M a{\in}D_r(a)$ \\
+2. Для пересекающихся шаров возьмем минимальный радиус до границы шара.\\
+Формально: $\forall D_{r_1}(a_1)$ и $D_{r_2}(a_2)$ $\in\Sigma$ и $\forall x{\in}W_1{\cap}W_2$. Докажем, что $\exists D_{\varepsilon}(x){\in}\Sigma_{\rho}$: $D_{\varepsilon}(x){\subset}D_{r_1}(x){\cap}D_{r_2}(a_2)$. Пусть $\varepsilon=\min\{r_1-\rho(a_1,x),r_2-\rho(a_2,x)\}$. Докажем включение: $D_{\varepsilon}(x){\subset}D_{r_1}(a_1){\cap}D_{r_2}(a_2)$. Рассмотрим $\forall y{\in}D_{\varepsilon}(x)$ $\Rightarrow \rho(x,y)<\varepsilon$.\\
+$\rho(y,a_1){\leq}\rho(y,x)+\rho(x,a_1)<\varepsilon+\rho(x,a_1){\leq}r_1-\rho(a_1,x)+\rho(a_1,x)<r$\\ $\rho(y,a_1)<r \Rightarrow$ $y{\in}D_{r_1}(a_1)$ $\Rightarrow$ $D_{\varepsilon}(x){\subset}D_{r_1}(a_1)$\\
+Аналогично, $D_{\varepsilon}(x){\subset}D_{r_2}(a_2)$\\$\Rightarrow D_{\varepsilon}(x){\subset}D_{r_1}(a_1){\cap}D_{r_2}(a_2)$
+\end{definition}
+
+\begin{example}
+Евклидова топология - пример метрической топологии для
+стандартной евклидовой метрики в $\mathbb{R}^n$.\\Дискретная топология - топология, порожденная дискретной метрикой.\\
+\end{example}
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+\begin{exercise}
+Докажите самостоятельно, что евклидова метрика индуцирует евклидову топологию (используйте критерий базы в топологическом пространстве)\\
+Решение. Докажем, что минимум из возможных расстояний до границы шара - 
+искомый радиус окрестности, лежащей в пересечении шаров. Рассмотрим
+точку в этой окрестности. Она лежит в обоих шарах. (вставить выкладку)\\
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+\end{exercise}
+\begin{remark}
+Мы будем использовать обычную топологию и рисовать картинки, которые помогут доказывать различные теоремы, но все доказательства будут даны для произвольных метрических пространств. \\
+\end{remark}
+\begin{example}
+Рассмотрим множество непрерывных функций на отрезке. введем следующую метрику: $\rho(f,g)=\max |f(x)-g(x)|$. Определение корректно, поскольку на отрезке $\sup$ непрерывной функции достигается.\\ Какие (картинка) функции лежат в окрестности произвольной функции $y=f(x)$?\\
+Это непрерывные функции, заключенные в области $(f(x)-r,f(x)+r)$, то есть окрестность - $D_r(f)=\{k{\in}C_{[a,b]}|\max\limits_{x{\in}[a,b]}|f(x)-k(x)|<r\}$
+\end{example}
+\begin{remark}
+Если $\Sigma$ - база топологии  $\tau$, то  $\tau$
+совпадает с семейством всевозможных объединений множеств из базы.
+\end{remark}
+\subsection{Метризуемость топологических пространств.}
+\begin{definition}
+    Топологическое пространство называется метризуемым, если на множестве $X$ существует метрика $\rho$, такая что !!!!!!!!! метрическая топология совпадает с $\tau$, то есть $\tau=\tau_{\rho}$.
+\end{definition}
+\begin{example}
+$(\mathbb{R}^2,\tau_{\text{об}})$. $\tau_{\text{об}}=\tau_{\rho_{\text{об}}}$ $\Rightarrow$ $(\mathbb{R}^2,\tau_{\text{об}})$ метризуемо.
+\end{example}
+Мы уже доказали, что обычная топология метризуема. Не все, однако, 
+топологические пространства метризуемы. 
+\begin{example}
+$(\mathbb{R}^2,\tau_{MN})$ не метризуемо, так как $\forall U{\in}\tau$ $x{\in}U$\\
+Че за хуйня?!?!?!?!?!??!!??!?!?!?!?
+\end{example}
+\begin{definition}
+Пусть Х - произвольное топологическое пространство, $H\subset X$. Окрестностью подмножества $H$ называется любое подмножество, содержащее $H$.
+Окрестностью точки $x$ в $(X,\tau)$ называется любое открытое множество в $(X,\tau)$, содержащее точку (обозначение: $U_x$).
+\end{definition}
+\begin{definition}
+Топологическое пространство называется хаусдорфовым, если для любых двух точек существуют непересекающиеся окрестности.\\
+Формально: $\forall x,y$ $\exists U_x{\in}\tau$, $\exists U_y{\in}\tau$: $U_{x}{\cap}U_{y}=\varnothing$
+\end{definition}
+\begin{lemma}
+Любое метрическое пространство, наделённое метрической топологией хаусдорфово.
+
+Доказательство.\\
+Рассмотрим для начала $(\mathbb{R}^2,\tau_{\text{об}}=\tau_{\rho_{\text{об}}})$ и рассмотрим 2 точки $x,y{\in}\mathbb{R}^2$, $x{\neq}y$ $\Rightarrow$ $\rho(x,y)=d>0$\\
+Тогда, пусть $U_x=D_{\frac{\rho}{3}}(x)$, $U_{y}=D_{\frac{\rho}{3}}(y)$ их пересечение $\varnothing$ в $(\mathbb{R}^2,\tau_{\text{об}})$. $\Rightarrow$ хаусдорфово. $\square$\\\\
+Покажем теперь, что это верно в любом метрическом пространстве.\\ Предположим, противное, пусть $\exists z{\in}D_{\frac{d}{3}}(x){\cap}D_{\frac{d}{3}}(y)$, где $x,y{\in}M$, $x{\neq}y$, \\$d=\rho(x,y)$ $\Leftrightarrow$ $\begin{cases}
+z{\in}D_{\frac{d}{3}}(x)\\
+z{\in}D_{\frac{d}{3}}(y)
+\end{cases}$ $\Leftrightarrow$ $\begin{cases}
+\rho(x,z)<\frac{d}{3}\\
+\rho(y,z)<\frac{d}{3}
+\end{cases}$\\
+$\Rightarrow$ $d=\rho(x,y){\leq}\rho(x,z)+\rho(z,y)<\frac{2}{3}d$ $\Rightarrow$ $1<\frac{2}{3}$ противоречие. $\Rightarrow$ $D_{\frac{d}{3}}(x){\cap}D_{\frac{d}{3}}(y)=\varnothing$ $\blacksquare$
+\end{lemma}
+
+
+\section{Свойства замкнутых множеств}
+\begin{theorem}
+    Пусть $(X,\tau)$ - топологическое пространство, и  $\mathcal{F}=\{
+    CU\mid U\in\tau\}$ - совокупность всех замкнутых множеств. Тогда 
+    выполняются условия:\\
+    $(F1)$ $\varnothing,X\in\mathcal F$\\
+    $(F2)$ Объединение любых двух замкнутых замкнуто.\\
+    $(F3)$ Пересечение любого семейства замкнутых замкнуто.
+    
+\textbf{Доказательство.}\\ Применим законы де Моргана к аксиомам топологического пространства.\\
+1. $X=C\varnothing,~\varnothing=CX$\\
+2. $\forall F_1.F_2{\in}\mathcal{F}$. По определению $\mathcal{F}$ $\exists U_1,U_2{\in}\tau$, $F_1=CU_1{\setminus}U_1$ и $F_2=CU_2=X{\setminus}U_2$ $\Rightarrow$ $F_1{\cup}F_2=CU_1{\cup}CU_2$. По закону Де Моргана: $C(U_1{\cap}U_2){\in}\mathcal{F}$ по определению $\mathcal{F}$.\\
+3. Рассмотрим $F_{\beta}{\in}\mathcal{F}$. По определению $F_{\beta}=CU_{\beta}$, где $U_{\beta}{\in}\tau$  $\Rightarrow$\\$\Rightarrow$ Рассмотрим $\bigcap\limits_{\beta{\in}B}F_{\beta}=\bigcap\limits_{\beta{\in}B}CU_{\beta}$.\\По закону Де Моргана получаем: $C(\bigcup\limits_{\beta{\in}B}U_{\beta}){\in}\mathcal{F}$ по определению $\mathcal{F}$
+$\blacksquare$ \\
+\end{theorem}
+\begin{remark}
+Как мы видим, замкнутые множества имеют свойства, очень похожие на свойства топологии. На самом деле, топологию можно однозначно задать как семейство множеств, удовлетворяющих свойствам замкнутых множеств, и объявить открытыми дополнения к ним.\end{remark} 
+\begin{remark} Методом математической индукции доказывается, что из аксиомы $(\tau_2)$ для $\tau$ вытекает, что пересечение $\forall$ конечного числа открытых множеств открыто, и объединение любого конечного числа замкнутых множеств замкнуто.
+\end{remark}
+\begin{example} Рассмотрим $(\mathbb{R},\tau_{\text{об}})$, $U_n=(-\frac{1}{n},1){\in}\tau_{\text{об}}$ $\bigcap\limits_{n=1}^{\infty}(-\frac{1}{n},1)=[0,1){\notin}\tau_{\text{об}}$.\\
+Данный пример показывает, что пересечение бесконечного числа множеств не является открытым.
+\end{example}
+\begin{theorem}[Лемма об открытом множестве]
+    Пусть $(X,\tau)$ - топологическое пространство. Множество $U{\subset}X$ открыто в топологии тогда и только тогда, когда любая точка $x$ содержится в $U$ с некоторой окрестностью. 
+
+\textbf{Доказательство.}\\ $\Rightarrow)$ Возьмем любую точку $x\in U$. Пусть окрестность
+точки само множество $U=U_x$; очевидно,  $U_x\subset U$.\ \ $\square$\\
+$\Leftarrow)$ Пусть каждая точка входит в $U{\subset}X$ вместе с какой-то окрестностью $U_x$. $\bigcap\limits_{x{\in}U} U_x$, где $U_x{\in}\tau$ и объединение так же открыто по $(\tau_3)$, Поэтому $\bigcap\limits_{x{\in}U} U_x=U{\in}\tau$ $\blacksquare$ 
+\end{theorem}
+\section{Классификация точек относительно подмножества}
+Пусть $(X,\tau)$ - топологическое пространство, $A\subset X$ - произвольные непустые подмножества. Серия определений:
+\begin{definition}
+Точка $x\in X$ называется внутренней точкой множества  $A$, если существует окрестность этой точки, лежащая в $A$.
+\end{definition}
+\begin{definition}
+Точка $x\in X$ внешняя для множества $A$, если $\exists$ окрестность $U_x$ такая, что $U_x{\subset}A$
+\end{definition}
+\begin{definition}
+Точка $x\in X$ называется точкой прикосновения, если для любой окрестности $U_x$ точки $x$ $U_x\cap A\neq\varnothing$
+\end{definition}
+\begin{definition}
+Точка $x\in X$ называется точкой накопления для $A$, если в любой окрестности $U_x$ точки $x$ существуют точки из $A$, отличные от $x$. 
+\end{definition}
+\begin{definition}
+Точка $x\in X$ - граничная для множества $A$, если в любой её окрестности лежат как точки из $A$, так и из $X\setminus A$, то есть, если $\forall U_x: \begin{cases}
+U_x{\cap}A\neq\varnothing\\
+U_x{\cap}CA\neq\varnothing
+\end{cases}$ 
+\end{definition}
+\begin{definition}
+Точка $x\in A$ - изолированная, если существует окрестность, в которой нет других точек из $A$. 
+\end{definition}
+Возьмем любое подмножество $A{\subset}X$ топологического пространства $(X,\tau)$.
+\begin{definition}
+Объединение всех внутренних точек подмножества $A$ называется внутренностью А (обозначение: $A_0,~ Int A$).
+\end{definition}
+\begin{definition}
+Объединение всех точек прикосновения называется замыканием $A$ (обозначение: $\overline{A},~cl(A)$).
+\end{definition}
+\begin{definition}
+Объединение всех граничных точек называется границей $А$ (обозначение: $Fr\ A,~\partial A$)
+\end{definition}
+\begin{theorem} [Свойства замыкания]
+ Замыкание множества обладает следующими свойствами:\\
+ \begin{enumerate}
+     \item $A\subset \overline{A}$, причем $\overline{A}-$замкнутое подмножество в $(X,\tau)$.
+ \item Если $A\subset B$, то $\overline{A}\subset \overline{B}$. ($B{\subset}X$)
+ \item $\overline{A}$ - минимальное по включению замкнутое множество, 
+ содержащее А.
+ \item $\overline{A}=\bigcap\limits_{\forall\text{замкнут.}F_{\sigma}{\supset}A} F_\sigma$. То есть, $\overline{A}$ есть пересечение всех замкнутых множеств в $(X,\tau)$, содержащих А.
+ \item $\overline{A}=A \Leftrightarrow A-$замкнуто.
+ \end{enumerate}
+ 
+Доказательство. \\
+\begin{enumerate}
+    \item Рассмотрим $\forall x\in A$. Найдем любую окрестность $x\in U_x$. По определению открытого множества $x{\in}U_x{\cap}A$. Поэтому $U_x{\cap}A{\neq}\varnothing$ $\forall U_x$ $\Rightarrow$ $x{\in}\overline{A}$, $A\subset \overline{A}$. \\\\Докажем $\overline{A}$ замкнуто $\Leftrightarrow$ $C\overline{A}$ открыто и $\forall z{\in}C\overline{A}$ $\Leftrightarrow$ $z{\notin}\overline{A}$ $\Leftrightarrow$ $\exists U_z: U_z{\cap}A=\varnothing$. Рассмотрим $\forall y{\in}U_z=U_y$ и $U_y{\cap}A=\varnothing$ $\Leftrightarrow$ $y{\notin}\overline{A}$ $\Leftrightarrow$ $y{\in}C\overline{A}$ $\Rightarrow$ $U_z{\subset}C\overline{A}$, таким образом $\forall z{\in}C\overline{A}\ \ \exists U_z{\subset}C\overline{A}$.\\По лемме об открытом множестве, точка из дополнения к замыканию имеет окрестность, не пересекающуюся с А. Рассмотрев точку из этой окрестности, заметим, что она тоже не лежит в замыкании. Итак, мы показали, что дополнение к замыканию открыто, так как каждая точка лежит в нем с некоторой окрестностью, то есть $C\overline{A}$ открыто $\Leftrightarrow$ $\overline{A}-$замкнуто.\\
+  \item Пусть $A\subset B\subset X$. Возьмем любую точку из замыкания. По определению замыкания $\forall U_x: U_x{\cap}A{\neq}\varnothing$. Так как $A{\subset}B$, то $ U_x{\cap}B{\neq}\varnothing$. По определению $\overline{B}$ $x{\in}\overline{B}$ поэтому $\overline{A}\subset\overline{B}$.
+  \item Предположим противное. Пусть существует замкнутое $F:\ F\supset A$, но $F\not\supset \overline{A}$. Это эквивалентно тому, что $\begin{cases}
+  \exists x{\in}\overline{A}\\
+  x{\notin}F
+  \end{cases}$ $\Leftrightarrow$ $\begin{cases}
+  x{\in}\overline{A}\\
+  x{\in}CF=U_x
+  \end{cases}$ значит, $x$ является точкой прикосновения и $U_x{\cap}A{\neq}\varnothing$, поэтому, так как $A{\subset}F$, $U_x{\cap}F{\neq}\varnothing$, то $CF\cap F\ne\varnothing$ - противоречие. Таким образом, $\overline{A}{\subset}F$\\
+  \item Рассмотрим пересечение всех замкнутых множеств, содержащих множество $A$. По 1 свойству замыкания $\overline{A}-$замкнутое и $A{\subset}\overline{A}$. Поэтому $\exists F_{\sigma_0}=\overline{A}$. Из теории множеств получаем, что пересечение всех замкнутых лежит в $A$, то есть $A{\supset}\bigcap\limits_{\forall\text{замкнут.}F_{\sigma}{\supset}A} F_\sigma$ $(*)$ \\
+  Покажем, что верно следующее: $A{\subset}\bigcap\limits_{\forall\text{замкнут.}F_{\sigma}{\supset}A} F_\sigma$.\\ По 2 свойству имеем: $\overline{A}{\subset}\bigcap\limits_{\forall\text{замкнут.}F_{\sigma}{\supset}A} F_\sigma$.$(**)$ (\textit{Прим.: Над $F_{\sigma}$ нет черты, поскольку по определению $F_{\sigma}$ замкнуты.}) Из $(*)$ и $(**)$ имеем в итоге равенство.\\
+  \item $\Rightarrow)$ Пусть множество совпадает с замыканием ($A=\overline{A}$). Тогда оно замкнуто по первому пункту теоремы, так как $A{\subset}\overline{A}$. 
+  $\Leftarrow)$ Пусть $A$ замкнутое. По свойству 3, замыкание - минимальное замкнутое по включению. Но это и есть $A$. $\blacksquare$ 
+\end{enumerate}
+\end{theorem}
+\begin{theorem} [Свойства внутренности]
+Пусть $(X,\tau)$ любое топологическое пространство и $A{\subset}X$. Тогда:
+    \begin{enumerate}
+    \item $A^0\subset A$, причем $A^0-$открытое подмножество в $(X,\tau)$.
+    \item $A^0$ - максимальное по включению открытое подмножество $A$ в $(X,\tau)$
+    \item Внутренность есть объединение всех открытых множеств, лежащих в А.
+    \item $A=A^0$ $\Leftrightarrow$ $A-$открыто.
+    \end{enumerate}
+
+\textbf{Доказательство.}\\  
+\begin{enumerate}
+    \item $\forall x{\in}A^0$ $\Rightarrow$ $\exists$ $U_x: x{\in}U_x{\subset}A$ $\Rightarrow$ $x{\in}A$ $\Rightarrow$ $A^0{\subset}A$\\
+    $\forall y{\in}U_x: U_y{\subset}A$. По определению $A^0$ получаем, что $U_x{\subset}A^0$ по лемме об открытом множестве $A^0-$открыто $\square$
+    \item Рассмотрим любое открытое подмножество $U{\subset}A$, докажем, что $U{\subset}A^0$\\
+    Рассмотрим любую точку $x{\in}U$ $\Rightarrow$ $U=U_x{\subset}A$. По определению $A^0$: $x{\in}A^0$ $\Rightarrow$ $U{\subset}A^0$ $\square$
+    \item Рассмотрим $\bigcup\limits_{\forall A_{\alpha}{\subset}A} A_{\alpha}{\subset}A$, причем объединение открыто в топологии по $(\tau_3)$. Тогда, по свойству $2.$ получаем, что $\bigcup\limits_{\forall A_{\alpha}{\subset}A} A_{\alpha}{\subset}A^0$. $(*)$\\
+    $\forall x{\in}A^0{\subset}A$ (по свойству 1). $\Rightarrow$ $\exists A_{\alpha_0}=A^0$ $\Rightarrow$ $A^0{\subset}\bigcup\limits_{\forall\text{откр.}A_{\alpha}{\subset}A} A_{\alpha}$ $(**)$\\
+    Из $(*)$ и $(**)$ получаем, что $A^0=\bigcup\limits_{\forall\text{откр.}A_{\alpha}{\subset}A} A_{\alpha}$ $\square$
+    \item $\Rightarrow)$ Пусть $A^0=A$ - открыто по свойству 1.\\
+    $\Leftarrow)$ Если $A$ открыто, то $A=A^0$ по свойству 2. $\blacksquare$
+\end{enumerate}
+\end{theorem}
+\begin{theorem}[Свойства границы]
+Пусть $Fr\, A$ - граница подмножества $A$ топологического пространства $(X,\tau)$.
+\begin{enumerate}
+    \item $Fr\,A=cl(A)\cap cl(CA)$ - замкнутое подмножество в $(X,\tau)$.\\
+    \item $Fr\,A=cl(A) \setminus A^0$
+\end{enumerate}
+
+\textbf{Доказательство.}\\
+\begin{enumerate}
+    \item $\forall x{\in}Fr\,A$ по определению границы: $\forall$ открытой $U_x$: $\begin{cases}
+    U_x{\cap}A{\neq}\varnothing\\
+    U_x{\cap}CA{\neq}\varnothing
+    \end{cases}\Leftrightarrow \\ 
+\Leftrightarrow \text{по определению замыкания} \begin{cases}
+    x{\in}cl(A)\\
+    x{\in}cl(CA)\\
+    \end{cases}$ $\Leftrightarrow$ $x{\in}cl(A){\cap}cl(CA)$\\
+    \item Рассмотрим $\forall x\in Fr\,A$ $\Leftrightarrow$ $x{\in}cl(A){\cap}cl(CA)$ $\Leftrightarrow$ $\begin{cases}
+    x{\in}cl(A)\\
+    x{\in}cl(CA)\\
+    \end{cases}$ $\Leftrightarrow$ \\ $\Leftrightarrow$ $\begin{cases}
+    x{\in}cl(A)\\
+    U_x{\cap}CA{\neq}\varnothing\\ 
+    \end{cases}$ $\Leftrightarrow$ $\begin{cases}
+    x{\in}cl(A)\\
+    x{\notin}A^0\\
+    \end{cases}$ $\Leftrightarrow$ $x{\in}cl(A)\setminus A^0$ $\Rightarrow$ $Fr\,A=cl(A)\setminus A^0$ $\blacksquare$
+\end{enumerate}
+\end{theorem}
+\subsubsection{Примеры топологий.}
+Нарисуем бабочку на плоскости, у которой кусок границы открыт.
+Значит, имеем $\mathbb{R}^2,\tau_{\text{об}}$. В ней оно ни открыто, ни
+замкнуто. В топологии отражения относительно $OY$ (вспоним, что в неё все
+открытые множества открыто-замкнутые!). Внутренность - брюшко бабочки,
+замыкание - вся бабочка, граница - их разность. 
+Топология Зарисского. Замыкание -  

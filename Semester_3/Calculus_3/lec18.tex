@@ -1,0 +1,88 @@
+\begin{theor}
+    (о дифференцировании несобственного интеграла, зависящего от параметра)\\
+    Пусть\\
+    1. $f(x,y)$ непрерывна на  $[a,\infty)\times Y$\\
+    2. $\int\limits_{a}^{\infty} f(x,y)dx$ сходится  $\forall y\in Y$.\\
+3. $\frac{\partial f}{\partial y}(x,y)$ непрерывна на $[a,\infty)\times Y$.\\
+4. $\int\limits_{a}^{\infty} \frac{\partial f}{\partial y}(x,y)dx$ сходится
+равномерно на $Y$.\\
+    Тогда $\forall y\in Y$ 
+$$\left( \int\limits_{a}^{\infty}f(x,y) dx \right)'_y=\int\limits_{a}^{\infty}
+ \frac{\partial f}{\partial y}(x,y)dx$$
+
+   % $$\int\limits_{c}^{d}dy \int\limits_{a}^{\infty}f(x,y)dx =
+   % \int\limits_{a}^{\infty}dx \int\limits_{c}^{d}f(x,y)dy$$
+\end{theor}
+\textbf{Доказательство.} Так как выполняются условия теоремы об интегрировании
+н.и.з.от п. для $\int\limits_{a}^{\infty}\frac{\partial f}{\partial y}(x,y)dx$,
+то зафиксируем $y_0\in Y,~y\in \tilde Y$ без крайних точек, и тогда
+$$\int\limits_{y_0}^{y}dy \int\limits_{a}^{\infty} 
+\frac{\partial f}{\partial y}(x,y)dx=\int\limits_{a}^{\infty}dx
+\int\limits_{y_0}^{y} \frac{\partial f}{\partial y}(x,y)dy=
+\int\limits_{a}^{\infty}f(x,y)dx-\int\limits_{a}^{\infty}f(x,y_0)dx$$
+Второй интеграл равен числу, поэтому
+$$\left( \int\limits_{y_0}^{y} dy \int\limits_{a}^{\infty}
+\frac{\partial f}{\partial y}(x,y) dx \right)'_y=
+\int\limits_{a}^{\infty}\frac{\partial f}{\partial y}(x,y)dx 
+=\left( \int\limits_{a}^{\infty} f(x,y)dx \right)'_y$$ $\square$ 
+%готово
+
+\textbf{Пример.} $\int\limits_{0}^{\infty} \frac{\sin\alpha x}{x}
+e^{-\beta x}dx$, где $\alpha\in \mathbb{R}$, $\beta\in 0$. 
+Легко проверяются условия теоремы об интегрировании, и мы можем 
+привести интеграл к виду $\int\limits_{0}^{\infty}dx
+\int\limits_{0}^{\alpha} \cos{xy}\cdot e^{-\beta x}dy$, который берется по
+частям, ответ $arctg \frac{\alpha}{\beta}$. Так как арктангенс нечетный, 
+то эта формула справедлива как для положительных, так и отрицательных
+$\alpha$ (при условии $\beta>0$). Другой способ - по теореме о
+дифференцировании. Снова обозначим $\Phi(\alpha)=
+\int\limits_{0}^{\infty} \frac{\sin{\alpha x}}{x}e^{-\beta x}dx$. 
+$\Phi(x,\alpha)$ непрерывна на $[0,\infty)\times \mathbb{R}$. Доопределим
+функцию: $\Phi(0,\alpha)=\lim\limits_{x \to +0} \Phi=\alpha$. Снова легко
+проверяются условия теоремы. Имеем $\Phi(\alpha)=
+\int\limits_{0}^{\infty} \cos{\alpha x}e^{-\beta x}dx=\frac{\beta}{
+    \beta^2+\alpha^2}$. Интегрируя и подставляя начально условие, снова 
+    получаем арктангенс
+\subsection{Вычисление некоторых классических интегралов}
+
+\textbf{Интеграл Дирихле}
+$$\boxed{
+\int\limits_{0}^{\infty}\frac{\sin\alpha x}{x}dx=\frac{\pi}{2}\sign\alpha}$$
+Пусть $\Phi(\beta)=\int\limits_{a}^{\infty}\frac{\sin\alpha x}{x}e^{
+-\beta x}dx$.\\
+1) $\varphi(x,b)=\frac{\sin\alpha x}{x}e^{-\beta x}$ непрерывна на 
+$[0,\infty)\times [0,\infty)$, $\varphi(0,\beta)=\alpha$. \\
+2) Докажем, что $\Phi(\beta)$ сходится равномерно на $[0,\infty)$.
+Так как $\forall \alpha\in \mathbb{R}: \int\limits_{0}^{\infty}
+\frac{\sin\alpha x}{x}dx$ сходится по признаку Дирихле, то сходимость
+исходного интеграла равномерная (так как не зависит от $\beta$). 
+Далее, $0\leqslant e^{-\beta x}\leqslant 1$ при $\beta\geqslant 0$,
+$x\geqslant 0$. Значит, $e^{-\beta x}$ при данных условиях.
+По признаку Абеля $\Phi(\beta)=\int\limits_{0}^{\infty}\frac{\sin\alpha x}{
+x}e^{-\beta x}dx$ сходится равномерно. По теореме о предельном переходе под
+знаком несобственного интеграла на $[0,\infty)$, имеем
+$$\Phi(0)=\lim\limits_{\beta \to 0}\Phi(\beta)=\lim\limits_{\beta \to 0}
+\arctg \frac{\alpha}{\beta}=\frac{\pi}{2}\sign\alpha$$
+
+\textbf{Интеграл Лапласа}
+$$\boxed{
+    \int\limits_{0}^{\infty} \frac{\cos\alpha x}{1+x^2}dx=\frac{\pi}{2}
+    e^{-|\alpha|}
+}$$
+Дифференцировать много раз не получится, так как мы придем к расходящемуся 
+ряду. Нам нужем финт ушами, а именно прибавить $\frac{\pi}{2}$:
+$$\Phi'(\alpha)+\frac{\pi}{2}=-\int\limits_{0}^{\infty} \frac{x\sin\alpha x}{
+1+x^2}dx+\int\limits_{0}^{\infty} \frac{\sin\alpha x}{x}dx=
+\int\limits_{0}^{\infty}\frac{1+x^2-x^2}{x(1+x^2)}\sin\alpha x\,dx$$
+$$\Phi''(\alpha)=\left(\Phi'(\alpha)+\frac{\pi}{2}\right)'
+=\int\limits_{0}^{\infty}
+\left( \frac{\sin\alpha x}{x(1+x^2)}\right)'_\alpha dx$$
+Внезапно, мы получили диффур $\Phi''(\alpha)=\Phi(\alpha)$. Общее решение
+$\Phi(\alpha)=C_1e^{-\alpha}+C_2e_6{\alpha}$. Поскольку $\Phi$ ограничена,
+то  $C_2=0$, а поскольку $\Phi(0)=\int\limits_{0}^{\infty}\frac{dx}{1+x^2}=
+\frac{\pi}{2}$, то $C_1=\frac{\pi}{2}$. 
+
+
+
+
+

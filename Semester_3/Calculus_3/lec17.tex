@@ -144,15 +144,40 @@ $$\lim\limits_{y \to y_0}\int\limits_{a}^{\infty} f(x,y)dx=
 \textbf{Доказательство.}  Напишем его сами)))
 $\square$ 
 \begin{theor}
-    (об интегрируемости)\\
+    (об интегрировании несобственного интеграла, зависящего от параметра)\\
     1. $f(x,y)$ непрерывна на  $[a,\infty)\times [c,d]$\\
     2. $\int\limits_{a}^{\infty} f(x,y)dx$ сходится равномерно на $[c,d]$.\\
     Тогда 
     $$\int\limits_{c}^{d}dy \int\limits_{a}^{\infty}f(x,y)dx =
     \int\limits_{a}^{\infty}dx \int\limits_{c}^{d}f(x,y)dy$$
 \end{theor}
-\textbf{Доказательство.}  
-$\square$ \\
+\textbf{Доказательство.} Обозначим $\Phi(y)=\int\limits_{a}^{\infty}
+f(x,y)dx$. Эта функция непрерывна на $[c,d]$ по теореме о 
+непрерывности несобственного интеграла, зависящего от параметра. Значит,
+$\Phi(y)$ интегрируема на  $[c,d]$, то есть существует и конечен 
+интеграл  $\int\limits_{c}^{d}dy\int\limits_{a}^{\infty}f(x,y)dx=const$.
+Покажем, что несобственный интеграл справа сходится к этой константе, то
+есть при $b\to \infty$ имеет место
+$\int\limits_{a}^{b} dx\int\limits_{c}^{d}f(x,y)dy\to
+\int\limits_{c}^{d} dy \int\limits_{a}^{\infty} f(x,y)dx$. \\
+Зафиксируем $\varepsilon>0$. По условию, $\int\limits_{a}^{\infty}f(x,y)dx$
+сходится равномерно на $[c,d]$ Тогда для 
+$$\frac{\varepsilon}{d-c}>0~\exists b_0(\varepsilon)~\forall y\in [c,d]~
+\forall b>b_0:\left| \int\limits_{b}^{\infty}f(x,y)dx \right|<
+\frac{\varepsilon}{d-c}$$
+ Отсюда
+$$\left| \int\limits_{a}^{b} dx\int\limits_{c}^{d}f(x,y)dy-
+\int\limits_{c}^{d}dy \int\limits_{a}^{\infty}f(x,y)dx \right|\leqslant 
+ \int\limits_{c}^{d}dy\left| \int\limits_{a}^{b} f(x,y)dx-
+ \int\limits_{a}^{\infty} f(x,y)dx\right| =$$
+$$=\int\limits_{c}^{d} dy\left| \int\limits_{b}^{\infty} f(x,y)dx \right|
+<\frac{\varepsilon}{d-c}\cdot (d-c)=\varepsilon$$ 
+Итак, 
+$$\forall \varepsilon>0~\exists b_0(\varepsilon)>a~\forall b>b_0~\forall y\in 
+Y:\left|  \int\limits_{a}^{b} dx\int\limits_{c}^{d}f(x,y)dy-
+\int\limits_{c}^{d}dy \int\limits_{a}^{\infty}f(x,y)dx \right| <
+\varepsilon$$ $\square$ 
+
 
 
 
