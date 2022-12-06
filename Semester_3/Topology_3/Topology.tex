@@ -21,12 +21,23 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{array}
+\usepackage{manfnt}
 
 %Новые команды 
 \newtheorem{defin}{Определение}
 \newtheorem{example}{Пример}
 \newtheorem{zam}{Замечание}
 \newtheorem{theor}{Теорема}
+
+\newcommand{\dnote}[1]{%
+    \noindent % I guess this is intended...
+    \begin{tabular}{@{}m{0.13\textwidth}@{}m{0.87\textwidth}@{}}%
+        \huge\textdbend &#1%
+    \end{tabular}%
+    \par % ... and this too.
+}
+
 
 \author{}
 \title{Топология}
@@ -62,4 +73,7 @@
 \input{lec10.tex}
 %24.11.22
 \input{lec11.tex}
+\input{lec12.tex}
+%\input{lec13.tex}
+%\input{lec14.tex}
 \end{document}

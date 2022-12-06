@@ -1,7 +1,7 @@
 \chapter{Несобственный интеграл}
 \section{Основные определения}
 \begin{defin}
-Пусть функция f интегрируема на писе длины $[a,b]$ для всех  $b>a$. 
+Пусть функция f интегрируема на отрезке $[a,b]$ для всех  $b>a$. 
 Тогда \textbf{несобственный интеграл первого рода} (c одной особой точкой)
 - предел 
 $$\int\limits_{a}^{\infty}f(x)dx:=\lim\limits_{b\to\infty}\int\limits_{a}^{b}
@@ -30,5 +30,53 @@ f(x)dx$$
 если он сходится на в каждой особой точке!} Так,
 $\int\limits_{0}^{\infty} \frac{dx}{x^p}$ расходится при любом $p$, так 
 как он расходится хотя бы на одном из промежутков  $(0,1)$ или
-$[1,\infty)$ /
+$[1,\infty)$.
 
+Будем обозначать интегрируемость в смысле несобственнного интеграла как
+$f\in \tilde R$.
+\begin{theor}
+    (формула Ньютона-Лейбница)\\
+    Пусть $f\in \tilde R[a,b)$, b - особая точка первого или второго рода, 
+    и на этом интервале существует функция $F(x)$ - первообразная для  $f$. 
+    Тогда
+     $$\int\limits_{a}^{b}f(x)dx=F(b)-F(a)$$ 
+     где $F(b)=\lim\limits_{x \to b}f(b)$
+\end{theor}
+\textbf{Доказательство.}  
+$\square$ 
+\begin{defin}
+Пусть $a,b$ - особые точки промежутка  $\langle a,b\rangle$
+Интеграл в смысле главного значения (<<valeur principale>>) - 
+$$v.p. \int\limits_{a}^{b}=\lim\limits_{\varepsilon \to 0}\left(
+\int\limits_{a}^{\omega-\varepsilon}f(x)dx+\int\limits_{\omega+\varepsilon}^{b}
+f(x)dx\right)$$
+где $\omega\in (a,b)$ - особая точка.
+\end{defin}
+\textbf{Пример.} $v.p. \int\limits_{0}^{2}\frac{dx}{1-x^2}=\frac{1}{2}\ln3$
+\subsection{Cвойства несобственного интеграла}
+\begin{enumerate}
+
+\item Пусть $f\in \tilde R[a,\infty)$, $g\in \tilde R[a,\infty)$.
+Тогда  
+$\forall \lambda,\mu\in \mathbb{R}:\lambda f+\mu g\in \tilde R[a,\infty)$.
+(линейность).
+
+\item Пусть $f\in \tilde R[a,\infty)$,  $g\in \tilde R[a,\infty)$ и
+    $f(x)\leqslant g(x)~\forall x\geqslant a$. Тогда
+    $\int\limits_{a}^{\infty}f(x)dx\leqslant \int\limits_{a}^{\infty}g(x)dx$.
+
+\item Формула замены переменной.\\
+    Пусть $f\colon\langle a,b \rangle\to \mathbb{R}$, 
+    $\varphi\colon\langle \alpha,\beta\rangle\to\langle a,b\rangle$,
+    причем $\varphi(a)=a,\varphi(\beta)=b$, $\varphi$ возрастает и у неё 
+    существует и непрерывна производная на $\langle\alpha,\beta\rangle$.
+    Тогда $\int\limits_{\alpha}^{\beta}f(\varphi(x))\cdot \varphi'(x)dx=
+    \int\limits_{a}^{b} f(t)dt$.
+
+
+\item Формула интегрирования по частям.\\
+    Пусть производные у $u,v$ существуют и непрерывны на промежутке  $a,b$.
+    Тогда  $ \int\limits_{a}^{b}u'vdx+\int\limits_{a}^{b}v'udx=uv\Big|^b_a$.
+\end{enumerate}
+
+ 

@@ -1,9 +1,49 @@
+\section{Собственный интеграл, зависящий от параметра}
+\subsection{Базовые определения}
+\begin{defin}
+    Пусть функция $f(x,y)$ интегрируема по Риману на отрезке $[a(y),b(y)]$
+    при любом значении параметра  $y\in Y$. Тогда собственный интеграл - 
+    $F(y)=\int\limits_{a(y)}^{b(y)}f(x,y)dx$.
+\end{defin}
+
 \begin{theor}
-    (о непрерывности интеграла)\\
-    Если функция определена и непрерывна, 
+    (о непрерывности собственного интеграла, зависящего от параметра)\\
+    Пусть\\
+    1. $f(x,y)$ определена на  $D=[a(y),b(y)]\times [c,d]=X\times Y$;\\
+    2. $a(y),b(y)$ непрерывны на  $[c,d]$;\\
+    Тогда $F(y)=\int\limits_{a(y)}^{b(y)}f(x,y)dx$ непрерывна на $[c,d]$.
 \end{theor}
-\textbf{Доказательство.}  
-$\square$ \\
+\textbf{Доказательство.} Покажем, что $\forall y_0\in [c,d]:
+\lim\limits_{y \to y_0}F(y)=F(y_0)$. Сделаем линейную замену
+$x=a(y)+(b(y)-a(y))t$, $dx=(b(y)-a(y))dt$. Тогда
+$$F(y)=\int\limits_{a(y)}^{b(y)}f(x,y)dx=\int\limits_{0}^{1}
+f(a(y)+(b(y)-a(y))t,y)\cdot (b(y)-a(y))dt$$
+Обозначим $g(t,y)=f(a(y)+(b(y)-a(y))t,y)\cdot (b(y)-a(y))$. Эта функция 
+непрерывна на $P=[0,1]\times [c,d]$. Это множество - компакт, поэтому если 
+функция непрерывна на компакте, то она и равномерно непрерывна на нем:
+$$\forall \varepsilon>0~\exists \delta>0~\forall (t_1,y_1),(t_2,y_2)\in P:
+\sqrt{(t_2-t_1)^2+(y_2-y_1)^2}<\delta\implies $$
+$$\implies |g(t_1,y_1)-g(t_2,y_2)|<\varepsilon$$ 
+Это означает, что
+$$|F(y)-F(y_0)|=\left| \int\limits_{0}^{1}\big(g(t,y)-g(t,y_0)\big)dt\right|
+\leqslant \int\limits_{0}^{1}|g(t,y)-g(t,y_0)|\leqslant 
+$$
+$$\leqslant \varepsilon\cdot \int\limits_{0}^{1}dt=\varepsilon$$
+Этим доказано, что если $|y-y_0|<\delta$, то и $|g(t,y)-g(t,y_0)|<
+\varepsilon$, то есть $\lim\limits_{y \to y_0}F(y)=F(y_0)$. $\square$ 
+
+\begin{theor}
+    (о предельном переходе под знаком собственного интеграла, зависящего от 
+    параметра)\\
+    Пусть\\
+    1. $f(x,y)$ определена и непрерывна на  $D=[a(y),b(y)]\times [c,d]$;\\
+    2. $a(y),b(y)\in C[c,d]$;\\
+    Тогда 
+    $$\lim\limits_{y \to y_0}\int\limits_{a(y)}^{b(y)}f(x,y)dx=
+    \int\limits_{\lim\limits_{y \to y_0}a(y) }^{\lim\limits_{y \to y_0}b(y)}
+   \lim\limits_{y \to y_0}f(x,y)dx=\int\limits_{a(y_0)}^{b(y_0)}f(x,y_0)dx$$
+\end{theor}
+\textbf{Доказательство.}  Доказано в предыдущей теореме. $\square$
 
 \begin{theor}
     (о дифференцируемости собственного интеграла, зависящего от параметра/
@@ -25,8 +65,8 @@ $F'(y)=\lim\limits_{h \to 0}\frac{F(y+h)-F(y)}{h}=\lim\limits_{h \to 0}
 При $h\to 0$ делаем замену  $u=y+\theta h,~u\to y$. Тогда предел
  $\lim\limits_{h \to 0}
 \int\limits_{a}^{b} \frac{\partial f}{\partial y}(x,u)dx=$
-по теореме о предельном переходе!!!!!!!!!!
-$\square$ \\
+по теореме о предельном переходе $=\int\limits_{a}^{b}
+\frac{\partial F}{\partial y}(x,y)dx$ $\square$ \\
 Следующая теорема обощает правило Лейбница:
 \begin{theor} (обобщенное правило Лейбница)\\
     Пусть $f(x,y)$ непрерывна на  $D=\{(x,y)\mid a(y)\leqslant x\leqslant 
@@ -51,8 +91,8 @@ $\frac{\partial F}{\partial a}=
 \left(-\int\limits_{b(y)}^{a(y)}f(x,y)dx\right)'_a=-f(a(y),y)$
 %Дальше здеь была куча поясняющего текста (см фото 10.11.22 в 13620)
 
-\textbf{Пример.} Посчитаем $F(a)=\int\limits_{0}^{\frac{\pi}{2}}
-\frac{\ln(1+a^2\sin^2(x))}{\sin(x)}$. тут я отрубился
+%\textbf{Пример.} Посчитаем $F(a)=\int\limits_{0}^{\frac{\pi}{2}}
+%\frac{\ln(1+a^2\sin^2(x))}{\sin(x)}$. тут я отрубился
 
 \begin{theor}
     (об интегрировании интеграла, зависящего от параметра)\\

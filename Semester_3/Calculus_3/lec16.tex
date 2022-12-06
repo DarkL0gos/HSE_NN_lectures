@@ -28,7 +28,6 @@ f(t)dt\geqslant
         подмножестве.
     \item Сходится равномерно на конечном объединении областей, 
         где сходится равномерно.
-    \item 
 \end{enumerate}
 \textbf{Пример.} Покажем, что свойство 3 нельзя обощить на объединения
 бесконечного числа множеств. Так, $\int\limits_{0}^{\infty}e^{-x^2y}dx$
@@ -79,11 +78,21 @@ $\square$
 
 \begin{theor}
     (признак Вейерштрасса равномерной сходимости)\\
-    Пусть 1. $\forall x\geqslant a~\forall y\in Y:|f(x,y)|\leqslant g(x)$;\\
+    Пусть\\
+    1. $\forall x\geqslant a~\forall y\in Y:|f(x,y)|\leqslant g(x)$;\\
     2. $\int\limits_{a}^{\infty}g(x)dx$ сходится.\\
 Тогда $\int\limits_{a}^{\infty}f(x,y)dx$ сходится равномерно на  $Y$.
 \end{theor}
-\textbf{Доказательство.}  Используем критерий Коши. 
-$\square$ \\
+\textbf{Доказательство.}  Используем критерий Коши. Зафиксируем 
+$\varepsilon>0$. Тогда интеграл сходится тогда и только тогда, когда
+$$\forall \varepsilon>0~\exists b_0>a~\forall b_1,b_2>b_0:
+\left| \int\limits_{b_1}^{b_2} g(x)dx \right|<\varepsilon$$
+По условию $\forall y\in Y~\forall x\geqslant a:|f(x,y)|\leqslant g(x)$, 
+откуда $g(x)\geqslant 0$. Значит,
+$\left|\int\limits_{b_1}^{b_2}g(x)dx\right|=\int\limits_{b_1}^{b_2}g(x)dx$,
+поэтому $\left| \int\limits_{b_1}^{b_2}f(x)dx \right| \leqslant 
+\left| \int\limits_{b_1}^{b_2} |f(x)|dx \right| \leqslant 
+\left| \int\limits_{b_1}^{b_2}g(x)dx\right| <\varepsilon$. По критерию Коши,
+$\int\limits_{a}^{\infty}f(x,y)dx$ сходится равномерно на $Y$. $\square$ 
 
 
