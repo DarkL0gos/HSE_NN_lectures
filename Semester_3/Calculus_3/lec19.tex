@@ -140,17 +140,122 @@ $x^{p-1}(1-x)^{q-1}\leqslant x^{p_0-1}(1-x)^(q_0-1)$ -
 $q\cdot B(p,q)=(p-1)\cdot B(p-1,q)-(p-1)\cdot B(p,q)$, и в итоге получаем
 $B(p,q)=\frac{p-1}{p+q-1}B(p-1,q)$
 
-
 7. Сделаем замену $x=\frac{t}{t+1}$. Изменим пределы: 
 $0\to 0,1\to \infty$. И тогда $1-x=\frac{1}{t+1}$, $dx=\frac{dt}{(t+1)^2}$.
 В итоге имеем $B(p,q)=\int\limits_{0}^{\infty} \frac{t^{p-1}}{(1+t)^{p-1}}
 \cdot \frac{1}{(t+1)^{q-1}}\cdot \frac{dt}{(1+t^2)}=
 \int\limits_{0}^{\infty} \frac{t^{p-1}dt}{(1+t)^{p+q}}$. 
 
+Чтобы доказать следующее свойство бета-функции, нам потребуется следующая
+\begin{theor}
+    (о перестановке двух несобственных интегралов)\\
+    Пусть\\
+    1. $f(x,y)$ определена на $[a,\infty)\times [c,\infty)$ ;\\
+    2. $\int\limits_{a}^{\infty}f(x,y)dx$ сходится равномерно на 
+    $[c,d]~\forall d>c$;\\
+    3. $\int\limits_{c}^{\infty}f(x,y)dy$ сходится равномерно на 
+    $[a,b]~\forall b>a$;\\
+    4. Существует $\int\limits_{a}^{\infty}dx \int\limits_{c}^{\infty}
+    |f(x,y)|dy$ или  $\int\limits_{c}^{\infty}dy \int\limits_{a}^{\infty}
+    |f(x,y)|dx$ ;\\
+    Тогда существуют  оба интеграла 
+    $\int\limits_{a}^{\infty}dx \int\limits_{c}^{\infty}f(x,y)dy$
+    и  $\int\limits_{c}^{\infty}dy \int\limits_{a}^{\infty}f(x,y)dx$,
+    и они равны между собой. 
+\end{theor}
+\textbf{Доказательство.} Допустим, существует интеграл  
+$\int\limits_{a}^{\infty}dx \int\limits_{c}^{\infty}|f(x,y)|dx$.
+Тогда 
+$$\int\limits_{c}^{\infty}dy \int\limits_{a}^{\infty}f(x,y)dx=
+\lim\limits_{d \to \infty} \int\limits_{c}^{d} dy \int\limits_{a}^{\infty} 
+f(x,y)dx$$
+По теореме об интегрировании интеграла, зависящего от параметра, это все равно
+$$\lim\limits_{d \to \infty}\int\limits_{a}^{\infty}dx
+\int\limits_{c}^{d}f(x,y)dy$$
+Обозначим $\Phi(x,d)=\int\limits_{c}^{d}f(x,y)dy$. Применяя теорему о 
+предельном переходе, 
+$$|\Phi(x,d)|=\left| \int\limits_{c}^{d} f(x,y)dy \right|\leqslant 
+\int\limits_{c}^{d} |f(x,y)|dy\leqslant \int\limits_{c}^{\infty}|f(x,y)|dy
+$$
+По условию, $\int\limits_{a}^{\infty}dx \int\limits_{c}^{\infty}|f(x,y)|dy$ 
+сходится, поэтому $\int\limits_{a}^{\infty}\Phi(x,d)dx$ сходится 
+равномерно по $d\in (c,\infty)$. Итак,
+$$\lim\limits_{d \to \infty}\int\limits_{a}^{\infty}\Phi(x,d)dx=
+\int\limits_{a}^{\infty} \left( \lim\limits_{d \to \infty}\Phi(x,d)\right)dx=
+\int\limits_{a}^{\infty}\left( \int\limits_{c}^{\infty}f(x,y)dy \right)dx $$
+$\square$ \\
+
+8. Теперь докажем, что ${B(p,q)=\frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}}$.\\
+Случай 1: $p>1,q>1$.  %$\Gamma(s)=\int\limits_{0}^{\infty}x^$
+Сделаем замену $x=(t+1)y,t>0,y>0$. Тогда
+$\Gamma(s)=\int\limits_{0}^{\infty}(t-1)^{s-1}y^{s-1}e^{-(t+1)y}(t+1)dy$.
+Тогда $\frac{\Gamma(s)}{(t+1)^s}=\int\limits_{0}^{\infty}y^{s-1}
+e^{-(t+1)y}dy$. Пусть $S=p+q$. Имеем
+$\frac{\Gamma(p+q)}{(t+1)^{p+q}}=\int\limits_{0}^{\infty}y^{p+q-1}e^{-(t+1)y}
+dy$. Домножим на $t^{p-1}$:
+$$\Gamma(p+q)\cdot \frac{t^{p-1}}{(t+1)^{p+q}}=t^{p-1}
+\int\limits_{0}^{\infty}y^{p+q-1}e^{-(t+1)y}dy$$
+Интегрируя, получаем
+\begin{equation} \label{gamma_beta}
+\Gamma(p+q)\cdot \int\limits_{0}^{\infty} \frac{t^{p-1}dt}{(t+1)^{p+q}}=
+\int\limits_{0}^{\infty}t^{p-1}dt \int\limits_{0}^{\infty}y^{p+q-1}
+e^{-(t+1)y}dy
+\end{equation}
+
+Внезапно, 
+$\Gamma(p+q)\cdot \int\limits_{0}^{\infty} \frac{t^{p-1}dt}{(t+1)^{p+q}}=
+\Gamma(p+q)\cdot B(p,q)$. По простому (нестрого): если поменять 
+порядок интегрирования, то и получим $\Gamma(p+q)B(p,q)=
+\Gamma(p)\cdot \Gamma(q)$. Более формально, мы должны проверять условия 
+теоремы, доказанной выше. Давайте сделаем это (на отл):\\
+1. $f(t,y)=t^{p-1}y^{p+q-1}e^{-(t+1)y}$ определена и непрерывна на 
+$[0,\infty)\times [0,\infty)$.\\
+2. $f(t,y)>0$ при  $t\geqslant 0,y\geqslant 0$.\\
+По \ref{gamma_beta}, существует интеграл $\int\limits_{0}^{\infty}
+dt \int\limits_{0}^{\infty}|f(t,y)|dy=\Gamma(p+q)B(p,q)$.
+3. Покажем равномерную сходимость. $|f(t,y)|=t^{p-1}y^{p+q-1}
+e^{-ty-y}\leqslant a^{p-1}y^{p+q-1}e^{-y}$. Значит, интеграл 
+$\int\limits_{0}^{\infty}f(t,y)dy$ сходится равномерно на $t\in [0,\infty)$
+по признаку Вейерштрасса. \\
+4. То же самое для $\int\limits_{0}^{\infty}f(t,y)dt$. Здесь
+нам нужна равномерная сходимость на $u\in [\xi,b]$. Если 
+$0<\xi<y<b$, то  $|f(t,y)|=t^{p-1}y^{p+q-1}e^{-ty}e^{-y}\leqslant 
+b^{p+q-1}t^{p-1}e^{-\xi}$. Интеграл от этой штуки сходится, тогда
+$\int\limits_{0}^{\infty}f(t,y)dt$ сходится равномерно на $[\xi,b]$ по 
+признаку Вейерштрасса. 
+
+Итак, из \ref{gamma_beta} имеем  $\Phi(t,\xi)=\int\limits_{\xi}^{\infty} 
+y^{p+q-1}e^{-(t+1)y}dy$, поэтому \ref{gamma_beta} перепишется в виде
+сходящегося интеграла:
+$$\int\limits_{0}^{\infty}t^{p-1}\Phi(t,0)dt=\Gamma(p+q)B(p,q)$$ 
+Имеем $0\leqslant \Phi(t,0)-\Phi(t,\xi)=
+\int\limits_{0}^{\xi}y^{p+q-1}e^{-(t+1)y}dy\to 0$ при $\xi\to 0$,
+так как это интеграл с переменным верхним пределом, дифференцируема, 
+значит, непрерывна. Оценим
+$$\int\limits_{0}^{\infty}t^{p-1}\Phi(t,\xi)dt\leqslant 
+\int\limits_{0}^{\infty} t^{p-1}\Phi(t,0)dt$$
+- интеграл сходится, значит, по признаку Вейерштрасса интеграл сходится
+равномерно по $\x \in (0,\infty)$. Теперь делаем предельный переход:
+$$\lim\limits_{\xi \to +0}\int\limits_{0}^{\infty}t^{p+1}\Phi(t,\xi)dt
+=\int\limits_{0}^{\infty}t^{p+1}\Phi(t,0)dt$$
+
+9. Докажем формулу Лежандра, начиная с левой части. Идея - 
+выделить полный квадрат: $B(p,p)=$
+$$=\int\limits_{0}^{1}x^{p-1}(1-x)^{p-1}dx=\int\limits_{0}^{1}
+(x-x^2)^{p-1}dx=\int\limits_{0}^{1}\left( \frac{1}{4}-
+\left( \frac{1}{4}-x+x^2 \right) \right)^{p-1}dx=$$
+$$=\frac{1}{4^{p-1}}\int\limits_{0}^{1} (1-1(1-2x)^2)^{p-1}dx=
+\begin{cases}t=1-2x\\dt=-2dx\end{cases}=\frac{1}{2^{2p-1}}=
+\int\limits_{-1}^{1} (1-t^2)^{p-1}dt=
+$$
+$$=\begin{cases}
+    u=t^2\\t=u^{\frac{1}{2}}\\dt=\frac{1}{2}u^{-\frac{1}{2}}du\end{cases}=
+    \frac{1}{2^{2p-1}}\int\limits_{0}^{1}(1-u)^{p-1}u^{-\frac{1}{2}}du=
+=\frac{1}{2^{2p-1}}B(\frac{1}{2},p)$$ 
 
 
 
-
+\subsection{Примеры}
 \textbf{Пример.} $\int\limits_{0}^{\infty} x^{2n+1}e^{-x^2}dx$. Замена:
 $t=x^2$,  $I=\frac{1}{2}\int\limits_{0}^{\infty} t^{n+\frac{1}{2}}
 t^{-\frac{1}{2}}e^{-t}dt=\Gamma(n+1)=\frac{1}{2}n!$ 

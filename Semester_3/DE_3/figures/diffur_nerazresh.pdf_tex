@@ -1,6 +1,6 @@
 %% Creator: Inkscape 1.1.1 (3bf5ae0d25, 2021-09-20), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'nepr_zav_cauchi.pdf' (pdf, eps, ps)
+%% Accompanies image file 'diffur_nerazresh.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{265.72333388bp}%
+    \setlength{\unitlength}{272.75503804bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,19 +50,14 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.75547125)%
+  \begin{picture}(1,0.80225649)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{nepr_zav_cauchi.pdf}}%
-    \put(0.76342736,0.03701684){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$t$\end{tabular}}}}%
-    \put(0.13781311,0.60378779){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$x$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{nepr_zav_cauchi.pdf}}%
-    \put(0.51429231,0.02986602){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$t_0$\end{tabular}}}}%
-    \put(0.05857878,0.43269155){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$x_0$\end{tabular}}}}%
-    \put(0.72330156,0.60920439){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$x(t,t_0,x_0)$\end{tabular}}}}%
-    \put(0.06193712,0.48086774){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$y_0$\end{tabular}}}}%
-    \put(0.71656192,0.53311633){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$y(t,t_0,y_0)$\end{tabular}}}}%
-    \put(0.25499571,0.31822327){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\varepsilon_1$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=3]{nepr_zav_cauchi.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{diffur_nerazresh.pdf}}%
+    \put(0.09239612,0.04315279){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$t$\end{tabular}}}}%
+    \put(0.70971908,0.2138071){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$x$\end{tabular}}}}%
+    \put(0.23382917,0.7199763){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$p$\end{tabular}}}}%
+    \put(0.2882774,0.31619959){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$F=0$\end{tabular}}}}%
+    \put(0.54351664,0.66789562){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\Vec n=(F_x,F_t,F_p)$\end{tabular}}}}%
   \end{picture}%
 \endgroup%
