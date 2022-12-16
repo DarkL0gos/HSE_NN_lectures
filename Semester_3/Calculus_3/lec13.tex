@@ -1,8 +1,19 @@
-\subsection{Абсолютная и условная сходимость}
+\section{Абсолютная и условная сходимость}
 \begin{defin}
-Интеграл сходится абсолютно, если сходится интеграл от модуля.
+Интеграл сходится абсолютно, если сходится интеграл от модуля функции.
 \end{defin}
-Очевидно, из абсолютной сходимости следует обычная. 
+
+\begin{theor}
+    Если интеграл сходится абсолютно, то он сходится.
+\end{theor}
+\textbf{Доказательство.}  Используем критерий Коши: 
+$\int\limits_{a}^{\infty}|f(x)|dx$ сходится $\Leftrightarrow$
+$$\forall \varepsilon>0~\exists b_0>a~\forall b_1,b_2>b_0:
+\left| \int\limits_{b_1}^{b_2}|f(x)|dx \right|<\varepsilon$$
+Так как $\left| \int\limits_{b_1}^{b_2}f(x)dx \right|\leqslant 
+\left| \int\limits_{b_1}^{b_2}|f(x)|dx \right|$, то и для
+$\int\limits_{b_1}^{b_2}f(x)dx$ выполянется условие Коши. $\square$ 
+
 \begin{theor}
     (признак Дирихле)\\
     Пусть:\\
@@ -10,46 +21,56 @@
     (и существует интеграл $F(b)=\int\limits_{a}^{b}f(x)dx$);\\
     2. $\exists M=const~\forall b\geqslant a:|f(b)|\leqslant M$;\\
     3. $g'(x)\in C[a,\infty)$;\\
-    4. $g'(x)$ знакопостоянна;\\
+    4. $g'(x)$ знакопостоянна на $(a,\infty)$;\\
     5. $\lim\limits_{x \to \infty}g(x)=0$;\\
-    Тогда $\int\limits_{a}^{\infty}f(x)g(x)dx$ сходится условно. 
+    Тогда $\int\limits_{a}^{\infty}f(x)g(x)dx$ сходится. 
 \end{theor}
 \textbf{Доказательство.} Зафиксируем $\varepsilon>0$. Тогда из условия 5 для
 $$\frac{\varepsilon}{4M}~\exists b_0>a~\forall x>b_0:|g(x)|<
 \frac{\varepsilon}{4M}$$
 Возьмем произвольные $b_1,b_2>b_0$, тогда 
-$$\int\limits_{b_1}^{b_2}f(x)g(x)dx>\int\limits_{b_1}^{b_2}g(x)df(x)=
-g(x)f(x)\Big|^{b_2}_{b_1}-\int\limits_{b_1}^{b_2}F(x)g(x)dx=???$$
+$$\left|\int\limits_{b_1}^{b_2}f(x)g(x)dx\right| =
+\left|\int\limits_{b_1}^{b_2}dF(x)\right| = 
+\left| g(x)F(x)\bigg|^{b_2}_{b_1} - \int\limits_{b_1}^{b_2}F(x)g'(x)dx\right|= 
+$$
+$$
+= \left|g(b_2)F(b_2) - g(b_1)F(b_1) - F(\xi)\int\limits_{b_1}^{b_2}g'(x)dx
+\right|$$ 
+Здесь мы воспользовались теоремой о среденем, взяв $\xi\in(b_1,b_2)$. 
 Итак, 
 $$ \left| \int\limits_{b_1}^{b_2} f(x)g(x)dx \right|\leqslant 
 |g(b_2)|\cdot |F(b_2)|+|g(b_1)|\cdot |F(b_1)|+|F(\xi)|\cdot |g(b_2)|+
 |f(\xi)|\cdot |g(b_1)|\leqslant\frac{4M\cdot \varepsilon}{4M}$$ 
-$\square$ 
+Значит, $\int\limits_{a}^{\infty}f(x)dx$ сходится по критерию Коши. $\square$ 
 
 \begin{theor}
     (признак Абеля)\\
     Пусть:\\
     1. $f\in C[a,\infty)$ 
-    (и существует интеграл $F(b)=\int\limits_{a}^{b}f(x)dx$);\\
+    2. $\int\limits_{a}^{\infty}f(x)dx$ сходится;\\
     %2. $\exists M=const~\forall b\geqslant a:|f(b)|\leqslant M$;\\
     2. $g'(x)\in C[a,\infty)$;\\
     3. $g'(x)$ знакопостоянна;\\
     %5. $\lim\limits_{x \to \infty}g(x)=0$;\\
     4. $\exists M=const~\forall x\geqslant a:|g(x)|\leqslant M$
-    Тогда $\int\limits_{a}^{\infty}f(x)g(x)dx$ сходится условно. 
+    Тогда $\int\limits_{a}^{\infty}f(x)g(x)dx$ сходится. 
 \end{theor}
 \textbf{Доказательство.} Зафиксируем $\varepsilon>0$. Тогда из условия 2 по 
 критерию Коши для
 $$\frac{\varepsilon}{2M}~\exists b_0>a~\forall b_1,b_2>b_0:\left| 
 \int\limits_{b_1}^{b_2}f(x)dx\right| \leqslant \frac{\varepsilon}{2M}$$
-????????????????
-
-По критеорию Коши,
-$$\left|\int\limits_{b_1}^{b_2}f(x)g(x)dx \right|\leqslant g(b_2)\cdot \
-\left| \int\limits_{b_1}^{b_2}f(x)dx\right|+|g(b_1)|\cdot 
-\left| \int\limits_{b_1}^{b_2} f(x)dx\right|\leqslant 
+Произведем оценку:
+$$\left| \int\limits_{b_1}^{b_2}f(x)g(x)dx \right| = 
+\left| g(b_2)F(b_2) - g(b_1)F(b_1) - F(\xi)g(b_2) +F(\xi)g(b_1) \right| = 
 $$
-$$\leqslant M\cdot \frac{\varepsilon}{2M}\cdot 2=\varepsilon\quad\square $$
+$$ = \left| g(b_2)\int\limits_{\xi}^{b_2}f(x)dx+ g(b_1)\int\limits_{b_1}^{\xi}
+f(x)dx \right| \leqslant 
+|g(b_2)|\cdot \left|\int\limits_{\xi}^{b_2}f(x)dx\right| + 
+|g(b_1)|\cdot \left|\int\limits_{b_1}^{\xi}f(x)dx\right| <
+$$
+$$ < M\cdot \frac{\varepsilon}{2M} + M\cdot \frac{\varepsilon}{2M} = 
+\varepsilon $$
+Значит, интеграл сходится по критерию Коши.
 
 
 

@@ -1,7 +1,8 @@
+\chapter{Интеграл, зависящий от параметра}
 \section{Собственный интеграл, зависящий от параметра}
-\subsection{Базовые определения}
 \begin{defin}
-    Пусть функция $f(x,y)$ интегрируема по Риману на отрезке $[a(y),b(y)]$
+    Пусть функция $f(x,y)$ интегрируема по Риману (по $x$) 
+    на отрезке $[a(y),b(y)]$
     при любом значении параметра  $y\in Y$. Тогда собственный интеграл - 
     $F(y)=\int\limits_{a(y)}^{b(y)}f(x,y)dx$.
 \end{defin}
@@ -10,7 +11,8 @@
     (о непрерывности собственного интеграла, зависящего от параметра)\\
     Пусть\\
     1. $f(x,y)$ определена на  $D=[a(y),b(y)]\times [c,d]=X\times Y$;\\
-    2. $a(y),b(y)$ непрерывны на  $[c,d]$;\\
+    2. $a(y),b(y)$ непрерывны на  $[c,d]$, причем
+    $a\leqslant a(y)\leqslant b(y)\leqslant b$;\\
     Тогда $F(y)=\int\limits_{a(y)}^{b(y)}f(x,y)dx$ непрерывна на $[c,d]$.
 \end{theor}
 \textbf{Доказательство.} Покажем, что $\forall y_0\in [c,d]:
@@ -46,13 +48,13 @@ $$\leqslant \varepsilon\cdot \int\limits_{0}^{1}dt=\varepsilon$$
 \textbf{Доказательство.}  Доказано в предыдущей теореме. $\square$
 
 \begin{theor}
-    (о дифференцируемости собственного интеграла, зависящего от параметра/
+    (о дифференцируемости собственного интеграла, зависящего от параметра /
     правило Лейбница)\\
     Пусть $f(x,y)$ \\
     1. непрерывна на  $P=[a,b]\times[c,d]$;\\
     2. $\frac{\partial f}{\partial y}(x,y)$ непрерывна на $P$;\\
     Тогда:\\
-    1. $F(y)=\int\limits_{a}^{b} f(x,y)dx$ дифференцируема на $[c,d]$;
+    1. $F(y)=\int\limits_{a}^{b} f(x,y)dx$ дифференцируема на $[c,d]$;\\
     2. $F'(y)=\int\limits_{a}^{b}\frac{\partial f}{\partial y}(x,y)dx$
 \end{theor}
 \textbf{Доказательство.} Пусть $y\in[c,d],~y+h\in[c,d]$. 
@@ -66,29 +68,35 @@ $F'(y)=\lim\limits_{h \to 0}\frac{F(y+h)-F(y)}{h}=\lim\limits_{h \to 0}
  $\lim\limits_{h \to 0}
 \int\limits_{a}^{b} \frac{\partial f}{\partial y}(x,u)dx=$
 по теореме о предельном переходе $=\int\limits_{a}^{b}
-\frac{\partial F}{\partial y}(x,y)dx$ $\square$ \\
+\frac{\partial F}{\partial y}(x,y)dx$. $\square$ 
+
 Следующая теорема обощает правило Лейбница:
 \begin{theor} (обобщенное правило Лейбница)\\
-    Пусть $f(x,y)$ непрерывна на  $D=\{(x,y)\mid a(y)\leqslant x\leqslant 
-    b(y),c\leqslant y\leqslant d\}$, $\frac{\partial f}{\partial x}(x,y)$ 
-    непрерывна на $D$ и $a'(y),b'(y)$ непрерывны на  $[c,d]$. Тогда
-     $F(y)=\int\limits_{a(y)}^{b(y)}f(x,y)dx$ дифференцируема на 
-     $y\in[c,d]$, причем  $F'(y)=\int\limits_{a(y)}^{b(y)} 
-     \frac{\partial f}{\partial y} (x,y)dx+f(b(y),y)\cdot b'(y)-
-     f(a(y),y)\cdot a'(y)$.
+    Пусть\\
+    1. $f(x,y)$ непрерывна на $D=\{(x,y)\mid a(y)\leqslant x\leqslant 
+    b(y),c\leqslant y\leqslant d\}$;\\
+    2. $\frac{\partial f}{\partial x}(x,y)$ непрерывна на $D$;\\
+    3. $a'(y),b'(y)$ непрерывны на  $[c,d]$.\\
+    Тогда $F(y)=\int\limits_{a(y)}^{b(y)}f(x,y)dx$ дифференцируема на 
+     $y\in[c,d]$, причем  
+     $$F'(y)=\int\limits_{a(y)}^{b(y)}\frac{\partial f}{\partial y}(x,y)dx
+     +f(b(y),y)\cdot b'(y) - f(a(y),y)\cdot a'(y)$$
 \end{theor}
-\textbf{Доказательство.}  $F(y)=F(y,a(y),b(y))$. По правилу производной
-сложной функции  $\frac{dF}{dy}=\frac{\partial F}{\partial y}+
-\frac{\partial F}{\partial a}\cdot \frac{\partial a}{\partial y} 
-\frac{\partial F}{\partial b}\cdot \frac{\partial b}{\partial y}=
-\int\limits_{a(y)}^{b(y)}\frac{\partial F}{\partial y}(x,y)dx
-+f(b(y),y)\cdot b'(y)-f(a(y),y)\cdot a'(y)$ $\square$
+\textbf{Доказательство.}  Рассмотрим $F(y)=F(y,a(y),b(y))$ как сложную
+функцию. По правилу производной сложной функции
+$$\frac{dF}{dy}=\frac{\partial F}{\partial y}+
+\frac{\partial F}{\partial a}\cdot \frac{\partial a}{\partial y} + 
+\frac{\partial F}{\partial b}\cdot \frac{\partial b}{\partial y}$$
+Применяя правило Лейбница, получаем
+$$\frac{dF}{dy} = \frac{d}{dy}\bigg(\int\limits_{a(y)}^{b(y)}f(x,y)dx\bigg) = 
+\int\limits_{a(y)}^{b(y)}\frac{\partial f}{\partial y}(x,y)dx$$
+Беря частную производную по $b$, получаем
+ $$\frac{\partial F}{\partial b} = 
+ \frac{d}{db(y)}\bigg(\int\limits_{a(y)}^{b(y)}f(x,y)dx\bigg) = 
+ f\big(b(y),y\big)$$
+ Аналогично, $\frac{\partial F}{\partial a}=-f\big(a(y),y\big)$. Из этих
+ соотношений и получаем искомую формулу. $\square$
 
-Заметим, что по правилу Лейбница, $\frac{\partial F}{\partial y}=
-\int\limits_{a(y)}^{b(y)} \frac{\partial f}{\partial y}(x,y)dx$,
-$\frac{\partial F}{\partial b} f(b(y),y)$,
-$\frac{\partial F}{\partial a}=
-\left(-\int\limits_{b(y)}^{a(y)}f(x,y)dx\right)'_a=-f(a(y),y)$
 %Дальше здеь была куча поясняющего текста (см фото 10.11.22 в 13620)
 
 %\textbf{Пример.} Посчитаем $F(a)=\int\limits_{0}^{\frac{\pi}{2}}

@@ -1,4 +1,4 @@
-\textbf{Пример.} $\int_{0}^{1} \frac{x^b-x^a}{\ln(x)}dx$, $0<a<b$.  
+\textbf{Пример 1.} $\int_{0}^{1} \frac{x^b-x^a}{\ln(x)}dx$, $0<a<b$.  
 Имеем $\int\limits_{a}^{b} x^ydy=\frac{x^b-x^a}{\ln(x)}$, 
 подынтегральная функция непрерывна на бруске $[0,1]\times[a,b]$, 
 тогда интеграл равен $\int\limits_{0}^{1}dx\int\limits_{a}^{b}x^ydy=
@@ -15,43 +15,45 @@ $\int=\int\limits_{a}^{b}dy \int\limits_{0}^{1}\sin(\ln(\frac{1}{x}))x^ydx=
 \sin(t)e^{-t(y+1)}dt=-\cos(t)e^{-t(y+1)}\big|_0^\infty
 -(y+1)\int\limits_{0}^{\infty}cos(t)e^{-t(y+1)}dt,~I=1-(y+1)^2I$.
 Значит, искомый интеграл равен 
-$\int\limits_{a}^{b}\frac{dy}{(y+1)+1}=arctg\left( \frac{a-b}{1+ab}\right) $
+$\int\limits_{a}^{b}\frac{dy}{(y+1)+1}=arctg\left( \frac{a-b}{1+ab}\right)$.
 Домашка: тоже самое для косинуса.
-\subsection{Несобственные интегралы, зависящие от параметра}
-Рассмотрим семейство функций $f(x,y),~x\in X,y\in Y$. Пусть
-$M\subset Y$ - множество сходимости.
+\section{Несобственные интегралы, зависящие от параметра}
+%Рассмотрим семейство функций $f(x,y),~x\in X,y\in Y$. Пусть
+%$M\subset Y$ - множество сходимости.
+%\begin{defin}
+%$f(x,y)$ сходится поточечно к  $\varphi(x)$ на М при $x\to x_0$, если
+% $$\forall y\in M~\forall \varepsilon>0~\exists \delta(\varepsilon,y)~
+% \forall x\in X\cap U^\circ_\delta(x_0):
+% |f(x,y)-\varphi(y)|<\varepsilon$$
+%\end{defin}
+%Определение предела: 
+%$$\lim\limits_{x\to x_0}f(x)=A\iff \forall \varepsilon>0~\exists 
+%\delta(\varepsilon)~\forall x\in X:0<|x-x_0|<\delta\implies|f(x)-A|
+%<\varepsilon$$
+%\begin{defin}
+%$f(x,y)$ сходится равномерно к $\varphi(x)$ на Е при $x\to x_0$, если
+%$$\forall \varepsilon>0~\exists \delta(\varepsilon)>0~\forall x\in X\cap
+%U^\circ_\delta(x_0)~\forall y\in E:|f(x,y)-\varphi(x)|<\varepsilon$$
+%\end{defin}
+%\textbf{Пример.} $f(x,y)=\sin(y^x)$ - непрерывен (??)
+Обозначим $F(y)=\int\limits_{a}^{\infty}f(x,y)dx,~y\in Y$. 
 \begin{defin}
-$f(x,y)$ сходится поточечно к  $\varphi(x)$ на М при $x\to x_0$, если
- $$\forall y\in M~\forall \varepsilon>0~\exists \delta(\varepsilon,y)~
- \forall x\in X\cap U^\circ_\delta(x_0):
- |f(x,y)-\varphi(y)|<\varepsilon$$
-\end{defin}
-Определение предела: 
-$$\lim\limits_{x\to x_0}f(x)=A\iff \forall \varepsilon>0~\exists 
-\delta(\varepsilon)~\forall x\in X:0<|x-x_0|<\delta\implies|f(x)-A|
-<\varepsilon$$
-\begin{defin}
-$f(x,y)$ сходится равномерно к $\varphi(x)$ на Е при $x\to x_0$, если
-$$\forall \varepsilon>0~\exists \delta(\varepsilon)>0~\forall x\in X\cap
-U^\circ_\delta(x_0)~\forall y\in E:|f(x,y)-\varphi(x)|<\varepsilon$$
-\end{defin}
-
-\textbf{Пример.} $f(x,y)=\sin(y^x)$ - непрерывен (??)
-
-\begin{defin}
-$\int\limits_{a}^{\infty}f(x,y)dx$ сходится поточечно к $F(y)$ на М, если
-$$\forall y\in M~\forall \varepsilon>0~\exists b_0(\varepsilon,y)>a~
+%$\int\limits_{a}^{\infty}f(x,y)dx$ сходится поточечно к $F(y)$ на М, если
+Если $\forall y\in Y$ $F(y)$ сходится, то поточечная сходимость - 
+$$\forall y\in Y~\forall \varepsilon>0~\exists b_0(\varepsilon,y)>a~
 \forall b>b_0:\left| \int\limits_{b}^{\infty}f(x,y)dx\right|<\varepsilon$$
 \end{defin}
-Обозначим $F(b,y)=\int\limits_{a}^{b}f(x,y)dx$. Тогда $|F(b,y)-F(y)|=
-\left| \int\limits_{b}^{\infty} f(x,y)dx \right|$. $F(b,y)$ сходится к $F(y)$
-поточечно на  $M$ при  $b\to \infty$. Обозначим остаток интеграла
-$R(b,y)=\int\limits_{b}^{\infty}f(x,y)dx$. Остаток сходится поточечно 
-$R(b,y)\to 0~\forall y\in N$ при $b\to \infty$. 
+
+%Обозначим $F(b,y)=\int\limits_{a}^{b}f(x,y)dx$. Тогда $|F(b,y)-F(y)|=
+%\left| \int\limits_{b}^{\infty} f(x,y)dx \right|$. $F(b,y)$ сходится к $F(y)$
+%поточечно на  $M$ при  $b\to \infty$. Обозначим остаток интеграла
+%$R(b,y)=\int\limits_{b}^{\infty}f(x,y)dx$. Остаток сходится поточечно 
+%$R(b,y)\to 0~\forall y\in N$ при $b\to \infty$. 
 \begin{defin}
-Интеграл сходится равномерно к $F(y)$ на  $E$, если
+$F(y)$ сходится равномерно на $E$, если
 $$\forall \varepsilon>0~\exists b_0(\varepsilon)~\forall b>b_0~\forall y\in E:
 \left| \int\limits_{b}^{\infty}f(x,y)dx\right|<\varepsilon$$
+(то есть оценка не зависит от y).
 \end{defin}
 Как и с рядями, есть супремум-критерий.
 \begin{theor}
@@ -61,10 +63,9 @@ $$\forall \varepsilon>0~\exists b_0(\varepsilon)~\forall b>b_0~\forall y\in E:
     $$\lim\limits_{b\to \infty}\sup\limits_{y\in  E}\left| 
     \int\limits_{b}^{\infty}f(x,y)dx \right|=0$$
 \end{theor}
-\textbf{Доказательство.}  Самостоятельно
+\textbf{Доказательство.} Самостоятельно. 
 $\square$ \\
-\begin{theor}.
-    (метод оценки остатка)\\
+\begin{theor} (метод оценки остатка)\\
 Пусть интеграл $\int\limits_{a}^{\infty} f(x,y)dx$ сходится на $E$, и 
 $r(b)$ - какая-то оценка остатка. Тогда если
  $|R(b,y)|\leqslant r(b)~\forall y\in E$ и $r(b)\to 0$ при  $b\to \infty$,
@@ -72,6 +73,8 @@ $r(b)$ - какая-то оценка остатка. Тогда если
  $E$. Если же существует такая функция  $y(b)$, что $R(b,y(b))\to s\ne 0$,
  то интеграл не сходится равномерно на $X$.
 \end{theor}
+\textbf{Доказательство.} 
+
 
 \textbf{Пример.} $F(y)=\int\limits_{0}^{\infty}ye^{-xy}dx$. Доказать, что 
 сходимость равномерная при $[y_0,\infty),~y_0\geqslant0$, но на 

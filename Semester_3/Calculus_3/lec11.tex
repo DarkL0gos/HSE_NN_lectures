@@ -8,7 +8,7 @@ $$\int\limits_{a}^{\infty}f(x)dx:=\lim\limits_{b\to\infty}\int\limits_{a}^{b}
 f(x)dx$$
 \end{defin}
 Если таковой предел существует, то интеграл сходится; если предел равен 
-бесконечности или не существует, то интеграл расходится. Анал
+бесконечности или не существует, то интеграл расходится. Аналолгично
 определяется и интеграл с нижним пределом $-\infty$.
 \begin{defin}
     Пусть $\forall \varepsilon>0$ функция $f$ интегрируема на $[a+\varepsilon,
@@ -27,7 +27,7 @@ f(x)dx$$
 Если на некотором промежутке интеграл имеет конечное число особых точек, то 
 всегда можно разбить промежуток на такие области, в которых каждый интеграл 
 имеет лишь одну особую точку. Говорят, что интеграл \textbf{сходится, 
-если он сходится на в каждой особой точке!} Так,
+если он сходится в каждой особой точке!} Так,
 $\int\limits_{0}^{\infty} \frac{dx}{x^p}$ расходится при любом $p$, так 
 как он расходится хотя бы на одном из промежутков  $(0,1)$ или
 $[1,\infty)$.
@@ -38,22 +38,27 @@ $f\in \tilde R$.
     (формула Ньютона-Лейбница)\\
     Пусть $f\in \tilde R[a,b)$, b - особая точка первого или второго рода, 
     и на этом интервале существует функция $F(x)$ - первообразная для  $f$. 
-    Тогда
+    Тогда, если интеграл сходится, то
      $$\int\limits_{a}^{b}f(x)dx=F(b)-F(a)$$ 
-     где $F(b)=\lim\limits_{x \to b}f(b)$
+     где $F(b)=\lim\limits_{x \to b}f(b)$.
 \end{theor}
-\textbf{Доказательство.}  
-$\square$ 
+%Будем называть промежутком отрезок, интервал или полуинтервал.
 \begin{defin}
-Пусть $a,b$ - особые точки промежутка  $\langle a,b\rangle$
-Интеграл в смысле главного значения (<<valeur principale>>) - 
+Пусть $\omega \in (a,b)$ - особая точка функции $f$, причем
+$\forall \varepsilon>0:f\in R[a,\omega-\varepsilon],f\in R[\omega+\varepsilon,
+b]$. Тогда интеграл в смысле главного значения по Коши 
+(<<valeur principale>>) - 
 $$v.p. \int\limits_{a}^{b}=\lim\limits_{\varepsilon \to 0}\left(
 \int\limits_{a}^{\omega-\varepsilon}f(x)dx+\int\limits_{\omega+\varepsilon}^{b}
 f(x)dx\right)$$
-где $\omega\in (a,b)$ - особая точка.
+%где $\omega\in (a,b)$ - особая точка.
 \end{defin}
-\textbf{Пример.} $v.p. \int\limits_{0}^{2}\frac{dx}{1-x^2}=\frac{1}{2}\ln3$
-\subsection{Cвойства несобственного интеграла}
+\textbf{Пример.} $v.p. \int\limits_{0}^{2}\frac{dx}{1-x^2}=\frac{1}{2}\ln3$.
+
+\section{Cвойства несобственного интеграла}
+Будем называть промежутком отрезок, интервал или полуинтервал и обозначать
+его как $\langle a, b\rangle$
+
 \begin{enumerate}
 
 \item Пусть $f\in \tilde R[a,\infty)$, $g\in \tilde R[a,\infty)$.
@@ -75,8 +80,23 @@ $\forall \lambda,\mu\in \mathbb{R}:\lambda f+\mu g\in \tilde R[a,\infty)$.
 
 
 \item Формула интегрирования по частям.\\
-    Пусть производные у $u,v$ существуют и непрерывны на промежутке  $a,b$.
+    Пусть производные у $u,v$ существуют и непрерывны на промежутке  
+    $\rangle a,b\langle$.
     Тогда  $ \int\limits_{a}^{b}u'vdx+\int\limits_{a}^{b}v'udx=uv\Big|^b_a$.
 \end{enumerate}
+\textbf{Доказательство.}\\
+1. Линейность следует из линейности определенного интеграла и линейности
+предела. Действительно,
+$$\int\limits_{a}^{\infty}(\lambda f+\mu g)dx = 
+\lim\limits_{b \to \infty} \int\limits_{a}^{b} (\lambda f+\mu g)dx = 
+\lim\limits_{b \to \infty} \left(\lambda \int\limits_{a}^{b}f(x)dx + \mu
+\int\limits_{a}^{b} g(x)dx\right) =
+$$ 
+$$ = \lambda \lim\limits_{b \to \infty} \int\limits_{a}^{b} f(x)dx + 
+\mu \lim\limits_{b \to \infty} \int\limits_{a}^{b} g(x)dx = 
+\lambda \int\limits_{a}^{\infty}f(x) dx + \mu \int\limits_{a}^{\infty}g(x)dx
+$$
+
+2. 
 
  

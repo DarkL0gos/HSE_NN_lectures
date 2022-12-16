@@ -30,7 +30,7 @@ $$\leqslant
 \left| g(b_1,y) \right|\cdot \left| \int\limits_{a}^{b_1}f(t,y)dt \right| +
 \left| \int\limits_{b_1}^{b_2}\biggl| \int\limits_{a}^{x}f(t,y)dt\biggr|\cdot 
 \frac{\partial g}{\partial x} (x,y)dx \right| \leqslant $$ 
-$$\frac{\varepsilon}{4M}\cdot M+\frac{\varepsilon}{4M}\cdot M+
+$$\leqslant \frac{\varepsilon}{4M}\cdot M+\frac{\varepsilon}{4M}\cdot M+
 M\cdot |g(b_2,y)-g(b,y)|<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=
 \varepsilon$$ 
 Итак, 
@@ -65,12 +65,13 @@ $$\frac{\varepsilon}{3M}>0~\exists b_0(\varepsilon)>a~\forall b_1,b_2>b_0~
 \left| \int\limits_{b_1}^{b_2}g(x,y)d\left( \int\limits_{b_1}^{x}f(t,y)dt
 \right)   \right| = 
 \end{equation*}
-$$=\left|\left.\left( g(x,y)\cdot\int\limits_{b_1}^{x}f(t,y)dt\right)\right|^{b_2}_{b_1}
+$$=\left|\left( g(x,y)\cdot\int\limits_{b_1}^{x}f(t,y)dt\right)
+\bigg|^{b_2}_{b_1}
 - \int\limits_{b_1}^{b_2} \left( \int\limits_{b_1}^{x} f(t,y)dt \right) \cdot 
 \frac{\partial g}{\partial x} (x,y)dx \right|\leqslant$$
 $$\leqslant 
 \left| g(b_2,y) \right|\cdot \left| \int\limits_{b_1}^{b_2}f(t,y)dt \right| +
-\left| \int\limits_{b_1}^{b_2} \left| \int\limits_{b_1}^{x}f(t,y)dt\right|\cdot 
+\left| \int\limits_{b_1}^{b_2} \bigg| \int\limits_{b_1}^{x}f(t,y)dt\bigg|\cdot 
 \frac{\partial g}{\partial x} (x,y)dx \right| \leqslant $$ 
 
 $$\leqslant \frac{\varepsilon}{3M}\cdot M+

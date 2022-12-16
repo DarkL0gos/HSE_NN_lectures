@@ -1,5 +1,5 @@
-\section{Функции Эйлера}\
-\subsection{Гамма-функция Эйлера}
+\chapter{Функции Эйлера}
+\section{Гамма-функция}
 $$\Gamma(s)=\int\limits_{0}^{\infty}x^{s-1}\cdot e^{-x}dx$$
 На бесконечности сходится всегда, в нуле сходится при $s>0$.
 Если проинтегрировать по частям, беря первообразуную от экспоненты, 
@@ -95,7 +95,7 @@ $|x^{s-1}\cdot e^{-x}\ln x|\leqslant x^{s_1-1}\cdot\ln x$.
 10. Доказательство слишком длинное и использует комплексные числа. И прочие 
 тоже. 
 
-\subsection{Бета-функция}
+\section{Бета-функция}
 $$B(p,q)=\int\limits_{0}^{1} x^{p-1}(1-x)^{q-1}dx$$ 
 1. Область определения - $p>0\And q>0$;\\
 2. Равномерная сходимость -  $p\geqslant p_0>0\And q\geqslant q_0>0$.\\
@@ -235,7 +235,7 @@ $$\int\limits_{0}^{\infty}t^{p-1}\Phi(t,0)dt=\Gamma(p+q)B(p,q)$$
 $$\int\limits_{0}^{\infty}t^{p-1}\Phi(t,\xi)dt\leqslant 
 \int\limits_{0}^{\infty} t^{p-1}\Phi(t,0)dt$$
 - интеграл сходится, значит, по признаку Вейерштрасса интеграл сходится
-равномерно по $\x \in (0,\infty)$. Теперь делаем предельный переход:
+равномерно по $x \in (0,\infty)$. Теперь делаем предельный переход:
 $$\lim\limits_{\xi \to +0}\int\limits_{0}^{\infty}t^{p+1}\Phi(t,\xi)dt
 =\int\limits_{0}^{\infty}t^{p+1}\Phi(t,0)dt$$
 
@@ -255,7 +255,7 @@ $$=\begin{cases}
 
 
 
-\subsection{Примеры}
+\section{Примеры}
 \textbf{Пример.} $\int\limits_{0}^{\infty} x^{2n+1}e^{-x^2}dx$. Замена:
 $t=x^2$,  $I=\frac{1}{2}\int\limits_{0}^{\infty} t^{n+\frac{1}{2}}
 t^{-\frac{1}{2}}e^{-t}dt=\Gamma(n+1)=\frac{1}{2}n!$ 
