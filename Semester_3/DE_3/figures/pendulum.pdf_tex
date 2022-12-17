@@ -1,6 +1,6 @@
 %% Creator: Inkscape 1.1.1 (3bf5ae0d25, 2021-09-20), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'Lotka-Volterra.pdf' (pdf, eps, ps)
+%% Accompanies image file 'pendulum.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{261.5578719bp}%
+    \setlength{\unitlength}{174.61092491bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,15 +50,15 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.84379734)%
+  \begin{picture}(1,0.92769385)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{Lotka-Volterra.pdf}}%
-    \put(0.05727524,0.02021755){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$x$\end{tabular}}}}%
-    \put(0.79423989,0.30143487){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$y$\end{tabular}}}}%
-    \put(0.20367338,0.72489595){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$z$\end{tabular}}}}%
-    \put(0.39355849,0.50234869){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$(x_*,y_*)$\end{tabular}}}}%
-    \put(0.58202111,0.36078096){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$F$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{Lotka-Volterra.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{pendulum.pdf}}%
+    \put(0.38348376,0.60428741){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\varphi$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{pendulum.pdf}}%
+    \put(0.64088041,0.15944988){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$mg$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{pendulum.pdf}}%
+    \put(0.46316758,0.30649043){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\Delta x$\end{tabular}}}}%
+    \put(0.56548957,0.49333233){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$l$\end{tabular}}}}%
   \end{picture}%
 \endgroup%
