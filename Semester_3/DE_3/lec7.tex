@@ -144,33 +144,12 @@ $|x_{k+1}(t)-x_0|\leqslant r$. Мы доказали по индукции, чт
 последовательности Пикара определены в шаре, непрерывны и ограниченны.
 
 2. Докажем, что последовательность сходится. Рассмотрим ряд 
-$x_0(t)+x_1(t)-x_0(t)+x_2(t)-x_1(t)+...+x_k(t)-x_{k-1}(t)+...$
+$$x_1(t)-x_0(t)+x_2(t)-x_1(t)+...+x_k(t)-x_{k-1}(t)+...=
+\sum\limits_{n=1}^{\infty} (x_n(t)-x_{n-1}(t))$$
 Частичные суммы $S_n$ этого ряда равны $x_n$. Если мы докажем, что этот
 ряд сходится равномерно, то по матанской теореме последовательность Пикара 
 имеет непрерывный предел. Снова применим индукцию для оценки членов ряда
-на $I_\delta$. База индукции: по неравенству для производн, 
-$$|f(t,x)-f(t,\tilde x)|\leqslant L|\tilde x-x|,$$
-где $L=\max\left|\frac{\partial f}{\partial x}(t,x)\right|,~(t,x),
-(t,\tilde x)\in B_r$. Значит, $|x_1-x_0|\leqslant m|t-t_0|$. 
-
-Пусть для $k$ выполнено  $|x_{k}-x_{k-1}|\leqslant \frac{m}{L}\cdot 
-\frac{L^k(t-t_0)^k}{k!}\leqslant \frac{m}{L}\frac{L^k\delta^k}{k!}$.
-Имеем 
-$$|x_{k+1}-x_k|= \left|\int\limits_{t_0}^{t}f(\tau,x_{k+1}(\tau))d\tau-
-\int\limits_{t_0}^{t}f(\tau,x_{k}(\tau))d\tau\right| = $$
-$$=
-\left|\int\limits_{t_0}^{t}\big(f(\tau,x_{k+1}(\tau))-f(\tau,x_{k}(\tau))\big)
-d\tau\right|\leqslant
- \left|\int\limits_{t_0}^{t}\big|f(\tau,x_{k+1}(\tau))-
-f(\tau,x_{k}(\tau))\big|d\tau\right|\leqslant
-$$
-$$\leqslant 
-\left| \int\limits_{t_0}^{t}L|x_{k+1}(\tau)-x_k(\tau)|d\tau\right|
-\leqslant 
-\left| \int\limits_{t_0}^{t}\frac{mL^{k}|\tau-t_0|^{k}}{k!}d\tau\right|
-= \frac{m}{L}\frac{L^{k+1}|t-t_0|^{k+1}}{(k+1)!}
-$$
-Здесь нам потребовалась следующая\\
+на $I_\delta$. Здесь нам потребутся следующая\\
 \textbf{Лемма.} Непрерывно дифференцируемая на отрезке $[a,b]$ функция $f(x)$  
 удовлетворяет условию Липшица с константой $L$, причем  
 $L=\sup\limits_{x\in [a,b]}|f'(x)|$.\\
@@ -182,6 +161,32 @@ $$f(y)-f(x)=\int\limits_{0}^{1}\frac{d}{dt}(f(z(\tau)))d\tau=
 Так как $\dot z = y - x$, то получаем
 $$\left| \int\limits_{0}^{1}f'(z(\tau))\dot z(\tau)d\tau\right|\leqslant 
 \int\limits_{0}^{1}L|y-x|d\tau = L|y-x| \quad\square $$
+
+В силу того, что $f(t,x)$ дифференцируема, и её производная непрерывна, имеем
+по только что доказанной лемме
+$$|f(t,x)-f(t,\tilde x)|\leqslant L|\tilde x-x|,$$
+где $L=\max\left|\frac{\partial f}{\partial x}(t,x)\right|,~(t,x),
+(t,\tilde x)\in B_r$. Значит, $|x_1-x_0|\leqslant m|t-t_0|$ - база 
+индукции доказана (более подробная выкладка - в предыдущем пункте).  
+
+Пусть для $k$ выполнено  $|x_{k}-x_{k-1}|\leqslant \frac{m}{L}\cdot 
+\frac{L^k|t-t_0|^k}{k!} \leqslant \frac{m}{L}\frac{L^k\delta^k}{k!}$.
+Имеем 
+$$|x_{k+1}(t)-x_k(t)|= \left|\int\limits_{t_0}^{t}f(\tau,x_{k}(\tau))d\tau-
+\int\limits_{t_0}^{t}f(\tau,x_{k-1}(\tau))d\tau\right| = $$
+$$=
+\left|\int\limits_{t_0}^{t}\big(f(\tau,x_{k}(\tau))-f(\tau,x_{k-1}(\tau))\big)
+d\tau\right|\leqslant
+ \left|\int\limits_{t_0}^{t}\big|f(\tau,x_{k}(\tau))-
+f(\tau,x_{k-1}(\tau))\big|d\tau\right|\leqslant
+$$
+$$\leqslant 
+\left| \int\limits_{t_0}^{t}L|x_{k}(\tau)-x_{k-1}(\tau)|d\tau\right|
+\leqslant 
+\left| \int\limits_{t_0}^{t} L\cdot \frac{m}{L}\cdot 
+\frac{L^k|\tau-t_0|^k}{k!}   d\tau\right|
+= \frac{m}{L}\frac{L^{k+1}|t-t_0|^{k+1}}{(k+1)!}
+$$
 
 %То есть, 
 %$|x_{k+1}-x_{k}|\leqslant \frac{m}{L} \frac{L^{k+1}(t-t_0)^{k+1}}{(k+1)!}
@@ -207,28 +212,42 @@ f(\tau,x_k(\tau))d\tau\right|\leqslant
 $$x^*=x_0+\int\limits_{t_0}^{t}f(\tau,x^*(\tau))d\tau$$
 Итак, $x^*(\tau)$ решение интегрального уравнения, а значит и задачи Коши. 
 
-4. Докажем единственность. Пусть на интервале  $I^*_\delta=
-[t_0-\delta^*,t_0-\delta^*]$ определено
-два решения, $x$ и  $x^*$. Тогда
-$$|x^*(t)-x(t)|\leqslant \left| \int\limits_{t_0}^{t}f(\tau,x^*(\tau))-
-f(\tau,x(\tau))) d\tau \right|\leqslant L \int\limits_{t_0}^{t}|x^*(\tau)-
-x(\tau)|d\tau$$
-Пусть $t>t_0$. Положим  
-$\Delta= \int\limits_{t_0}^{t}|x^*(\tau)-x(\tau)|d\tau$, тогда 
-$\frac{d\Delta}{dt}\leqslant L\Delta$; $\Delta(t_2)\geqslant\Delta(t_2)$
-для всех $t_2>t_2\geqslant t_{0}$. 
-%Кстати, $\frac{d\Delta}{dt}\leqslant L\Delta$
-Значит, существует инфинум 
-$T=\inf \{t\geqslant t_0\}$. Рассмотрим случай, когда $T=t_0$ (самая жесткая
-оценка). Если это так, то пусть $а(t_0+\varepsilon)=\Delta_\varepsilon$. 
-Тогда $\Delta_\varepsilon>0$. Поставим задачу Коши:
+4. Докажем единственность. Пусть на отрезке $\tilde I_\delta=
+[t_0-\tilde\delta,t_0+\tilde\delta]$ определены
+два решения с общим начальным условием $x(t_0)=\tilde x(t_0)$.
+Покажем, что найдется такой $0<\delta^*\leqslant \tilde\delta$,
+что эти решения 
+совпадают на отрезке $I^*_\delta = [t_0-\delta^*,t_0+\delta^*]$.
+%\begin{figure}[H]
+%    \centering
+%\input{figures/uniqness.pdf_tex} %для pdf_tex
+%    %\includegraphics{}  % для png, pdf
+%    \caption{}
+%    \label{fig:}
+%\end{figure}
+В силу лишицевости имеем
+$$|\tilde x(t) - x(t)| = \left|\int\limits_{t_0}^{t}\big|f(\tau,\tilde 
+x(\tau))-f(\tau,x(\tau))\big| d\tau \right| \leqslant 
+L\int\limits_{t_0}^{t}|\tilde x(\tau) - x(\tau)|d\tau$$
+Пусть $t>t_0$ (для $t<t_0$ ситуация аналогична). Введем обозначение
+$\Delta(t) = \int\limits_{t}^{t_0} |\tilde x(\tau) - x(\tau)|d\tau$.  
+Функция $\Delta(t)$ неотрицательная, мотонно неубывающая и дифференцируемая.
+Значит, можно рассмотреть
+ $$T=\inf\limits_{D>0}\{t\mid t>t_0\}$$ 
+Если $T>t_0$, то $\delta^* = T - t_0$ - искомый отрезок, на котором решения
+совпадают. Если же $T=t_0$, то инетгральное неравенство можно переписать
+в виде $\frac{d\Delta}{dt}\leqslant L\Delta$. Самая грубая оценка достигается
+при равенстве, поэтому и рассмотрим задачу Коши
 $$\begin{cases}
-    \frac{d\Delta}{dt}=L\Delta\\ \Delta(t_0+\varepsilon)=\Delta_\varepsilon
+    \frac{d\Delta}{dt} = L\Delta \\
+    \Delta(\varepsilon) = \Delta(t_0+\varepsilon)
 \end{cases}$$
-Отсюда $\Delta=\Delta_\varepsilon e^{L(t-t_0-\varepsilon)}$. Для всех
-$t>t_0$,  $\Delta(t)\leqslant\Delta_\varepsilon e^{L(t-t_0-\varepsilon)}$.
-Устремим $\varepsilon\to0$. Тогда и $\Delta(t)=0$ в пределе. 
-Рассуждение при $t<t_0$ аналогично. $\square$
+где $\varepsilon>0$. Решая уравнение на отрезке $[t_0+\varepsilon,t]$,
+имеем оценку
+$$\Delta(t)\leqslant \Delta(t_0+\varepsilon)e^{L(t-t_0-\varepsilon)}$$
+Переходя к пределу при $\varepsilon\to 0$, получаем 
+$\Delta(t)\leqslant 0$, откуда по неотрицательности $\Delta=0$
+на отрезке  $[t_0,t_0+\tilde\delta]$. $\square$
 
 
 \textbf{Пример.}  Что можно сказать о решении задачи Коши для

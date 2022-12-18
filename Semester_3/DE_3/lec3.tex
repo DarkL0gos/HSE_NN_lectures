@@ -1,9 +1,9 @@
 \section{Элементарные методы интегрирования ДУ}
 \subsection{Уравнения с разделяющимися переменными}
-\begin{defin}
+\begin{defin}\label{ODE_razdp}
 Уравнение с разделяющими переменными - уравнение вида
 \begin{equation}
-    \frac{dx}{dt}=f(x)g(t) \label{ODE_razdp}
+    \frac{dx}{dt}=f(x)g(t) 
 \end{equation}
 где $f,g$ непрерывны на  $x\in(a,b),~t\in(\alpha,\beta)$
 \end{defin}
@@ -51,7 +51,7 @@ $$x=Ce^t,~C\in\mathbb{R}$$
     Имеем
      $$\frac{dz}{dt}=a+b\frac{dx}{dt}$$ 
      Получаем уравнение с разделяющимися переменными. 
-     $$\frac{dz}{a+f(z)}=dt$$
+     $$\frac{dz}{a+bf(z)}=dt$$
 \end{enumerate}
 \textbf{Пример.} Решим уравнение $\frac{dx}{dt}=\cos(x+t)$. Замена 
 $z=x+t,~ \frac{dz}{dt}=1$. Уравнение имеет вид
@@ -60,10 +60,10 @@ $$\frac{dz}{dt}=\frac{dx}{dt}+1$$
 Свели задачу кпрошлому пункту
 \subsection{Однородные уравнения}
 Сначала докажем, что два определения однородного уравнения эквивалентны.
-\begin{defin}
+\begin{defin}\label{ODE_odn}
 Однородным называется уравнение вида
 \begin{equation}%\label{ODE_odn1}
-    \frac{dx}{dt}=f\left(\frac{x}{t}\right) \label{ODE_odn}
+    \frac{dx}{dt}=f\left(\frac{x}{t}\right) 
 \end{equation} 
 \end{defin}
 Это уравнение инвариантно относительно замены $x\mapsto kx,~t\mapsto kt$.
@@ -90,8 +90,10 @@ n называется степенью однородности.
 \end{theor}
 \textbf{Доказательство.} 1 $\Rightarrow$ 2. $\frac{dy}{dx}=f(\frac{y}{x})$\\
 2 $\Rightarrow$ 1. Пусть дано уравнение в форме дифференциалов. Подставим $k$.
-При $x\ne 0$ Имеем $$\frac{dx}{dy}=-\frac{k^nM(x,y)}{k^nN(x,y)}=
--\frac{M(kx,ky)}{N(kx,ky)}=-\frac{M(1,\frac{y}{x})}{N(1,\frac{y}{x})}=f(x)$$
+При $x\ne 0$ имеем 
+$$\frac{dx}{dy}=-\frac{k^nM(x,y)}{k^nN(x,y)}=
+-\frac{M(kx,ky)}{N(kx,ky)}=-\frac{M(1,\frac{y}{x})}{N(1,\frac{y}{x})}=
+f\left( \frac{y}{x} \right) $$
 $\square$ \\
 \textbf{Пример.} $M=x^2+y^2$\\
 \textbf{Пример (№31).} Найти уравнение, решение которых - параболы с осью, 
