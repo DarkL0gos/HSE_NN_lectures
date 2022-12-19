@@ -37,20 +37,20 @@ $g,\frac{\partial g}{\partial x}$ непрерывны в $V_\rho$ найдет�
 не выходит из этой $\rho$-окрестности.\\
 \textbf{Лемма Гронуолла.} Пусть $\varphi(t),\beta(t)$ - непрерывные функции
 на отрезке $[t_1,t_2]$, причем на отрезке $\beta(t)>0$ и  $\varphi(t)\leqslant 
-\alpha+\int\limits_{t_1}^{t_2} \beta(\tau)\varphi(\tau)d\tau$. 
+\alpha+\int\limits_{t_1}^{t} \beta(\tau)\varphi(\tau)d\tau$. 
 Тогда 
-$\varphi(t)\leqslant \alpha e^{\int\limits_{t_1}^{t_2}\beta(\tau)d\tau}$.\\
+$\varphi(t)\leqslant \alpha e^{\int\limits_{t_1}^{t}\beta(\tau)d\tau}$.\\
 \textbf{Доказательство.} Положим $\Phi(t)=\alpha+
-\int\limits_{t_1}^{t_2} \beta(\tau)\varphi(\tau)d\tau$, где 
+\int\limits_{t_1}^{t} \beta(\tau)\varphi(\tau)d\tau$, где 
 $\varphi(t)\leqslant \Phi(t)$. Тогда
-$$\frac{\partial \Phi}{\partial t}e^{-\int\limits_{t_1}^{t_2}\beta d\tau}
--e^{-\int\limits_{t_1}^{t_2}\beta d\tau}\beta(t)\Phi(t)\leqslant 0$$ 
+$$\frac{\partial \Phi}{\partial t}e^{-\int\limits_{t_1}^{t}\beta d\tau}
+-e^{-\int\limits_{t_1}^{t}\beta d\tau}\beta(t)\Phi(t)\leqslant 0$$ 
 Все это выражение на самом деле является производной:
 $$\frac{d}{dt}\left( \Phi e^{-\int\limits_{t_1}^{t}\beta d\tau} \right)
 \leqslant 0$$ 
  Так как производная этой функции отрицательна, то 
 $$\varphi \leqslant \Phi\leqslant \alpha
-e^{\int\limits_{t_1}^{t_2}\beta d\tau}$$
+e^{\int\limits_{t_1}^{t}\beta d\tau}$$
 Мы установили равносильность неравенства из условия и неравенства
 $\frac{d\varphi}{dt}\leqslant \beta(t)\varphi(t)$. $\square$ 
 
