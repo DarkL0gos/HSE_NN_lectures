@@ -94,14 +94,14 @@ $f(x,y)=y\cos xy,~g(x,y)=\frac{y}{x+y^2}$. Условия проверяются
     (о непрерывности несобственного интеграла, зависящего от параметра)\\
     1. $f(x,y)$ непрерывна на  $[a,\infty)\times Y$\\
     2. $\int\limits_{a}^{\infty} f(x,y)dx$ сходится равномерно на $Y$.\\
-    Тогда  $\Phi=\int\limits_{a}^{\infty} f(x,y)dx$ непрерывна на $Y$
+    Тогда  $\Phi(y)=\int\limits_{a}^{\infty} f(x,y)dx$ непрерывна на $Y$
 \end{theor}
 \textbf{Доказательство.} 
 Функция непрерывна, если она непрерывна в каждой точке. 
 $\Phi(y)$ непрерывна в  $y_0$ тогда и только тогда
 $$\forall \varepsilon>0~\exists \delta>0~\forall y\in Y:
 |y-y_0|<\delta \implies |\Phi(y)-\Phi(y_0)|<\varepsilon$$
-По второму услвоию, так как интграл сходится равномерно. то
+По второму условию, так как интеграл сходится равномерно, то
 для любого 
  $$\frac{\varepsilon}{3}>0~\exists b_0>a~\forall b>b_0~\forall y\in Y:
 \left|\int\limits_{b}^{\infty} f(x,y)dx\right|<\frac{\varepsilon}{3}
@@ -122,7 +122,7 @@ $$
 По теореме о непрерывности собственного интеграла, зависящего от параметра, 
 для
 $$
-\forall \frac{\varepsilon}{3}>0~\exists \delta>0~\forall y\in Y:
+\forall\,\frac{\varepsilon}{3}>0~\exists \delta>0~\forall y\in Y:
 |y-y_0|<\delta \implies |F(y)-F(y_0)|<\frac{\varepsilon}{3}
 $$
 Тогда 
@@ -133,8 +133,9 @@ $$|\Phi(y)-\Phi(y_0)|\leqslant |F(y)-F(y_0)|+
 \varepsilon$$
 Значит, $\Phi(y)$ непрерывна в любой точке на $Y$, то есть она непрерывна
 на $Y$. $\square$ 
+
 \begin{theor}
-    (о предельном переходе)\\
+    (о предельном переходе под знаком несобственного интеграла)\\
     1. $f(x,y)$ непрерывна на  $[a,\infty)\times Y$\\
     2. $\int\limits_{a}^{\infty} f(x,y)dx$ сходится равномерно на $Y$.\\
     Тогда  
@@ -142,8 +143,18 @@ $$\lim\limits_{y \to y_0}\int\limits_{a}^{\infty} f(x,y)dx=
 \int\limits_{a}^{\infty} \lim\limits_{y \to y_0}f(x,y)dx = 
 \int\limits_{a}^{\infty}f(x,y_0)dx$$
 \end{theor}
-\textbf{Доказательство.}  Напишем его сами)))
-$\square$ 
+\textbf{Доказательство.} В предыдущей теореме было доказано, что 
+функция $\Phi(y)=\int\limits_{a}^{\infty} f(x,y)dx$ непрерывна на $Y$. 
+Значит, 
+$$\lim\limits_{y \to y_0}\int\limits_{a}^{\infty} f(x,y)dx=
+\lim\limits_{y \to y_0} \Phi(y) = \Phi(y_0) = 
+\int\limits_{a}^{\infty}f(x,y_0)dx$$
+Так как функция $f(x,y)$ непрерывна, то получаем второе равенство:
+$$\int\limits_{a}^{\infty}f(x,y_0)dx = 
+\int\limits_{a}^{\infty}\lim\limits_{y \to y_0} f(x,y)dx\quad\square$$
+
+
+
 \begin{theor}
     (об интегрировании несобственного интеграла, зависящего от параметра)\\
     1. $f(x,y)$ непрерывна на  $[a,\infty)\times [c,d]$\\
@@ -177,7 +188,7 @@ $$=\int\limits_{c}^{d} dy\left| \int\limits_{b}^{\infty} f(x,y)dx \right|
 $$\forall \varepsilon>0~\exists b_0(\varepsilon)>a~\forall b>b_0~\forall y\in 
 Y:\left|  \int\limits_{a}^{b} dx\int\limits_{c}^{d}f(x,y)dy-
 \int\limits_{c}^{d}dy \int\limits_{a}^{\infty}f(x,y)dx \right| <
-\varepsilon$$ $\square$ 
+\varepsilon \quad\square$$
 
 
 
