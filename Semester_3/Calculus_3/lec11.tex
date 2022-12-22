@@ -71,7 +71,7 @@ $\forall \lambda,\mu\in \mathbb{R}:\lambda f+\mu g\in \tilde R[a,\infty)$.
     $\int\limits_{a}^{\infty}f(x)dx\leqslant \int\limits_{a}^{\infty}g(x)dx$.
 
 \item Формула замены переменной.\\
-    Пусть $f\colon\langle a,b \rangle\to \mathbb{R}$, 
+    Пусть $f\colon\langle a,b \rangle\to \mathbb{R},f\in \tilde R$, 
     $\varphi\colon\langle \alpha,\beta\rangle\to\langle a,b\rangle$,
     причем $\varphi(a)=a,\varphi(\beta)=b$, $\varphi$ возрастает и у неё 
     существует и непрерывна производная на $\langle\alpha,\beta\rangle$.
@@ -80,9 +80,15 @@ $\forall \lambda,\mu\in \mathbb{R}:\lambda f+\mu g\in \tilde R[a,\infty)$.
 
 
 \item Формула интегрирования по частям.\\
-    Пусть производные у $u,v$ существуют и непрерывны на промежутке  
-    $\rangle a,b\langle$.
-    Тогда  $ \int\limits_{a}^{b}u'vdx+\int\limits_{a}^{b}v'udx=uv\Big|^b_a$.
+    Пусть функции $u(x),v(x)$ непрерывно дифференцируемы на $[a,\infty)$ и 
+    существует $\lim\limits_{x \to \infty}u(x)v(x)$, тогда оба интеграла
+    $\int\limits_{a}^{\infty}u(x)v'(x)dx,\int\limits_{a}^{\infty}
+    u'(x)v(x)dx$ сходятся или расходятся одновременно, и в случае 
+    сходимости\\
+    $ \int\limits_{a}^{\infty}u'(x)v(x)dx+\int\limits_{a}^{\infty}v'(x)u(x)dx=
+    uv\Big|^\infty_a$.
+
+
 \end{enumerate}
 \textbf{Доказательство.}\\
 1. Линейность следует из линейности определенного интеграла и линейности
@@ -96,7 +102,28 @@ $$ = \lambda \lim\limits_{b \to \infty} \int\limits_{a}^{b} f(x)dx +
 \mu \lim\limits_{b \to \infty} \int\limits_{a}^{b} g(x)dx = 
 \lambda \int\limits_{a}^{\infty}f(x) dx + \mu \int\limits_{a}^{\infty}g(x)dx
 $$
+2. Рассмотрим $x_0\in [a,b\rangle$. По аналогичному свойству для
+собcтвенных инетгралов имеем
+$$f(x)\leqslant g(x)\implies \int\limits_{a}^{x_0}f(x)\leqslant    
+\int\limits_{a}^{x_0}g(x)dx$$ 
+откуда, переходя к пределу при $x_0\to\infty$ имеем искомое свойство.\\
+3. Рассмотрим $x_0\in [a,b\rangle$. По аналогичному свойству для
+собcтвенных инетгралов имеем
+$$\int\limits_{\alpha}^{\beta_0}f(\varphi(x))\cdot \varphi'(x)dx=
+    \int\limits_{a}^{x_0} f(t)dt$$ 
+откуда, переходя к пределу при $x_0\to\infty$ имеем искомое свойство.\\
+4 (Фихтенгольц). Рассмотрим $x_0\in [a,b\rangle$. По обычной формуле 
+интегрирования по частям имеем
+$$\int\limits_{a}^{x_0} u\,dv = (u(x_0)v(x_0)-u(a)v(a))-\int\limits_{a}^{x_0}
+v\,du$$ 
+По условию, что правая часть имеет конечные пределы при $x_0\to \infty$, 
+поэтому и левая часть тоже сходится. 
 
-2. 
 
- 
+
+
+
+
+
+
+

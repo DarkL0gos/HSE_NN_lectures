@@ -39,9 +39,10 @@ $\int\limits_{a}^{b}\frac{dy}{(y+1)+1}=arctg\left( \frac{a-b}{1+ab}\right)$.
 Обозначим $F(y)=\int\limits_{a}^{\infty}f(x,y)dx,~y\in Y$. 
 \begin{defin}
 %$\int\limits_{a}^{\infty}f(x,y)dx$ сходится поточечно к $F(y)$ на М, если
-Если $\forall y\in Y$ $F(y)$ сходится, то поточечная сходимость - 
-$$\forall y\in Y~\forall \varepsilon>0~\exists b_0(\varepsilon,y)>a~
-\forall b>b_0:\left| \int\limits_{b}^{\infty}f(x,y)dx\right|<\varepsilon$$
+Если $\forall y\in E$ $F(y)$ сходится, то поточечная сходимость - 
+$$\forall \varepsilon>0~\exists b_0(\varepsilon,y)>a~
+\forall b>b_0~\forall y\in E:\left| \int\limits_{b}^{\infty}f(x,y)dx\right|
+<\varepsilon$$
 \end{defin}
 
 %Обозначим $F(b,y)=\int\limits_{a}^{b}f(x,y)dx$. Тогда $|F(b,y)-F(y)|=
@@ -63,8 +64,27 @@ $$\forall \varepsilon>0~\exists b_0(\varepsilon)~\forall b>b_0~\forall y\in E:
     $$\lim\limits_{b\to \infty}\sup\limits_{y\in  E}\left| 
     \int\limits_{b}^{\infty}f(x,y)dx \right|=0$$
 \end{theor}
-\textbf{Доказательство.} Самостоятельно. 
-$\square$ \\
+\textbf{Доказательство.} Пусть интеграл сходится равномерно. Фиксируем
+$\varepsilon>0$. Тогда по определению равномерной сходимости для
+$${\varepsilon}>0~\exists b_0(\varepsilon)~\forall b>b_0~
+\forall y\in E:
+\left| \int\limits_{b}^{\infty}f(x,y)dx\right|<\varepsilon$$
+Пусть 
+$g(b)=\sup\limits_{y\in E}\left| \int\limits_{b}^{\infty}f(x,y)dx\right|$.
+Тогда всилу произвольности $b$ имеем $g(b)<\varepsilon$, а в силу 
+произвольности $\varepsilon$ имеем
+$\lim\limits_{b \to \infty}g(b)=0$, что эквивалентно условию 
+супремум-критерия.\\
+Обратно, пусть $\lim\limits_{b\to \infty}\sup\limits_{y\in  E}\left| 
+\int\limits_{b}^{\infty}f(x,y)dx \right|=0$. Тогда 
+$$\forall \varepsilon>0~\exists b_0~\forall b>b_0:\sup\limits_{y\in E}
+\left|\int\limits_{b}^{\infty}f(x,y)dx\right|<\varepsilon$$
+Значит, выполняется неравенство 
+$$\forall  y\in E:\left|\int\limits_{b}^{\infty}f(x,y)dx \right|\leqslant
+\sup\left|\int\limits_{b}^{\infty}f(x,y)dx \right|$$ 
+откуда следует равномерная сходимость. $\square$ 
+
+
 \begin{theor} (метод оценки остатка)\\
 Пусть интеграл $\int\limits_{a}^{\infty} f(x,y)dx$ сходится на $E$, и 
 $r(b)$ - какая-то оценка остатка. Тогда если
@@ -73,7 +93,8 @@ $r(b)$ - какая-то оценка остатка. Тогда если
  $E$. Если же существует такая функция  $y(b)$, что $R(b,y(b))\to s\ne 0$,
  то интеграл не сходится равномерно на $X$.
 \end{theor}
-\textbf{Доказательство.} 
+\textbf{Доказательство.} По теореме \ref{skhod_ost}, сходимость несобственного
+интеграла эквивалентна сходимости любого из его остатков. $\square$
 
 
 \textbf{Пример.} $F(y)=\int\limits_{0}^{\infty}ye^{-xy}dx$. Доказать, что 
