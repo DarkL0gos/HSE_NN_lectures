@@ -53,7 +53,33 @@ $$v.p. \int\limits_{a}^{b}=\lim\limits_{\varepsilon \to 0}\left(
 f(x)dx\right)$$
 %где $\omega\in (a,b)$ - особая точка.
 \end{defin}
-\textbf{Пример.} $v.p. \int\limits_{0}^{2}\frac{dx}{1-x^2}=\frac{1}{2}\ln3$.
+\textbf{Пример.} Покажем, что интеграл в смысле главного значения может 
+существовать, но будет расходиться как несобственный интеграл:
+$$\int\limits_{0}^{2} \frac{dx}{1-x^2}$$ 
+Имеем разрыв второго рода в точке $x=1$. Посчитаем главное значение интеграла:
+$$v.p.\int\limits_{0}^{2} \frac{dx}{1-x^2}=
+\lim\limits_{\delta \to 0} \left( \int\limits_{a}^{c-\delta}f(x)dx -
+\int\limits_{c+\delta}^{b}f(x)dx\right) = \frac{1}{2}\ln\bigg|
+\frac{1+x}{1-x}\bigg|\Big|^2_0 = \frac{1}{2}\ln3
+$$
+Покажем, что интеграл расходится по отдельности:
+$$\int\limits_{0}^{1}\frac{dx}{1-x^2}+\int\limits_{1}^{2}\frac{dx}{1-x^2}=
+\lim\limits_{\delta \to +0} \int\limits_{0}^{1-\delta}\frac{dx}{1-x^2}+
+\lim\limits_{\varepsilon\to +0} 
+\int\limits_{1+\varepsilon}^{2}\frac{dx}{1-x^2}=
+$$
+$$=\lim\limits_{\delta \to +0}\frac{1}{2}\ln \frac{1+x}{1-x}\Big|^{1-\delta}_0
++\lim\limits_{\varepsilon \to +0}\frac{1}{2}\ln \frac{1+x}{1-x}
+\Big|^2_{1+\varepsilon}=
+\frac{1}{2}\left( \lim\limits_{\delta \to +0}\ln \frac{2-\delta}{\delta}+
+\lim\limits_{\varepsilon \to +0}\ln \frac{2+\varepsilon}{\varepsilon}
+\right)+
+$$
+$$+\frac{\ln3}{2}=\frac{\ln3}{2}+\frac{1}{2}
+\lim\limits_{\substack{\delta \to+0\\
+\varepsilon \to +0}} \ln\frac{\varepsilon}{\delta}$$
+Предела не существует, поэтому интеграл расходится.
+%$v.p. \int\limits_{0}^{2}\frac{dx}{1-x^2}=\frac{1}{2}\ln3$.
 
 \section{Cвойства несобственного интеграла}
 Будем называть промежутком отрезок, интервал или полуинтервал и обозначать
@@ -117,7 +143,15 @@ $$\int\limits_{\alpha}^{\beta_0}f(\varphi(x))\cdot \varphi'(x)dx=
 $$\int\limits_{a}^{x_0} u\,dv = (u(x_0)v(x_0)-u(a)v(a))-\int\limits_{a}^{x_0}
 v\,du$$ 
 По условию, что правая часть имеет конечные пределы при $x_0\to \infty$, 
-поэтому и левая часть тоже сходится. 
+поэтому и левая часть тоже сходится. $\square$ 
+
+\textbf{Пример.} В результате замены переменной несобственный интеграл может 
+стать собственным, и наоборот:
+$$\int\limits_{0}^{1}\frac{dx}{\sqrt{1-x^2} }=
+\begin{cases}
+    x=\sin t\\t=\arcsin x\\dt=\frac{dx}{\sqrt{1-x^2}}
+\end{cases}=\int\limits_{0}^{\pi/2}dt=\frac{\pi}{2}$$
+(здесь $x=1$ - особая точка). 
 
 
 

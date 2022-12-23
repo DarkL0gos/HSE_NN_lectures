@@ -28,10 +28,10 @@ $$\forall \varepsilon>0~\exists \delta>0~\forall (t_1,y_1),(t_2,y_2)\in P:
 $$\implies |g(t_1,y_1)-g(t_2,y_2)|<\varepsilon$$ 
 Это означает, что
 $$|F(y)-F(y_0)|=\left| \int\limits_{0}^{1}\big(g(t,y)-g(t,y_0)\big)dt\right|
-\leqslant \int\limits_{0}^{1}|g(t,y)-g(t,y_0)|\leqslant 
+\leqslant \int\limits_{0}^{1}|g(t,y)-g(t,y_0)|dt\leqslant 
 $$
 $$\leqslant \varepsilon\cdot \int\limits_{0}^{1}dt=\varepsilon$$
-Этим доказано, что если $|y-y_0|<\delta$, то и $|g(t,y)-g(t,y_0)|<
+Этим доказано, что если $|y-y_0|<\delta$, то и $|F(y)-F(y_0)|<
 \varepsilon$, то есть $\lim\limits_{y \to y_0}F(y)=F(y_0)$. $\square$ 
 
 \begin{theor}
@@ -117,11 +117,12 @@ $$\frac{dF}{dy} = \frac{d}{dy}\bigg(\int\limits_{a(y)}^{b(y)}f(x,y)dx\bigg) =
 \int\limits_{a}^{t}f(x,y)dy,~H(t)=\int\limits_{a}^{t}dx
 \int\limits_{c}^{d}f(x,y)dy$. Докажем, что $G(b)=H(b)$ (что доказывает 
 требуемое утверждение). Введем функцию  $g(t,y)=\int\limits_{a}^{t}f(x,y)dx$,
-тогда $G(t)=\int\limits_{c}^{d}g(t,y)$ - применима теорема о дифференцировании
+тогда $G(t)=\int\limits_{c}^{d}g(t,y)dy$ - 
+применима теорема о дифференцировании
 сложной функции: $\frac{\partial g}{\partial t}=\left( 
 \int\limits_{a}^{t} f(x,y)dx\right)'_t=f(t,y)$ - непрерывна на $P$ по условию. 
 Теперь докажем, что $g(t,y)$ непрерывна на $P$, для этого покажем, что 
- $\lim\limits_{\Delta t \to 0,\Delta y\to 0}\Delta g=0$. 
+$\lim\limits_{\substack{\Delta t \to 0\\ \Delta y\to 0}}\Delta g=0$. 
 Имеем $\Delta g=g(t+\Delta t,y+\Delta y)-g(t,y)=\int\limits_{a}^{t+\Delta t}
 f(x,y+\Delta y)dx-\int\limits_{a}^{t}f(x,y)dx=\int\limits_{a}^{t}(
 f(x,y+\Delta y)-f(x,y))dx+\int\limits_{t}^{t+\Delta t}f(x,y+\Delta y)dx$. 
@@ -152,7 +153,7 @@ $$G'(t)=\int\limits_{c}^{d} \frac{\partial g}{\partial t}(t,y)dy=
 $$H'(t)=\frac{\partial}{\partial t}\left( \int\limits_{a}^{t}dx
 \int\limits_{c}^{d}f(x,y)dy \right)=\int\limits_{c}^{d}f(t,y)dy$$
 Итак, мы получили, что $G'(t)=H'(t),~G(a)=H(a)=0$, откуда
-$G(t)=H(t)\implies G(b)=H(b)$. $\square$ \\
+$G(t)=H(t)\implies G(b)=H(b)$. $\square$ 
 
 
 

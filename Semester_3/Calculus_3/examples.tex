@@ -1,0 +1,80 @@
+\documentclass[a4paper]{article}
+
+%Общие настройки документа
+\usepackage[14pt]{extsizes}                                         %Размер шрифта
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=3cm]{geometry}  %Поля страницы
+
+%Настройки ссылок и гиперссылок
+\usepackage{float}
+%\usepackage{graphicx}
+%\usepackage{hyperref}                 
+%\usepackage{xcolor}
+%\definecolor{linkcolor}{HTML}{799B03} % цвет ссылок
+%\definecolor{urlcolor}{HTML}{799B03}  % цвет гиперссылок
+%\hypersetup{pdfstartview=FitH,linkcolor=linkcolor,urlcolor=urlcolor,colorlinks=true}
+%graphicspath{{\figures}}
+
+
+%Пакеты символов
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}           
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+%Новые команды 
+\newtheorem{defin}{Определение}
+\newtheorem{example}{Пример}
+\newtheorem{zam}{Замечание}
+\newtheorem{theor}{Теорема}
+
+\author{}
+\title{Практика из билетов}
+\date{22.12.22}
+
+\begin{document}
+\maketitle
+%\tableofcontents
+%\newpage
+\textbf{№1.}
+$$\int\limits_{0}^{\infty}\frac{x\cos x-\sin x}{x^2}dx = $$ 
+Особые точки - оба предела. 
+$$= \int\limits_{0}^{\infty}\left( \frac{\sin x}{x} \right)'dx = 
+\underbrace{
+\int\limits_{0}^{\pi} \left( \frac{\sin x}{x} \right)'dx + 
+\int\limits_{\pi}^{\infty} \left( \frac{\sin x}{x} \right)'dx}_\text{разбиваем,
+чтобы было по одной особой точке} = 
+$$
+$$= \frac{\sin x}{x}\bigg|^\pi_0+\frac{\sin x}{x}\bigg|^\infty_\pi = 
+0 - \lim\limits_{x \to 0}\frac{\sin x}{x}+\lim\limits_{x \to \infty} 
+\frac{ \overbrace{\sin x}^\text{ограничен} }{\underbrace{x}_{\to 0}}
+= 0-1+0 = -1 $$
+
+\textbf{№2.} $$\int\limits_{0}^{2} \frac{dx}{1-x^2}$$ 
+Имеем разрыв второго рода в точке 1. Посчитаем главное значение интеграла:
+$$v.p.\int\limits_{0}^{2} \frac{dx}{1-x^2}=
+\lim\limits_{\delta \to 0} \left( \int\limits_{a}^{c-\delta}f(x)dx -
+\int\limits_{c+\delta}^{b}f(x)dx\right) = \frac{1}{2}\ln\bigg|
+\frac{1+x}{1-x}\bigg|\Big|^2_0 = \frac{1}{2}\ln3
+$$
+Покажем, что интеграл расходится по отдельности:
+$$\int\limits_{0}^{1}\frac{dx}{1-x^2}+\int\limits_{1}^{2}\frac{dx}{1-x^2}=
+\lim\limits_{\delta \to +0} \int\limits_{0}^{1-\delta}\frac{dx}{1-x^2}+
+\lim\limits_{\varepsilon\to +0} 
+\int\limits_{1+\varepsilon}^{2}\frac{dx}{1-x^2}=
+$$
+$$=\lim\limits_{\delta \to +0}\frac{1}{2}\ln \frac{1+x}{1-x}\Big|^{1-\delta}_0
++\lim\limits_{\varepsilon \to +0}\frac{1}{2}\ln \frac{1+x}{1-x}
+\Big|^2_{1+\varepsilon}=
+\frac{1}{2}\left( \lim\limits_{\delta \to +0}\ln \frac{2-\delta}{\delta}+
+\lim\limits_{\varepsilon \to +0}\ln \frac{2+\varepsilon}{\varepsilon}
+\right)+
+$$
+$$+\frac{\ln3}{2}=\frac{\ln3}{2}+\frac{1}{2}
+\lim\limits_{\substack{\delta \to+0\\
+\varepsilon \to +0}} \ln\frac{\varepsilon}{\delta}$$
+Предела не существует, поэтому интеграл расходится.
+
+\end{document}

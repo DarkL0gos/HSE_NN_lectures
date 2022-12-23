@@ -50,19 +50,25 @@ $$\boxed{
 \int\limits_{0}^{\infty}\frac{\sin\alpha x}{x}dx=\frac{\pi}{2}\sign\alpha}$$
 Пусть $\Phi(\beta)=\int\limits_{a}^{\infty}\frac{\sin\alpha x}{x}e^{
 -\beta x}dx$.\\
-1) $\varphi(x,b)=\frac{\sin\alpha x}{x}e^{-\beta x}$ непрерывна на 
+1) $\varphi(x,\beta)=\frac{\sin\alpha x}{x}e^{-\beta x}$ непрерывна на 
 $[0,\infty)\times [0,\infty)$, $\varphi(0,\beta)=\alpha$. \\
 2) Докажем, что $\Phi(\beta)$ сходится равномерно на $[0,\infty)$.
 Так как $\forall \alpha\in \mathbb{R}: \int\limits_{0}^{\infty}
 \frac{\sin\alpha x}{x}dx$ сходится по признаку Дирихле, то сходимость
 исходного интеграла равномерная (так как не зависит от $\beta$). 
 Далее, $0\leqslant e^{-\beta x}\leqslant 1$ при $\beta\geqslant 0$,
-$x\geqslant 0$. Значит, $e^{-\beta x}$ при данных условиях.
+$x\geqslant 0$. Значит, $e^{-\beta x}$ убывает при данных условиях.
 По признаку Абеля $\Phi(\beta)=\int\limits_{0}^{\infty}\frac{\sin\alpha x}{
 x}e^{-\beta x}dx$ сходится равномерно. По теореме о предельном переходе под
 знаком несобственного интеграла на $[0,\infty)$, имеем
-$$\Phi(0)=\lim\limits_{\beta \to 0}\Phi(\beta)=\lim\limits_{\beta \to 0}
-\arctg \frac{\alpha}{\beta}=\frac{\pi}{2}\sign\alpha$$
+$\Phi(0)=\lim\limits_{\beta \to 0}\Phi(\beta)$. Теперь найдем этот интеграл:
+$\int\limits_{0}^{\infty}\frac{\sin\alpha x}{x}e^{-\beta x}=
+\int\limits_{0}^{\infty}dx \int\limits_{0}^{\alpha} \cos(xy)e^{-\beta x}dy=
+\int\limits_{0}^{\alpha}dy \int\limits_{0}^{\infty}\cos(xy)e^{-\beta x}dx=
+\int\limits_{0}^{\infty}\left(\frac{1}{\beta^2+y^2}\right)dy=
+\arctg \frac{y}{\beta}\Big|^\alpha_0=\arctg \frac{\alpha}{\beta}$.
+Значит, $\Phi(0)=\lim\limits_{\beta \to 0}\arctg\frac{\alpha}{\beta}=
+\frac{\pi}{2}\sign\alpha$. 
 
 \textbf{Интеграл Лапласа}
 $$\boxed{
@@ -78,7 +84,7 @@ $$\Phi''(\alpha)=\left(\Phi'(\alpha)+\frac{\pi}{2}\right)'
 =\int\limits_{0}^{\infty}
 \left( \frac{\sin\alpha x}{x(1+x^2)}\right)'_\alpha dx$$
 Внезапно, мы получили диффур $\Phi''(\alpha)=\Phi(\alpha)$. Общее решение
-$\Phi(\alpha)=C_1e^{-\alpha}+C_2e_6{\alpha}$. Поскольку $\Phi$ ограничена,
+$\Phi(\alpha)=C_1e^{-\alpha}+C_2e^{\alpha}$. Поскольку $\Phi$ ограничена,
 то  $C_2=0$, а поскольку $\Phi(0)=\int\limits_{0}^{\infty}\frac{dx}{1+x^2}=
 \frac{\pi}{2}$, то $C_1=\frac{\pi}{2}$. 
 

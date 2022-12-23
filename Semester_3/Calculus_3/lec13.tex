@@ -14,6 +14,17 @@ $$\forall \varepsilon>0~\exists b_0>a~\forall b_1,b_2>b_0:
 \left| \int\limits_{b_1}^{b_2}|f(x)|dx \right|$, то и для
 $\int\limits_{b_1}^{b_2}f(x)dx$ выполянется условие Коши. $\square$ 
 
+\textbf{Пример.} Интеграл $\int\limits_{1}^{\infty}\frac{\sin x}{x}dx$ 
+сходится условно, так как 
+$\int\limits_{1}^{\infty}\frac{\sin x}{x}dx=-\int\limits_{0}^{\infty}
+\frac{1}{x}\cos x=-\frac{\cos x}{x}\bigg|^\infty_1+
+\int\limits_{1}^{\infty}\cos x\,d(\frac{1}{x})=\cos 1-\int\limits_{1}^{b}
+\frac{\cos x}{x^2}$. Второй интеграл сходится по признаку сравнения. 
+Но абсолютно он не сходится, так как 
+$\left| \frac{\sin x}{x} \right|\leqslant \left| \frac{1-\cos^2}{2x} \right|$,
+а инетграл от $\frac{1}{2x}$ расходится. 
+
+
 \begin{theor}
     (признак Дирихле)\\
     Пусть:\\
@@ -30,7 +41,7 @@ $$\frac{\varepsilon}{4M}~\exists b_0>a~\forall x>b_0:|g(x)|<
 \frac{\varepsilon}{4M}$$
 Возьмем произвольные $b_1,b_2>b_0$, тогда 
 $$\left|\int\limits_{b_1}^{b_2}f(x)g(x)dx\right| =
-\left|\int\limits_{b_1}^{b_2}dF(x)\right| = 
+\left|\int\limits_{b_1}^{b_2}g(x)dF(x)\right| = 
 \left| g(x)F(x)\bigg|^{b_2}_{b_1} - \int\limits_{b_1}^{b_2}F(x)g'(x)dx\right|= 
 $$
 $$
@@ -39,8 +50,8 @@ $$
 Здесь мы воспользовались теоремой о среденем, взяв $\xi\in(b_1,b_2)$. 
 Итак, 
 $$ \left| \int\limits_{b_1}^{b_2} f(x)g(x)dx \right|\leqslant 
-|g(b_2)|\cdot |F(b_2)|+|g(b_1)|\cdot |F(b_1)|+|F(\xi)|\cdot |g(b_2)|+
-|f(\xi)|\cdot |g(b_1)|\leqslant\frac{4M\cdot \varepsilon}{4M}$$ 
+|g(b_2)F(b_2)|+|g(b_1)F(b_1)|+|F(\xi)g(b_2)|+
+|f(\xi)g(b_1)|\leqslant\frac{4M\cdot \varepsilon}{4M}$$ 
 Значит, $\int\limits_{a}^{\infty}f(x)dx$ сходится по критерию Коши. $\square$ 
 
 \begin{theor}

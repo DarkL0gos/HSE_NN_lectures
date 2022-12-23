@@ -2,7 +2,7 @@
 \begin{theor} (критерий Коши)\\
     Пусть $\forall b\geqslant a$ функция интегрируема на $[a,b]$. 
     Тогда $\int_a^\infty f(x)dx$ сходится $\Leftrightarrow$ $\forall 
-    \varepsilon>0~\exists b_0(\varepsilon)>0~\forall b_1,b_2>b_0:
+    \varepsilon>0~\exists b_0(\varepsilon)>a~\forall b_1,b_2>b_0:
     \left| \int_{b_1}^{b_2}f(x)dx \right|<\varepsilon$
 \end{theor}
 \textbf{Доказательство.} По условию, существует предел 
@@ -15,7 +15,11 @@ $|F(b_2)-F(b_1)|=|F(b_2)-A|+|F(b_1)-A|<\frac{\varepsilon}{2}+
 \frac{\varepsilon}{2}=\varepsilon$.\\
 Достаточность. Докажем существование предела  $\lim\limits_{b\to\infty}F(b)$
 из определения предела по Гейне. Пусть $b_n\to \infty$, тогда $\forall b_0>a
-~\exists n_0(\varepsilon)\in \mathbb{N}~\forall n>n_0$ 
+~\exists n_0(\varepsilon)\in \mathbb{N}~\forall n>n_0:b_n>b_0$. 
+Зафиксируем $n,m>n_0$. Тогда $b_n>b_0$ и $b_m>b_0$. По условию отсюда 
+следует, что $|F(b_n)-F(b_m)|<\varepsilon$. По критерию Коши для числовой 
+последовательности $F(b_n)$ существует предел 
+$\lim\limits_{n \to \infty} F(b_n)=B\in \mathbb{R}$.\\
 Покажем, что предел не зависит от выбора последовательности $b_n$. 
 Выберем другую последовательность  $b^*_n$. Обозначим предел 
 $\lim\limits_{n \to \infty} F(b^*_n)=B$. Составим последовательность
@@ -74,15 +78,15 @@ $F(b^*)<F(b_0)$. Итак, $F$ ограниченна. $\square$
 \end{theor}
 \textbf{Доказательство.} 1. Обозначим $F(b)=\int\limits_{a}^{b}f(x)dx$ и
 $G(x)=\int\limits_{a}^{b}g(x)dx$. По условию, интеграл сходится, поэтому
-$F(b)\leqslant M$. По свойству определенного интеграла, $F(b)\leqslant G(x)$,
+$F(b)\leqslant M$. По свойству определенного интеграла, $F(b)\geqslant G(x)$,
 поэтому $G(b)$ также ограниченна и сходится по предыдущему критерию.\\
 2. Допустим, что $\int\limits_{a}^{\infty}g(x)dx$ сходится. Тогда из 
 первого пункта следует, что и $\int\limits_{a}^{\infty}f(x)dx$ сходится, 
 что противоречит условию. $\square$ 
 
 \begin{theor} (второй признак сравнения/в предельной форме)\\
-Если $\frac{f(x)}{g(x)}=k,~\infty\ne k\ne0$, то их интегралы сходятся или
-расходятся одновременно. 
+Если $\lim\limits_{x \to \infty}\frac{f(x)}{g(x)}=k,~\infty\ne k\ne0$, 
+то их несобственные интегралы сходятся или расходятся одновременно. 
 \end{theor}
 \textbf{Доказательство.} Пусть $k>0$. Тогда для
  $$\varepsilon>\frac{k}{2}~\exists b_0>a~\forall x>b_0:\frac{k}{2}<
