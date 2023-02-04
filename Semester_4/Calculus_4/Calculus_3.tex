@@ -1,18 +1,16 @@
-\documentclass[a4paper]{article}
-%\input{preambula.tex}
-%\input{structure.tex}
-%\input{Styled.tex}
+\documentclass[a4paper]{book}
+
+%Общие настройки документа
 \usepackage[14pt]{extsizes}                                         %Размер шрифта
 \usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=3cm]{geometry}  %Поля страницы
 
 %Настройки ссылок и гиперссылок
-\usepackage{graphicx}
 \usepackage{hyperref}                 
 \usepackage{xcolor}
 \definecolor{linkcolor}{HTML}{799B03} % цвет ссылок
 \definecolor{urlcolor}{HTML}{799B03}  % цвет гиперссылок
 \hypersetup{pdfstartview=FitH,linkcolor=linkcolor,urlcolor=urlcolor,colorlinks=true}
-
+\usepackage{manfnt}
 %Пакеты символов
 \usepackage{cmap}
 \usepackage[T2A]{fontenc}
@@ -22,7 +20,6 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{array}
-\usepackage{manfnt}
 
 %Новые команды 
 \newtheorem{defin}{Определение}
@@ -37,45 +34,55 @@
     \end{tabular}%
     \par % ... and this too.
 }
-
-
-\author{Жукова}
-\title{Топология}
-\date{5.09.22}
+\DeclareMathOperator{\sign}{sign}
+\author{Галкина}
+\title{Анализ 4}
+\date{05.09.2022}
 
 \begin{document}
-\newgeometry{left=0cm,top=0cm}
-\begin{figure}
-    \includegraphics{pictures/folio.pdf}
-\end{figure}
-\restoregeometry
-\clearpage
-%\maketitle
+\maketitle
 \tableofcontents
 \newpage
-%Семинар Шубина 05.09.2022
-%\chapterimage{head2.png} % Chapter heading image		
-%\chapter{Введение в топологию}
+%5.09.22
+%Коэффициенты: Контр*0,4 Коллок*0,3 Экз*0,3
+%\input{ideas.tex}
 \input{lec1.tex}
-\input{lec2.tex}
-\input{lec3.tex}
-\input{lec4.tex}
-\input{lec5.tex}
-
-%\input{Lectures1.tex}
-%Лекция 13.10.22
-\input{lec6.tex}
-\input{lec7.tex}
-\input{lec8.tex}
-%Лекция 17.11.22
-\input{lec9.tex}
-%Первые 9 лекций - материал к коллоквиуму
-\input{lec10.tex}
+%Лекция+семинар 08.09.22
+%\input{lec2.tex}
+%Лекция 19.09
+%\input{lec3.tex}
+%Лекция 22.09
+%\input{lec4.tex}
+%лекция 
+%\input{lec5.tex}
+%лекция 03.10.22
+%\input{lec6.tex}
+%лекция 10.10.22
+%\input{lec7.tex}
+%лекция 13.10.22
+%\input{lec8.tex}
+%лекция 17.10.22
+%\input{lec9.tex}
+%20.10.22
+%\input{lec10.tex}
+%31.10.22
+%\input{lec11.tex}%Списать с фоток Миши
+%03.11.22
+%\input{lec12.tex}
+%07.11.22
+%\input{lec13.tex}
+%10.11.22
+%\input{lec14.tex}
+%17.11.22
+%\input{lec15.tex}
+%21.11.22
+%\input{lec16.tex}
 %24.11.22
-\input{lec11.tex}
-\input{lec12.tex}
-%08.12.22 - last one
-\input{lec13.tex}
-\input{lec14.tex}
-
+%\input{lec17.tex}
+%28.11.22
+%\input{lec18.tex}
+%лекция в пн
+%\input{lec19.tex}
+%08.12.22
+%\input{lec20.tex}
 \end{document}

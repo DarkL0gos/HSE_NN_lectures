@@ -1,0 +1,297 @@
+\documentclass[a4paper]{article}
+
+%Общие настройки документа
+\usepackage[14pt]{extsizes}                                         %Размер шрифта
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=3cm]{geometry}  %Поля страницы
+
+%Настройки ссылок и гиперссылок
+\usepackage{float}
+%\usepackage{graphicx}
+%\usepackage{hyperref}                 
+%\usepackage{xcolor}
+%\definecolor{linkcolor}{HTML}{799B03} % цвет ссылок
+%\definecolor{urlcolor}{HTML}{799B03}  % цвет гиперссылок
+%\hypersetup{pdfstartview=FitH,linkcolor=linkcolor,urlcolor=urlcolor,colorlinks=true}
+%graphicspath{{\figures}}
+
+
+%Пакеты символов
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}           
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+%Новые команды 
+\newtheorem{defin}{Определение}
+\newtheorem{example}{Пример}
+\newtheorem{zam}{Замечание}
+\newtheorem{theor}{Теорема}
+\DeclareMathOperator{\Hom}{Hom}
+\author{Олег Галкин}
+\title{Лекции по функциональному анализу}
+\date{20.01.22}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\section{Множества}
+Зафиксируем универс $\mathcal{U}$.
+\begin{defin}
+Характеристическая функция (индикатор) множества 
+$A\subset \mathcal{U}$:
+$$I_A\colon\mathcal{U}\to \{0,1\};~I_A(x)=\begin{cases}
+    1,x\in M\\0,x\notin M 
+\end{cases}$$
+\end{defin}
+Обозначим за $\Hom(\mathcal{U},\{0,1\})$ множество всех отображений из 
+универса в двухэлементое множество. Рассмотрим оператор
+$$\varphi\colon\mathcal{P}(\mathcal{U})\to\Hom(\mathcal{U},\{0,1\});~
+A\mapsto I_A$$
+Мы построили функтор из категории подножеств универса в хом-категорию. 
+\begin{theor}
+$\varphi$ - биекция.
+\end{theor}
+\textbf{Доказательство.}  Инъективность следует из того, что различным 
+множествам соответсвуют различные индикаторы. Докажем сюръективность. 
+Пусть $I$ - произвольный индикатор. Сопоставим ему следующее множество:
+ $$A_I=\{x\in \mathcal{U}\mid I(x)=1\}$$
+$\square$ 
+
+Как соотносятся операции над множествами и индикаторы?
+Имеем $I_{A\cap B}=  I_A$, $I_{A\cup B} = I_A+A_B-I_AI_B$. Можно придумать 
+и другие функции: например, $I_{A\cup B} = I_A^3+A_B^2-I_AI_B=\max\limits_{}$
+
+Пусть $\varphi$ - оператор, $A_i$ - последовательность множеств. 
+Построим по ней последовательность индикаторов $I_{A_i}$.
+Предел функциональной последовательности 
+$\lim\limits_{i \to \infty}I_{A_i}=I_A$ 
+является индикаторов некоего множества $A$.
+\begin{defin}
+Множество А является пределом последовательности множеств $A_i$.
+\end{defin}
+\begin{defin}
+Верхний предел множеств: 
+\begin{equation}
+    \varlimsup\limits_{n \to \infty} a_n = \lim\limits_{n \to \infty} 
+    \sup\limits_{} A_n :=\bigcap\limits_{n=1}^\infty
+    \bigcup\limits_{k=n}^\infty A_k
+\end{equation}
+\end{defin}
+
+\textbf{Задача.} Доказать $\varliminf\limits_{n \to \infty} A_n\subset
+ \varlimsup\limits_{n \to \infty}A_n$. Решение: по определению имеем
+$$\varliminf\limits_{n \to \infty} A_n = \bigcup\limits_{n=1}^\infty
+\bigcap\limits_{k=n}^\infty A_k=\left( A_1\cap ... \right)\cup
+\left( A_2\cap... \right)\cup...$$
+Если $x$ лежит в этом множестве, то  
+$\exists  n:x\in \bigcap\limits_{k=n}^\infty A_k$. То есть 
+$\forall  k\geqslant n_0:x\in A_k$. 
+Теперь докажем, что этот $x\in \varlimsup\limits_{n \to \infty} A_n = 
+(A_1\cup A_2\cup...)\cap...\cap(A_n\cup A_{n+1}\cup ...)\cap...$
+%Это означает, что $\forall  n:x\in \bigcup\limits_{n=k}^\infty A_k$.
+%Значит, $\exists  $
+\begin{defin}
+Нижний предел называется пределом последовательности (множеств),
+если он совпадает с верхним пределом. 
+\end{defin} 
+\textbf{Задача.} Доказать по определению, что если
+$A_1\subset A_2\subset A_3\subset ...$, то 
+$\exists  \lim\limits_{n \to \infty} A_n$. Решение: найдем верхний и нижний
+пределы:
+$\varliminf\limits_{n \to \infty}A_n=\bigcup\limits_{n=1}^\infty
+\bigcap\limits_{k=n}^\infty A_k = \bigcup\limits_{n=1}^\infty A_n$,
+$\varlimsup\limits_{n \to \infty}\bigcap\limits_{n=1}^\infty
+ \bigcup\limits_{k=n}^\infty A_k = \bigcap\limits_{n=1}^\infty
+ \bigcup\limits_{k=1}^\infty A_k = \bigcup\limits_{k=1}^\infty A_k$ 
+ (в последнем равенстве мы избавились от зависимости от $n$).
+ 
+ \boxed{\text{Дз1: доказать в случае обратных включений}}.
+
+ \textbf{Задача.} Найдем $\varliminf\limits_{n \to \infty} 
+ [0,1+\frac{(-1)^n}{n}]$. Имеем
+ $\varliminf\limits_{n \to \infty}\bigcup\limits_{n=1}^\infty
+ \bigcap\limits_{k=n}^\infty A_k = \bigcup\limits_{n=1}^\infty B_n$.
+ Заметим, что $B_n=B_{n-1}=A_n$ при нечетном $n$, поэтому
+
+ \boxed{\text{ДЗ2: доказать }} 
+ $C\left( \varliminf\limits_{n \to \infty} A_n \right)=
+ \varlimsup\limits_{n \to \infty} CA_n $
+ 
+\boxed{\text{ДЗ3: найти }}
+ : ПУсть $A_1=A_3=A_5=...=[0,1]$, четные- $[-1,0]$. Найти верхний и 
+ нижний предел. 
+
+\boxed{\text{ДЗ4: доказать:  верхний предел последовательности 
+множеств = элементы, лежащие в бесконечном числе множеств последовательности. 
+Нижний предел: элементы, лежащие во всех множествах, начиная с некоторого
+номера.}}
+
+\section{Функции}
+\begin{defin}
+Функция $f\colon A\to B$ - это тройка  $(A,B,f)$, где А,В - множество,
+f - правило, сопоставляющее каждому элементу множества А ровно один элемент
+множества В. A - область определения.
+\end{defin}
+\begin{defin}
+Область определения функции - $\{y\in B\mid \exists  x\in A:f(x)=y\} = 
+\{f(x)\mid x\in A\}$. 
+\end{defin}
+\begin{defin}
+Декартово (прямое) произведение - 
+$A\times B=\{(x,y)\mid x\in A,y\in B\}$ 
+Кортеж - $A_1\times A_2...\times A_n = \{\} $
+\end{defin}
+Как ввести счетное произведение множеств? 
+$A_1\times A_2\times ...=\{(x_1,x_2,...)\mid x_i\in X_i\} = 
+\prod\limits_{n=1}^{\infty} A_k = A^\mathbb{N}$. 
+Как индексировать декартовы произведения множеством любой мощности?
+Записывается как $\{(x_\gamma)_{\gamma\in \Gamma}\mid x_\gamma \in 
+A_\gamma\} = 
+\prod\limits_{\gamma \in \Gamma}^{}A_\gamma = A^\Gamma$.
+\begin{theor}
+Существует биекция между $A^\Gamma$ и $\Hom(\Gamma,A)$. 
+\end{theor}
+\textbf{Доказательство.}  Имеем $A^\Gamma = \prod\limits_{\gamma \in \Gamma}
+A_\gamma$ 
+Построим следующую биекцию: $\varphi\colon A^\Gamma\to\Hom(\Gamma,A)$,
+$$(x_\gamma)_{\gamma\in \Gamma}\mapsto[\gamma\mapsto x_\gamma]$$
+Почему это биекция?
+$\square$ \\
+\textbf{Пример.} Пусть $A=\mathbb{R}$, $\Gamma=\{1,2,3\}$. С одной стороны, 
+мы имеем последовательности из 1,2,3, индексированные действительными 
+числами, а с другой стороны - функции из множества $\{1,2,3\}$ в 
+действительные числа. Тогда биекция $\varphi\colon\mathbb{R}^{\{1,2,3\}}\to
+\Hom(\{1,2,3\},\mathbb{R})$ задается следующим образом:
+$\varphi(x_1,x_2,x_3) = f:f(1)=x_1,f(2)=x_2,f(3)=x_3$
+
+Из теоремы немедлено получаем следствие:
+\begin{theor}
+Существует биекция между $\{0,1\}^\Gamma$, $\Hom(\Gamma,\{0,1\})$ и 
+$\mathcal{P}(\Gamma)$.
+\end{theor}
+\textbf{Доказательство.} Первая биекция - по теореме 1. Вторая биекция\\
+$\psi\colon\Hom(\Gamma,\{0,1\})\to\mathcal{P}(\Gamma)$ строится так:
+$$[f\colon\Gamma\to \{0,1\}]\mapsto \{\gamma\in\Gamma\mid f(\gamma)=1\}$$ 
+Обратная к этой биекции сопоставляет множеству индикатор. $\square$ \\
+\subsection{Свойства образов и прообразов}
+Пусть $f\colon X\to Y$. 
+\begin{defin}
+$f^{-1}(y)=\{x\in X\mid f(x)=y\}$ - полный прообраз точки у.
+Полный прообраз множества - объединение полных прообразов его точек.
+\end{defin}
+\begin{defin}
+Образ множества - множество образов всех его элементов. 
+\end{defin}
+\textbf{Вопрос:} ДЗ образ пересечения = пересечение образов?
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                   %04.02.23%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\textbf{Вопрос.} Счетеное произведение континуумов - континуум. \\
+\textbf{Решение.} 
+$\mathbb{R}^\mathbb{N}=\{(a_1,a_2,...)\mid a_i \in \mathbb{R}\}$. Так как
+$\mathbb{R}\sim \Hom(\mathbb{N},\{0,1\})\sim \{0,1\}^\mathbb{N}\sim
+ \{(x_1,x_2,...)\mid x_i\in \{0,1\}\}$, то $\mathbb{R}^\mathbb{N}\sim
+\{(a_1,a_2,...)\mid a_i\in \{0,1\}^\mathbb{N}\}$. Покажем, что
+$\{(a_1,a_2,..)\mid a_i\in \{0,1\}^\mathbb{N} \} \sim \{0,1\}^\mathbb{N}$. 
+Расположив это все это в бесконечной матрице, используем змейку лол. 
+
+
+
+
+Мы различаем $\Hom$-множества и  $B^A = \{(b_a)_{a\in A}\}$ - множество
+индексированных последовательностей. С другой стороны, последовательность 
+есть функция на множестве натуральных чисел. 
+
+\section{Сравнение мощностей}
+Пусть $\alpha=|A|,\beta = |B|$. 
+\begin{defin}
+Говорим, что $\alpha<\beta$, если $\alpha\ne \beta$ и
+$\exists  B_1\subset B:A\sim B_1$. 
+\end{defin}
+\begin{defin}
+Говорим, что $\alpha\leqslant \beta$, если $\alpha < \beta$ или 
+$\alpha=\beta$
+\end{defin}
+В частности, из аксиомы выбора следует сравнимость любых множеств. 
+Следует ли обратно?
+\begin{theor}
+Любые две мощности сравнимы.
+\end{theor}
+\textbf{Доказательство.} По аксиоме выбора, любые множества можно вполне
+упорядочить (теорема Цермело). Из сравнения порядковых чисел 
+следует, что либо $A\sim B_1\subset B$ (1), либо $B\sim A_1\subset A$ (2).
+Возможны 
+следующие варианты:\\
+1. $A\sim B_1\subset B,~B\sim A_1\subset A$. Тогда по КШБ $A\sim B$.\\
+2.  (1) и не (2). \\
+3. не (1) и (2). 
+4. не (1) и не (2) - не бывает. 
+$\square$ \\
+
+\subsection{Операции над мощностями}
+Пусть $\alpha=|A|,\beta = |B|$.
+\begin{defin} Определим следующие операции:\\
+ $\alpha\cdot \beta:=|A\times B|$\\
+ $\alpha+\beta:=|A\cup B|$\\
+ $\alpha^\beta:=|A^B|$
+\end{defin}
+Докажем, что введенное определение корректно: именно, если
+$|A_1|=|A|=\alpha,~|B_1|=|B|=\beta$, тогда:\\
+1.  $|A_1\times B_1|=|A\times B|$;\\
+2. $|A_1\cup B_1|=|A\cup B|$;\\
+3. $|A_1^{B_1}|=|A^B|$.\\
+\begin{theor}
+Для мощностей выполнены свойства:\\
+1. $\alpha \beta = \beta\alpha$\\
+2. $(\alpha+\beta)\gamma = \alpha\gamma+\beta\gamma$\\
+3. $\alpha^{\beta+\gamma} = \alpha^\beta\alpha^\gamma$\\
+4. $(\alpha^\beta)^\gamma = \alpha^{\beta\gamma}$\\
+5. $(\alpha\beta)^\gamma = \alpha^\gamma\beta^\gamma$
+\end{theor}
+\textbf{Доказательство.}\\
+1. \\
+2. \\
+3. \\
+4. По определению, $(\alpha^\beta)^\gamma = |(A^B)^C|$,
+$\alpha^{\beta\gamma} = |A^{B\times C}|$, поэтому построим биекцию
+$\varphi\colon (A^B)^C\to A^{B\times C}$. 
+
+Вспоминаем, что $(A^B)^C = \{(d_c)_{c\in C}\mid d\in A^B\}$, 
+$A^{B\times C} = \{(a_{(b,c)})_{(b,c)\in B\times C}\mid 
+a_c\in A\}$. $\square$ \\
+\boxed{\text{ДЗ №2 ДЗ №2 З Д З Д З Д ЗД З Д З Д З Д ЗД}}
+
+\textbf{Примеры.} 
+$2^{\aleph_0}=|\mathbb{R}|$
+
+С одной стороны, $\aleph_0^{\aleph_0}\geqslant 2^{\aleph_0} = \mathfrak C$. 
+С другой стороны,
+$\aleph_0^{\aleph_0}\geqslant \mathfrak C^{\aleph_0}=\mathfrak C$, откуда
+$\aleph_0^{\aleph_0} = \mathfrak C$. 
+
+\begin{theor}
+    (Кантор)\\
+    $\mathcal{P}(X)\not\sim X$
+\end{theor}
+\begin{theor}
+Если $|A|\geqslant 2$, то $\forall  B\ne \varnothing:|A^B|>B$.
+\end{theor}
+\textbf{Доказательство.} 
+Очевидно из теоремы Кантора, что отношение здесь больше или равно. Исключим
+раVенство - докажем, что нет биекции. Именно, нет биекции меZду 
+$B$ и  НЕЙ - додокаZать. $\square$ \\
+
+
+Пример: континум в степени континуум это 2 в степени континума. 
+
+
+
+
+
+\end{document}
