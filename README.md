@@ -1,7 +1,8 @@
-# HSE-NN_math_lectures
- Tex version of math lectures
+Лекции программы "Математика" в нижегородском филиале НИУ ВШЭ. 
+Вдохновлено Клубом ТеХа Лекций физтеха.  
 
-\subset $$ \int  $$
+Сайт: https://darkl0gos.github.io/HSE_NN_lectures/
 
-$ \alpha \subset  $
+
+
 
